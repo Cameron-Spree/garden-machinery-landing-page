@@ -5,4 +5,7 @@
 - [x] Modify `app.js` to add toggle handlers and viewport resizing events.
 - [x] Modify `sections-data.js` to update templates: machinery refocus, spotlight rebrand, category consolidation, and hero image integration.
 - [x] Modify `style.css` to keep the master stylesheet in sync with the new template designs.
+- [x] Split consolidated categories grid into "Our Garden Machines" (9 items, 3x3 layout) and "Add-ons & Accessories" (7 items, subcategories, spares spanning full bottom row).
+- [x] Update the Master Stylesheet `style.css` and the isolated component styles in `sections-data.js`.
 - [x] Verify the changes (panel toggle testing, responsive checking, visual inspection).
+- [x] Push all changes to GitHub.

@@ -1396,26 +1396,26 @@ if (brandTrack) {
 }`
   },
   {
-    id: "categories-grid",
-    name: "Featured Categories Grid",
+    id: "categories-machinery",
+    name: "Featured Categories - Machinery",
     category: "Navigation",
-    description: "A comprehensive 6-card navigation panel representing the consolidated category navigation journey.",
+    description: "A 9-card categories grid representing the core garden machinery navigation.",
     js: "",
-    html: `<section id="briants-categories-grid" class="briants-module">
+    html: `<section id="briants-categories-machinery" class="briants-module">
     <div class="briants-container">
         <div class="briants-section-header">
-            <span class="briants-section-subtitle">Catalog Selections</span>
-            <h2>Explore Our Featured Categories</h2>
-            <p>Select a category below to browse our extensive online catalogs, or speak to our showroom advisors.</p>
+            <span class="briants-section-subtitle">Our Garden Machines</span>
+            <h2>Premium Garden Machinery</h2>
+            <p>Explore our selection of high-performance garden machinery built to handle any outdoor task with power and precision.</p>
         </div>
         
-        <div class="cat-grid-6">
+        <div class="cat-grid-machinery">
             
             <a href="#" class="cat-card">
                 <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?auto=format&fit=crop&w=400&q=80');"></div>
                 <div class="cat-card-overlay"></div>
                 <div class="cat-card-text">
-                    <h3>Lawn Mowers & Ground Prep</h3>
+                    <h3>Lawn Mowers</h3>
                 </div>
             </a>
 
@@ -1423,7 +1423,7 @@ if (brandTrack) {
                 <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1590856029826-c7a5e03766e6?auto=format&fit=crop&w=400&q=80');"></div>
                 <div class="cat-card-overlay"></div>
                 <div class="cat-card-text">
-                    <h3>Chainsaws & Forestry</h3>
+                    <h3>Chainsaws</h3>
                 </div>
             </a>
 
@@ -1431,7 +1431,15 @@ if (brandTrack) {
                 <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=400&q=80');"></div>
                 <div class="cat-card-overlay"></div>
                 <div class="cat-card-text">
-                    <h3>Trimmers & Hedge Care</h3>
+                    <h3>Hedge Trimmers</h3>
+                </div>
+            </a>
+
+            <a href="#" class="cat-card">
+                <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1507036066871-b7e8032b3dea?auto=format&fit=crop&w=400&q=80');"></div>
+                <div class="cat-card-overlay"></div>
+                <div class="cat-card-text">
+                    <h3>Grass Trimmers & Brushcutters</h3>
                 </div>
             </a>
 
@@ -1439,23 +1447,39 @@ if (brandTrack) {
                 <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=400&q=80');"></div>
                 <div class="cat-card-overlay"></div>
                 <div class="cat-card-text">
-                    <h3>Blowers & Outdoor Cleaners</h3>
+                    <h3>Leaf Blowers & Vacuum Shredders</h3>
                 </div>
             </a>
 
             <a href="#" class="cat-card">
-                <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1548247416-ec66f4900b2e?auto=format&fit=crop&w=400&q=80');"></div>
+                <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=400&q=80');"></div>
                 <div class="cat-card-overlay"></div>
                 <div class="cat-card-text">
-                    <h3>Batteries & Power Fuel</h3>
+                    <h3>Ground Preparation</h3>
                 </div>
             </a>
 
             <a href="#" class="cat-card">
-                <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1507208773393-40d9fc670acf?auto=format&fit=crop&w=400&q=80');"></div>
+                <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80');"></div>
                 <div class="cat-card-overlay"></div>
                 <div class="cat-card-text">
-                    <h3>Spares & Maintenance</h3>
+                    <h3>Pressure Washers</h3>
+                </div>
+            </a>
+
+            <a href="#" class="cat-card">
+                <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=400&q=80');"></div>
+                <div class="cat-card-overlay"></div>
+                <div class="cat-card-text">
+                    <h3>Shredders & Log Splitters</h3>
+                </div>
+            </a>
+
+            <a href="#" class="cat-card">
+                <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1563811771046-ba9b4ff30b00?auto=format&fit=crop&w=400&q=80');"></div>
+                <div class="cat-card-overlay"></div>
+                <div class="cat-card-text">
+                    <h3>Wet & Dry Vacuum Cleaners</h3>
                 </div>
             </a>
 
@@ -1463,15 +1487,15 @@ if (brandTrack) {
     </div>
 </section>`,
     css: `/* ==========================================================================
-   Featured Categories Grid Styles (Consolidated 6-Card Layout)
+   Featured Categories - Garden Machinery Grid Styles
    ========================================================================== */
 
-#briants-categories-grid {
+#briants-categories-machinery {
     background-color: var(--briants-bg-light);
     border-bottom: 1px solid var(--briants-border);
 }
 
-.cat-grid-6 {
+.cat-grid-machinery {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
@@ -1543,14 +1567,211 @@ if (brandTrack) {
 }
 
 @media (max-width: 900px) {
-    .cat-grid-6 {
+    .cat-grid-machinery {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 550px) {
-    .cat-grid-6 {
+    .cat-grid-machinery {
         grid-template-columns: 1fr;
+    }
+    .cat-card {
+        height: 160px;
+    }
+}`
+  },
+  {
+    id: "categories-addons",
+    name: "Featured Categories - Add-ons",
+    category: "Navigation",
+    description: "A 7-card categories grid representing upkeep add-ons, accessories, and replacement parts with subcategory listings.",
+    js: "",
+    html: `<section id="briants-categories-addons" class="briants-module">
+    <div class="briants-container">
+        <div class="briants-section-header">
+            <span class="briants-section-subtitle">Parts & Accessories</span>
+            <h2>Add-ons & Upkeep Essentials</h2>
+            <p>Find the right parts, maintenance supplies, and accessories to keep your machinery running at peak performance.</p>
+        </div>
+        
+        <div class="cat-grid-addons">
+            
+            <a href="#" class="cat-card">
+                <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1548247416-ec66f4900b2e?auto=format&fit=crop&w=400&q=80');"></div>
+                <div class="cat-card-overlay"></div>
+                <div class="cat-card-text">
+                    <h3>Batteries & Chargers</h3>
+                </div>
+            </a>
+
+            <a href="#" class="cat-card">
+                <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=400&q=80');"></div>
+                <div class="cat-card-overlay"></div>
+                <div class="cat-card-text">
+                    <h3>Oils, Fuels & Maintenance</h3>
+                    <div class="cat-card-subs">Fuels & Oils &bull; Lubricants & Cleaners &bull; Service Kits</div>
+                </div>
+            </a>
+
+            <a href="#" class="cat-card">
+                <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=400&q=80');"></div>
+                <div class="cat-card-overlay"></div>
+                <div class="cat-card-text">
+                    <h3>Spreaders</h3>
+                </div>
+            </a>
+
+            <a href="#" class="cat-card">
+                <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1507208773393-40d9fc670acf?auto=format&fit=crop&w=400&q=80');"></div>
+                <div class="cat-card-overlay"></div>
+                <div class="cat-card-text">
+                    <h3>Chainsaw Parts & Bars</h3>
+                    <div class="cat-card-subs">Guide Bars &bull; Chains (Full, Semi, Milling)</div>
+                </div>
+            </a>
+
+            <a href="#" class="cat-card">
+                <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=400&q=80');"></div>
+                <div class="cat-card-overlay"></div>
+                <div class="cat-card-text">
+                    <h3>Trimmer Lines, Heads & Blades</h3>
+                    <div class="cat-card-subs">Brushcutter Blades &bull; Mowing Heads (Auto, Duro, Poly, Super) &bull; Spools &bull; Line</div>
+                </div>
+            </a>
+
+            <a href="#" class="cat-card">
+                <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=400&q=80');"></div>
+                <div class="cat-card-overlay"></div>
+                <div class="cat-card-text">
+                    <h3>Sharpening & Tools</h3>
+                    <div class="cat-card-subs">Files & Handles</div>
+                </div>
+            </a>
+
+            <a href="#" class="cat-card cat-card-spares">
+                <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80');"></div>
+                <div class="cat-card-overlay"></div>
+                <div class="cat-card-text">
+                    <h3>Spares & Parts</h3>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</section>`,
+    css: `/* ==========================================================================
+   Featured Categories - Add-ons & Accessories Grid Styles
+   ========================================================================== */
+
+#briants-categories-addons {
+    background-color: var(--briants-bg-white);
+    border-bottom: 1px solid var(--briants-border);
+}
+
+.cat-grid-addons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.cat-card-spares {
+    grid-column: span 3;
+}
+
+.cat-card {
+    position: relative;
+    height: 200px;
+    border-radius: var(--briants-radius-md);
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    text-decoration: none;
+    box-shadow: var(--briants-shadow-sm);
+    border: 1px solid var(--briants-border);
+    transition: var(--briants-transition);
+}
+
+.cat-card-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    transition: var(--briants-transition);
+}
+
+.cat-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0, 92, 48, 0.9) 0%, rgba(0, 0, 0, 0.3) 65%, rgba(0, 0, 0, 0) 100%);
+    z-index: 1;
+    transition: var(--briants-transition);
+}
+
+.cat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--briants-shadow-md);
+    border-color: var(--briants-primary);
+}
+
+.cat-card:hover .cat-card-bg {
+    transform: scale(1.08);
+}
+
+.cat-card:hover .cat-card-overlay {
+    background: linear-gradient(to top, rgba(0, 92, 48, 0.95) 0%, rgba(0, 92, 48, 0.7) 65%, rgba(0, 0, 0, 0.1) 100%);
+}
+
+.cat-card-text {
+    position: relative;
+    z-index: 2;
+    padding: 1.25rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.cat-card-text h3 {
+    font-family: var(--briants-font-headings);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--briants-bg-white);
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.cat-card-subs {
+    font-family: var(--briants-font-body);
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.35;
+    margin-top: 0.15rem;
+    font-weight: 400;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 900px) {
+    .cat-grid-addons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .cat-card-spares {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 550px) {
+    .cat-grid-addons {
+        grid-template-columns: 1fr;
+    }
+    .cat-card-spares {
+        grid-column: span 1;
     }
     .cat-card {
         height: 160px;

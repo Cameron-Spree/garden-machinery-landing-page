@@ -1014,19 +1014,68 @@
 }
 
 /* ==========================================================================
-   12. Featured Categories Grid Styles (Consolidated 6-Card Layout)
+   12. Featured Categories - Garden Machinery Grid Styles
    ========================================================================== */
-#briants-categories-grid {
+#briants-categories-machinery {
     background-color: var(--briants-bg-light);
     border-bottom: 1px solid var(--briants-border);
 }
 
-.cat-grid-6 {
+.cat-grid-machinery {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
 }
 
+@media (max-width: 900px) {
+    .cat-grid-machinery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 550px) {
+    .cat-grid-machinery {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================================================
+   12b. Featured Categories - Add-ons & Accessories Grid Styles
+   ========================================================================== */
+#briants-categories-addons {
+    background-color: var(--briants-bg-white);
+    border-bottom: 1px solid var(--briants-border);
+}
+
+.cat-grid-addons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.cat-card-spares {
+    grid-column: span 3;
+}
+
+@media (max-width: 900px) {
+    .cat-grid-addons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .cat-card-spares {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 550px) {
+    .cat-grid-addons {
+        grid-template-columns: 1fr;
+    }
+    .cat-card-spares {
+        grid-column: span 1;
+    }
+}
+
+/* Shared Category Card Styles */
 .cat-card {
     position: relative;
     height: 200px;
@@ -1081,6 +1130,9 @@
     z-index: 2;
     padding: 1.25rem;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
 }
 
 .cat-card-text h3 {
@@ -1092,16 +1144,17 @@
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-@media (max-width: 900px) {
-    .cat-grid-6 {
-        grid-template-columns: repeat(2, 1fr);
-    }
+.cat-card-subs {
+    font-family: var(--briants-font-body);
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.35;
+    margin-top: 0.15rem;
+    font-weight: 400;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 @media (max-width: 550px) {
-    .cat-grid-6 {
-        grid-template-columns: 1fr;
-    }
     .cat-card {
         height: 160px;
     }
