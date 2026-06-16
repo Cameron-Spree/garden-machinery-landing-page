@@ -3,601 +3,658 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Garden Machinery & Servicing | Briants of Risborough</title>
-    <meta name="description" content="Buckinghamshire based garden machinery, fencing and forestry specialists with over 50 years of experience. Premium STIHL, Honda, Hayter & Toro dealers.">
+    <title>Briants of Risborough - WordPress Section Builder & Testing Dashboard</title>
     
-    <!-- Google Fonts: Poppins (Headings) & Libre Franklin (Body) -->
+    <!-- Fonts for Dashboard and Previews -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Poppins:wght@500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     
-    <!-- FontAwesome for Premium Icons -->
+    <!-- FontAwesome for UI Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Link to Custom Stylesheet -->
-    <link rel="stylesheet" href="style.css">
+    <!-- Dashboard specific styling (keeps style.css clean for Briants theme code only) -->
+    <style>
+        :root {
+            --db-primary: #005c30;
+            --db-primary-hover: #004524;
+            --db-accent: #d2a138;
+            --db-dark-bg: #0f172a;
+            --db-sidebar-bg: #1e293b;
+            --db-border: #334155;
+            --db-light-bg: #f8fafc;
+            --db-text-dark: #0f172a;
+            --db-text-light: #94a3b8;
+            --db-card-bg: #ffffff;
+            --db-btn-bg: #334155;
+            --db-font: 'Poppins', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--db-light-bg);
+            color: #334155;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* --- Dashboard Sidebar --- */
+        .sidebar {
+            width: 340px;
+            background-color: var(--db-sidebar-bg);
+            color: #f8fafc;
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid var(--db-border);
+            flex-shrink: 0;
+            z-index: 10;
+        }
+
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--db-border);
+            background-color: var(--db-dark-bg);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .sidebar-header i {
+            color: var(--db-accent);
+            font-size: 1.5rem;
+        }
+
+        .sidebar-header h1 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            color: #ffffff;
+        }
+
+        .sidebar-header span {
+            display: block;
+            font-size: 0.7rem;
+            color: var(--db-text-light);
+            font-weight: 400;
+            margin-top: 0.1rem;
+        }
+
+        /* Mode Selectors */
+        .mode-tabs {
+            display: flex;
+            background-color: var(--db-dark-bg);
+            padding: 0.5rem 1rem;
+            gap: 0.5rem;
+            border-bottom: 1px solid var(--db-border);
+        }
+
+        .mode-btn {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: var(--db-text-light);
+            padding: 0.6rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+        }
+
+        .mode-btn.active {
+            background-color: var(--db-primary);
+            color: #ffffff;
+        }
+
+        .mode-btn:hover:not(.active) {
+            background-color: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+        }
+
+        /* Section Checklist Area */
+        .sections-list-container {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 1rem;
+        }
+
+        .list-desc {
+            font-size: 0.75rem;
+            color: var(--db-text-light);
+            margin-bottom: 1rem;
+            padding: 0 0.25rem;
+            line-height: 1.4;
+        }
+
+        .selection-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .selection-item {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            position: relative;
+            user-select: none;
+        }
+
+        .selection-item:hover {
+            background-color: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .selection-item.selected {
+            background-color: rgba(0, 92, 48, 0.15);
+            border-color: var(--db-primary);
+        }
+
+        .selection-item.active-preview {
+            border-left: 4px solid var(--db-accent);
+        }
+
+        .selection-item label {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            gap: 0.75rem;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: #e2e8f0;
+        }
+
+        .selection-item input[type="checkbox"] {
+            cursor: pointer;
+            accent-color: var(--db-primary);
+            width: 16px;
+            height: 16px;
+        }
+
+        .selection-item .item-meta {
+            margin-left: auto;
+            font-size: 0.65rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--db-text-light);
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .selection-item.selected .item-meta {
+            background-color: var(--db-primary);
+            color: #ffffff;
+        }
+
+        /* Sidebar footer controls */
+        .sidebar-footer {
+            padding: 1rem;
+            border-top: 1px solid var(--db-border);
+            background-color: var(--db-dark-bg);
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .sb-btn {
+            width: 100%;
+            padding: 0.7rem;
+            border-radius: 4px;
+            font-family: var(--db-font);
+            font-weight: 600;
+            font-size: 0.8rem;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.2s ease;
+        }
+
+        .sb-btn-primary {
+            background-color: var(--db-primary);
+            color: #ffffff;
+        }
+
+        .sb-btn-primary:hover {
+            background-color: var(--db-primary-hover);
+        }
+
+        .sb-btn-secondary {
+            background-color: #334155;
+            color: #f8fafc;
+            border: 1px solid #475569;
+        }
+
+        .sb-btn-secondary:hover {
+            background-color: #475569;
+        }
+
+        /* --- Main Workspace --- */
+        .workspace {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        /* Viewport and Toolbar */
+        .toolbar {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-shrink: 0;
+        }
+
+        .toolbar-title h2 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--db-dark-bg);
+        }
+
+        .toolbar-title span {
+            font-size: 0.75rem;
+            color: #64748b;
+        }
+
+        .viewport-controls {
+            display: flex;
+            background-color: #f1f5f9;
+            padding: 0.25rem;
+            border-radius: 6px;
+            gap: 0.25rem;
+        }
+
+        .vp-btn {
+            background: transparent;
+            border: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #64748b;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: all 0.2s ease;
+        }
+
+        .vp-btn.active {
+            background-color: #ffffff;
+            color: var(--db-primary);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .preview-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .action-icon-btn {
+            background-color: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            color: #475569;
+            width: 34px;
+            height: 34px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .action-icon-btn:hover {
+            background-color: #e2e8f0;
+            color: var(--db-primary);
+        }
+
+        /* --- Live Preview Panel --- */
+        .preview-panel {
+            flex-grow: 1;
+            background-color: #cbd5e1;
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            padding: 1.5rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .iframe-container {
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.15);
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            border: 1px solid #94a3b8;
+        }
+
+        .preview-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+
+        /* --- Code Console Area --- */
+        .code-console {
+            height: 340px;
+            background-color: var(--db-dark-bg);
+            border-top: 1px solid var(--db-border);
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .console-header {
+            display: flex;
+            background-color: #0b0f19;
+            border-bottom: 1px solid var(--db-border);
+            padding: 0 1rem;
+            align-items: center;
+            justify-content: space-between;
+            flex-shrink: 0;
+        }
+
+        .console-tabs {
+            display: flex;
+            gap: 0.25rem;
+        }
+
+        .console-tab {
+            background: transparent;
+            border: none;
+            color: var(--db-text-light);
+            padding: 0.75rem 1.25rem;
+            font-family: var(--db-font);
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-bottom: 2px solid transparent;
+        }
+
+        .console-tab.active {
+            color: var(--db-accent);
+            border-bottom-color: var(--db-accent);
+        }
+
+        .console-tab:hover:not(.active) {
+            color: #ffffff;
+        }
+
+        .console-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .copy-feedback {
+            font-size: 0.75rem;
+            color: #22c55e;
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.25s ease;
+        }
+
+        .copy-feedback.show {
+            opacity: 1;
+        }
+
+        .btn-copy {
+            background-color: var(--db-primary);
+            color: #ffffff;
+            border: none;
+            padding: 0.4rem 1rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: all 0.2s ease;
+        }
+
+        .btn-copy:hover {
+            background-color: var(--db-primary-hover);
+        }
+
+        .console-body {
+            flex-grow: 1;
+            position: relative;
+            overflow: hidden;
+            background-color: #0b0f19;
+        }
+
+        .code-textarea {
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            border: none;
+            color: #38bdf8;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            padding: 1.25rem;
+            resize: none;
+            outline: none;
+            line-height: 1.5;
+            overflow-y: auto;
+            white-space: pre;
+        }
+
+        /* WordPress Tips Panel */
+        .wp-tips-panel {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 320px;
+            background-color: var(--db-sidebar-bg);
+            border-left: 1px solid var(--db-border);
+            padding: 1.25rem;
+            overflow-y: auto;
+            color: #e2e8f0;
+            font-size: 0.78rem;
+            z-index: 5;
+        }
+
+        .wp-tips-panel h3 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--db-accent);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .wp-tips-panel p {
+            color: var(--db-text-light);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .wp-tips-panel ul {
+            padding-left: 1.1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            color: #cbd5e1;
+        }
+
+        .wp-tips-panel li {
+            line-height: 1.4;
+        }
+
+        .wp-tips-panel code {
+            font-family: 'Fira Code', monospace;
+            background-color: var(--db-dark-bg);
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            color: #f472b6;
+            font-size: 0.7rem;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Delivery & Support Top Banner -->
-    <div class="top-banner">
-        <div class="top-banner-content">
-            <span><i class="fa-solid fa-truck-fast"></i> <strong>SAME-DAY LOCAL DELIVERY:</strong> Order before 10am weekdays within a 10-mile radius!</span>
-            <span class="top-banner-separator">|</span>
-            <span><i class="fa-solid fa-phone"></i> Expert Support: <a href="tel:01844343663"><strong>01844 343663</strong></a></span>
+    <!-- Left Sidebar Control Panel -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+            <div>
+                <h1>Briants Builder</h1>
+                <span>WordPress Section Dashboard</span>
+            </div>
+        </div>
+
+        <!-- Mode Select Tab Panel -->
+        <div class="mode-tabs">
+            <button id="btn-mode-isolate" class="mode-btn active" onclick="setMode('isolate')">
+                <i class="fa-solid fa-expand"></i> Isolated View
+            </button>
+            <button id="btn-mode-builder" class="mode-btn" onclick="setMode('builder')">
+                <i class="fa-solid fa-list-check"></i> Page Builder
+            </button>
+        </div>
+
+        <!-- Section List with Checklist selection -->
+        <div class="sections-list-container">
+            <p id="mode-desc" class="list-desc">
+                Select a single section below to isolate and view its dedicated HTML, CSS, and JS.
+            </p>
+            <ul id="selection-list" class="selection-list">
+                <!-- Javascript will populate this list dynamically -->
+            </ul>
+        </div>
+
+        <!-- Sidebar Actions & Export controls -->
+        <div class="sidebar-footer">
+            <button id="btn-select-all" class="sb-btn sb-btn-secondary" style="display: none;" onclick="selectAllSections(true)">
+                <i class="fa-solid fa-check-double"></i> Select All
+            </button>
+            <button id="btn-clear-all" class="sb-btn sb-btn-secondary" style="display: none;" onclick="selectAllSections(false)">
+                <i class="fa-solid fa-eraser"></i> Clear All
+            </button>
+            <button class="sb-btn sb-btn-primary" onclick="triggerCopyActiveCode()">
+                <i class="fa-solid fa-copy"></i> Copy Active HTML
+            </button>
         </div>
     </div>
 
-    <!-- Main Landing Page Container -->
-    <div id="briants-landing-page" class="briants-landing-wrapper">
+    <!-- Right Workspace Area -->
+    <div class="workspace">
         
-        <!-- Header / Navigation Placeholder (Styles match Briants Site) -->
-        <header class="landing-header">
-            <div class="header-container">
-                <div class="brand-logo">
-                    <img src="https://briantsofrisborough.co.uk/wp-content/uploads/2025/12/cropped-Briants_logo-white-bg-BUILDING.jpg" alt="Briants of Risborough Logo" class="logo-image">
+        <!-- Workspace Top Toolbar -->
+        <div class="toolbar">
+            <div class="toolbar-title">
+                <h2 id="active-title">Global Styles & Resets</h2>
+                <span id="active-category">Category: Base Styles</span>
+            </div>
+
+            <!-- Viewport Resizer controls -->
+            <div class="viewport-controls">
+                <button id="btn-vp-desktop" class="vp-btn active" onclick="setViewport(100, 'desktop')">
+                    <i class="fa-solid fa-desktop"></i> Desktop
+                </button>
+                <button id="btn-vp-tablet" class="vp-btn" onclick="setViewport(768, 'tablet')">
+                    <i class="fa-solid fa-tablet-screen-button"></i> Tablet
+                </button>
+                <button id="btn-vp-mobile" class="vp-btn" onclick="setViewport(375, 'mobile')">
+                    <i class="fa-solid fa-mobile-screen-button"></i> Mobile
+                </button>
+            </div>
+
+            <!-- Custom Workspace buttons -->
+            <div class="preview-actions">
+                <button class="action-icon-btn" title="Refresh Live Preview" onclick="refreshPreview()">
+                    <i class="fa-solid fa-rotate"></i>
+                </button>
+                <button class="action-icon-btn" title="Open Preview in New Window" onclick="openPreviewInNewWindow()">
+                    <i class="fa-solid fa-up-right-from-square"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Live Iframe Preview Panel -->
+        <div class="preview-panel">
+            <div id="iframe-wrapper" class="iframe-container">
+                <iframe id="preview-iframe" class="preview-iframe" title="Section Live Preview"></iframe>
+            </div>
+        </div>
+
+        <!-- Code Console Output View -->
+        <div class="code-console">
+            <div class="console-header">
+                <div class="console-tabs">
+                    <button id="tab-btn-html" class="console-tab active" onclick="setCodeTab('html')">HTML Template</button>
+                    <button id="tab-btn-css" class="console-tab" onclick="setCodeTab('css')">Component CSS</button>
+                    <button id="tab-btn-js" class="console-tab" onclick="setCodeTab('js')">Component JS</button>
+                    <button id="tab-btn-global" class="console-tab" onclick="setCodeTab('global')">Global Theme CSS</button>
                 </div>
-                <div class="header-info">
-                    <div class="info-item">
-                        <i class="fa-solid fa-clock text-primary"></i>
-                        <div>
-                            <strong>Open Weekdays:</strong>
-                            <span>7:00 AM - 4:45 PM (Sats 8-12 Timber Only)</span>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fa-solid fa-location-dot text-primary"></i>
-                        <div>
-                            <strong>Showroom:</strong>
-                            <span>Longwick, Princes Risborough</span>
-                        </div>
-                    </div>
+                <div class="console-actions">
+                    <span id="copy-text-feedback" class="copy-feedback">Copied to Clipboard!</span>
+                    <button class="btn-copy" onclick="copyConsoleCodeToClipboard()">
+                        <i class="fa-solid fa-clipboard"></i> Copy Code
+                    </button>
                 </div>
             </div>
-        </header>
 
-        <!-- Hero Section -->
-        <section class="hero-section">
-            <div class="hero-overlay"></div>
-            <div class="hero-container">
-                <div class="hero-card">
-                    <span class="hero-badge"><i class="fa-solid fa-certificate"></i> Authorised Main Dealer</span>
-                    <h1>Professional Garden Machinery, <span class="highlight">Expertly Prepared.</span></h1>
-                    <p class="hero-lead">At Briants, we don't just sell boxes. Every petrol and cordless machine we supply undergoes a complete Pre-Delivery Inspection (PDI)—assembled, fueled, tested, and ready to work the moment you receive it.</p>
-                    
-                    <ul class="hero-checklist">
-                        <li><i class="fa-solid fa-circle-check"></i> Free Assembly & PDI Inspection on All Machinery</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Full Manufacturer Warranties & Genuine Parts</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Free Local Delivery on Online Orders Over £200</li>
-                    </ul>
-                    
-                    <div class="hero-actions">
-                        <a href="#machinery-categories" class="btn btn-primary btn-lg">Browse Categories <i class="fa-solid fa-arrow-right"></i></a>
-                        <a href="#workshop-servicing" class="btn btn-secondary btn-lg">Book a Service <i class="fa-solid fa-screwdriver-wrench"></i></a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Trust & Value Props Grid -->
-        <section class="trust-section">
-            <div class="section-container">
-                <div class="trust-grid">
-                    
-                    <div class="trust-card">
-                        <div class="trust-icon-wrapper">
-                            <i class="fa-solid fa-screwdriver-wrench"></i>
-                        </div>
-                        <h3>Ready-to-Run (PDI)</h3>
-                        <p>Every machine is assembled, lubricated, fueled, and run-tested by our certified technicians before handover. No box-cutting required.</p>
-                    </div>
-
-                    <div class="trust-card">
-                        <div class="trust-icon-wrapper">
-                            <i class="fa-solid fa-truck"></i>
-                        </div>
-                        <h3>Local Delivery Experts</h3>
-                        <p>We deliver using our own vehicles to assure safe transit. Free local delivery for all online orders exceeding £200.</p>
-                    </div>
-
-                    <div class="trust-card">
-                        <div class="trust-icon-wrapper">
-                            <i class="fa-solid fa-shield-halved"></i>
-                        </div>
-                        <h3>Official Main Dealer</h3>
-                        <p>Authorised dealers for industry leaders: STIHL, Honda, Hayter, Toro, and Milwaukee. Genuine parts and full warranty support assured.</p>
-                    </div>
-
-                    <div class="trust-card">
-                        <div class="trust-icon-wrapper">
-                            <i class="fa-solid fa-award"></i>
-                        </div>
-                        <h3>50+ Years Expertise</h3>
-                        <p>Serving Buckinghamshire and beyond since 1971. Our experienced, knowledgeable staff are always on hand to advise on your tools.</p>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Main Categories Navigation -->
-        <section id="machinery-categories" class="categories-section">
-            <div class="section-container">
-                <div class="section-header">
-                    <span class="section-subtitle">Premium Selections</span>
-                    <h2>Explore Garden Machinery Categories</h2>
-                    <p>Select a category below to browse our extensive range of high-quality tools, backed by local service.</p>
-                </div>
-
-                <div class="categories-grid">
-                    
-                    <!-- Lawn Mowers -->
-                    <div class="category-card" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?auto=format&fit=crop&w=600&q=80');">
-                        <div class="category-content">
-                            <div class="category-badge">Premium Brands</div>
-                            <h3>Lawn Mowers</h3>
-                            <p>Robotic, petrol, cordless, and electric mowers for lawns of every size.</p>
-                            <a href="#" class="category-link">View Mowers <i class="fa-solid fa-chevron-right"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- Chainsaws -->
-                    <div class="category-card" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1590856029826-c7a5e03766e6?auto=format&fit=crop&w=600&q=80');">
-                        <div class="category-content">
-                            <div class="category-badge">STIHL Specialist</div>
-                            <h3>Chainsaws & Forestry</h3>
-                            <p>Professional and domestic chainsaws, pruning saws, and safety gear.</p>
-                            <a href="#" class="category-link">View Chainsaws <i class="fa-solid fa-chevron-right"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- Trimmers & Brushcutters -->
-                    <div class="category-card" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=600&q=80');">
-                        <div class="category-content">
-                            <div class="category-badge">Cordless & Petrol</div>
-                            <h3>Grass & Hedge Trimmers</h3>
-                            <p>Keep your borders and hedges pristine with high-performance trimmers.</p>
-                            <a href="#" class="category-link">View Trimmers <i class="fa-solid fa-chevron-right"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- Leaf Blowers -->
-                    <div class="category-card" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=600&q=80');">
-                        <div class="category-content">
-                            <div class="category-badge">Handheld & Backpack</div>
-                            <h3>Leaf Blowers & Shredders</h3>
-                            <p>Efficiently clear leaf debris with powerful blowers and vacuum shredders.</p>
-                            <a href="#" class="category-link">View Blowers <i class="fa-solid fa-chevron-right"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- Kombi Systems -->
-                    <div class="category-card" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1507036066871-b7e8032b3dea?auto=format&fit=crop&w=600&q=80');">
-                        <div class="category-content">
-                            <div class="category-badge">Versatile Multi-tools</div>
-                            <h3>Multi-Tool & Kombi Systems</h3>
-                            <p>One engine, endless possibilities. Swap attachments for every task.</p>
-                            <a href="#" class="category-link">View Kombi Systems <i class="fa-solid fa-chevron-right"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- Accessories & Oils -->
-                    <div class="category-card" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1530124566582-ab05104f9c88?auto=format&fit=crop&w=600&q=80');">
-                        <div class="category-content">
-                            <div class="category-badge">Genuine Parts</div>
-                            <h3>Accessories, Oils & Fuel</h3>
-                            <p>Stihl MotoMix, 2-stroke oils, replacement trimmer lines, chains, and bars.</p>
-                            <a href="#" class="category-link">View Accessories <i class="fa-solid fa-chevron-right"></i></a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- WooCommerce Native Blocks Integration Container -->
-        <section id="featured-products" class="products-section">
-            <div class="section-container">
-                <div class="section-header">
-                    <span class="section-subtitle">Recommended Machinery</span>
-                    <h2>Featured Deals & Best Sellers</h2>
-                    <p>Below is a dynamic product grid. When editing in WordPress, you can replace this fallback area with your native WooCommerce Product Block (e.g. <em>Handpicked Products</em>, <em>Products by Category</em>, or shortcode).</p>
-                </div>
-
-                <!-- WooCommerce Block Wrapper -->
-                <div class="woocommerce-products-wrapper">
-                    
-                    <!-- 
-                         INSTRUCTIONS FOR IMPLEMENTATION:
-                         You can delete the fallback content below and paste your native WooCommerce Gutenberg Block:
-                         [products limit="4" columns="4" orderby="popularity" class="briants-grid"]
-                         Or insert a Gutenberg 'Best Selling Products' block inside this container.
-                         The CSS rules are mapped to default WooCommerce classes (.products, .product, .onsale, etc.) 
-                         so your native WooCommerce blocks will style beautifully automatically!
-                    -->
-                    
-                    <ul class="products columns-4">
-                        
-                        <!-- Fallback Product 1: STIHL Cordless Mower -->
-                        <li class="product type-product post-34959 status-publish first instock sale featured shipping-taxable purchasable product-type-simple">
-                            <span class="onsale">Sale!</span>
-                            <div class="product-image-container">
-                                <img src="https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?auto=format&fit=crop&w=300&q=80" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="STIHL RMA 239 Cordless Lawn Mower" decoding="async">
-                            </div>
-                            <div class="product-details-container">
-                                <span class="product-brand">STIHL</span>
-                                <h2 class="woocommerce-loop-product__title">STIHL RMA 239 C Cordless Lawn Mower (Set)</h2>
-                                <div class="star-rating" role="img" aria-label="Rated 4.80 out of 5">
-                                    <span style="width:96%">Rated <strong class="rating">4.80</strong> out of 5</span>
-                                </div>
-                                <div class="product-meta-specs">
-                                    <span><i class="fa-solid fa-bolt"></i> AK System</span>
-                                    <span><i class="fa-solid fa-arrows-left-right"></i> 37cm Cut</span>
-                                </div>
-                                <span class="price">
-                                    <del aria-hidden="true"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&pound;</span>399.00</bdi></span></del> 
-                                    <ins><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&pound;</span>349.00</bdi></span></ins>
-                                </span>
-                                <div class="product-pdi-badge"><i class="fa-solid fa-truck-ramp-box"></i> Assembled & PDI Prepared</div>
-                                <a href="?add-to-cart=34959" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="34959" rel="nofollow">Add to basket</a>
-                            </div>
-                        </li>
-
-                        <!-- Fallback Product 2: Honda Petrol Mower -->
-                        <li class="product type-product status-publish instock shipping-taxable purchasable product-type-simple">
-                            <div class="product-image-container">
-                                <img src="https://images.unsplash.com/photo-1589139587422-eb1281db24fe?auto=format&fit=crop&w=300&q=80" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="Honda Izy HRG 466 SK" decoding="async">
-                            </div>
-                            <div class="product-details-container">
-                                <span class="product-brand">HONDA</span>
-                                <h2 class="woocommerce-loop-product__title">Honda Izy HRG 466 SK Self-Propelled Mower</h2>
-                                <div class="star-rating" role="img" aria-label="Rated 4.90 out of 5">
-                                    <span style="width:98%">Rated <strong class="rating">4.90</strong> out of 5</span>
-                                </div>
-                                <div class="product-meta-specs">
-                                    <span><i class="fa-solid fa-gas-pump"></i> GCVx145 Engine</span>
-                                    <span><i class="fa-solid fa-arrows-left-right"></i> 46cm Cut</span>
-                                </div>
-                                <span class="price">
-                                    <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&pound;</span>519.00</bdi></span>
-                                </span>
-                                <div class="product-pdi-badge"><i class="fa-solid fa-truck-ramp-box"></i> Assembled & PDI Prepared</div>
-                                <a href="?add-to-cart=20002" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="20002" rel="nofollow">Add to basket</a>
-                            </div>
-                        </li>
-
-                        <!-- Fallback Product 3: STIHL Chainsaw -->
-                        <li class="product type-product status-publish instock sale shipping-taxable purchasable product-type-simple">
-                            <span class="onsale">Sale!</span>
-                            <div class="product-image-container">
-                                <img src="https://images.unsplash.com/photo-1590856029826-c7a5e03766e6?auto=format&fit=crop&w=300&q=80" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="STIHL MS 170 Petrol Chainsaw" decoding="async">
-                            </div>
-                            <div class="product-details-container">
-                                <span class="product-brand">STIHL</span>
-                                <h2 class="woocommerce-loop-product__title">STIHL MS 170 Petrol Chainsaw 12"</h2>
-                                <div class="star-rating" role="img" aria-label="Rated 4.75 out of 5">
-                                    <span style="width:95%">Rated <strong class="rating">4.75</strong> out of 5</span>
-                                </div>
-                                <div class="product-meta-specs">
-                                    <span><i class="fa-solid fa-gas-pump"></i> 30.1cc Engine</span>
-                                    <span><i class="fa-solid fa-arrows-left-right"></i> 30cm Bar</span>
-                                </div>
-                                <span class="price">
-                                    <del aria-hidden="true"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&pound;</span>219.00</bdi></span></del> 
-                                    <ins><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&pound;</span>189.00</bdi></span></ins>
-                                </span>
-                                <div class="product-pdi-badge"><i class="fa-solid fa-truck-ramp-box"></i> Assembled & PDI Prepared</div>
-                                <a href="?add-to-cart=34982" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="34982" rel="nofollow">Add to basket</a>
-                            </div>
-                        </li>
-
-                        <!-- Fallback Product 4: Milwaukee Trimmer -->
-                        <li class="product type-product status-publish instock last shipping-taxable purchasable product-type-simple">
-                            <div class="product-image-container">
-                                <img src="https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=300&q=80" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="Milwaukee M18 Brushcutter" decoding="async">
-                            </div>
-                            <div class="product-details-container">
-                                <span class="product-brand">MILWAUKEE</span>
-                                <h2 class="woocommerce-loop-product__title">Milwaukee M18 BLLT Brush Line Grass Trimmer (Body)</h2>
-                                <div class="star-rating" role="img" aria-label="Rated 4.85 out of 5">
-                                    <span style="width:97%">Rated <strong class="rating">4.85</strong> out of 5</span>
-                                </div>
-                                <div class="product-meta-specs">
-                                    <span><i class="fa-solid fa-bolt"></i> M18 FUEL Battery</span>
-                                    <span><i class="fa-solid fa-arrows-left-right"></i> 40cm Width</span>
-                                </div>
-                                <span class="price">
-                                    <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&pound;</span>229.00</bdi></span>
-                                </span>
-                                <div class="product-pdi-badge"><i class="fa-solid fa-check"></i> Assembled & Diagnostic Checked</div>
-                                <a href="?add-to-cart=20004" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="20004" rel="nofollow">Add to basket</a>
-                            </div>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Servicing, Workshop & Repair Section -->
-        <section id="workshop-servicing" class="workshop-section">
-            <div class="section-container">
-                <div class="workshop-grid">
-                    
-                    <div class="workshop-text">
-                        <span class="section-subtitle">Briants Workshop Services</span>
-                        <h2>Professional Workshop & Machinery Servicing</h2>
-                        <p>Keep your machinery running safely and efficiently. Our in-house workshop at Longwick is staffed by manufacturer-trained technicians specialized in petrol, cordless, and robotic systems. We service and repair all major brands including STIHL, Honda, Hayter, Toro, Milwaukee, and Husqvarna.</p>
-                        
-                        <div class="workshop-highlights">
-                            <div class="w-item">
-                                <i class="fa-solid fa-check-double text-primary"></i>
-                                <div>
-                                    <strong>Manufacturer Trained Technicians:</strong>
-                                    <span>Equipped with advanced diagnostic tools.</span>
-                                </div>
-                            </div>
-                            <div class="w-item">
-                                <i class="fa-solid fa-check-double text-primary"></i>
-                                <div>
-                                    <strong>Genuine OEM Spares:</strong>
-                                    <span>We only use official manufacturer replacement components.</span>
-                                </div>
-                            </div>
-                            <div class="w-item">
-                                <i class="fa-solid fa-check-double text-primary"></i>
-                                <div>
-                                    <strong>Fast Lead Times:</strong>
-                                    <span>Get your machinery back to work quickly.</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="workshop-cta">
-                            <a href="tel:01844343663" class="btn btn-primary"><i class="fa-solid fa-phone"></i> Call Workshop: 01844 343663</a>
-                        </div>
-                    </div>
-
-                    <!-- Interactive Servicing Showcase -->
-                    <div class="workshop-interactive">
-                        <div class="interactive-card">
-                            <div class="interactive-tabs">
-                                <button class="tab-btn active" data-tab="annual">Annual Servicing</button>
-                                <button class="tab-btn" data-tab="repairs">Repairs & Diagnostic</button>
-                                <button class="tab-btn" data-tab="sharpening">Blade Sharpening</button>
-                            </div>
-                            
-                            <div class="interactive-content">
-                                <div id="tab-annual" class="tab-panel active">
-                                    <h3>Routine Annual Maintenance</h3>
-                                    <p>Ensure reliable starting and long-term machinery health. Recommended before winter storage or prior to the start of the spring season.</p>
-                                    <ul class="panel-checklist">
-                                        <li><i class="fa-solid fa-square-check"></i> Oil replacement & filter cleaning/swap</li>
-                                        <li><i class="fa-solid fa-square-check"></i> Spark plug inspection & replacement</li>
-                                        <li><i class="fa-solid fa-square-check"></i> Blade inspection, balancing, and sharpening</li>
-                                        <li><i class="fa-solid fa-square-check"></i> Full ultrasonic carburetor cleaning</li>
-                                        <li><i class="fa-solid fa-square-check"></i> Fuel system flush & fresh fuel fill</li>
-                                    </ul>
-                                    <div class="panel-footer">
-                                        <div class="panel-price">From <strong>&pound;75.00</strong> <small>+ VAT</small></div>
-                                        <a href="#contact-details" class="btn btn-secondary btn-sm">Book Annual Service</a>
-                                    </div>
-                                </div>
-
-                                <div id="tab-repairs" class="tab-panel">
-                                    <h3>Fault Diagnostics & Repair</h3>
-                                    <p>Is your machine failing to start, losing power, or running poorly? Our state-of-the-art diagnostic system quickly identifies faults to get you moving.</p>
-                                    <ul class="panel-checklist">
-                                        <li><i class="fa-solid fa-square-check"></i> Electronic ignition & engine diagnostics</li>
-                                        <li><i class="fa-solid fa-square-check"></i> Battery health check for cordless units</li>
-                                        <li><i class="fa-solid fa-square-check"></i> Drive belt and transmission replacement</li>
-                                        <li><i class="fa-solid fa-square-check"></i> Fuel line repairs & carburetor rebuilding</li>
-                                        <li><i class="fa-solid fa-square-check"></i> Manufacturer recall inspections</li>
-                                    </ul>
-                                    <div class="panel-footer">
-                                        <div class="panel-price">Diagnostics <strong>&pound;45.00</strong> <small>flat rate</small></div>
-                                        <a href="#contact-details" class="btn btn-secondary btn-sm">Inquire About Repair</a>
-                                    </div>
-                                </div>
-
-                                <div id="tab-sharpening" class="tab-panel">
-                                    <h3>Precision Blade Sharpening</h3>
-                                    <p>Dull blades shred grass, tearing it and promoting disease. Keep a crisp cut with our high-speed, water-cooled blade balancing and sharpening service.</p>
-                                    <ul class="panel-checklist">
-                                        <li><i class="fa-solid fa-square-check"></i> Rotary lawnmower blade sharpening & balancing</li>
-                                        <li><i class="fa-solid fa-square-check"></i> Cylinder mower grinding & adjustment</li>
-                                        <li><i class="fa-solid fa-square-check"></i> Chainsaw chain sharpening (while you wait option)</li>
-                                        <li><i class="fa-solid fa-square-check"></i> Hedge trimmer cutter blade alignment & hone</li>
-                                        <li><i class="fa-solid fa-square-check"></i> Hand tools (secateurs, shears, axes)</li>
-                                    </ul>
-                                    <div class="panel-footer">
-                                        <div class="panel-price">Chains from <strong>&pound;10.00</strong> <small>each</small></div>
-                                        <a href="#contact-details" class="btn btn-secondary btn-sm">Request Sharpening</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Brand Showcase Carousel -->
-        <section class="brand-showcase-section">
-            <div class="section-container">
-                <div class="brand-header">
-                    <span class="section-subtitle">Only the Best</span>
-                    <h3>Authorised Dealers for Top Industry Brands</h3>
-                </div>
+            <div class="console-body">
+                <textarea id="code-output" class="code-textarea" readonly></textarea>
                 
-                <!-- Brand Marquee (Endless Scroll) -->
-                <div class="brand-carousel-container">
-                    <div class="brand-track">
-                        <!-- Slide Group 1 -->
-                        <div class="brand-slide"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Stihl_logo.svg" alt="STIHL logo" class="brand-logo-img"></div>
-                        <div class="brand-slide"><span class="brand-logo-text honda-logo">HONDA</span></div>
-                        <div class="brand-slide"><span class="brand-logo-text hayter-logo">HAYTER</span></div>
-                        <div class="brand-slide"><span class="brand-logo-text toro-logo">TORO</span></div>
-                        <div class="brand-slide"><span class="brand-logo-text milwaukee-logo">Milwaukee</span></div>
-                        <div class="brand-slide"><span class="brand-logo-text wolf-logo">WOLF Garten</span></div>
-                        <div class="brand-slide"><span class="brand-logo-text silky-logo">Silky</span></div>
-                        
-                        <!-- Duplicate Group 1 for Seamless Looping -->
-                        <div class="brand-slide"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Stihl_logo.svg" alt="STIHL logo" class="brand-logo-img"></div>
-                        <div class="brand-slide"><span class="brand-logo-text honda-logo">HONDA</span></div>
-                        <div class="brand-slide"><span class="brand-logo-text hayter-logo">HAYTER</span></div>
-                        <div class="brand-slide"><span class="brand-logo-text toro-logo">TORO</span></div>
-                        <div class="brand-slide"><span class="brand-logo-text milwaukee-logo">Milwaukee</span></div>
-                        <div class="brand-slide"><span class="brand-logo-text wolf-logo">WOLF Garten</span></div>
-                        <div class="brand-slide"><span class="brand-logo-text silky-logo">Silky</span></div>
-                    </div>
+                <!-- Floating WP Tips panel -->
+                <div class="wp-tips-panel">
+                    <h3><i class="fa-brands fa-wordpress"></i> WordPress Tips</h3>
+                    <p id="wp-tip-text">
+                        Paste the HTML code into a <strong>Custom HTML</strong> Gutenberg block. Add the component-specific CSS to your child theme or Customizer CSS.
+                    </p>
+                    <ul id="wp-tip-bullets">
+                        <li>Ensure you copy the <strong>Global Theme CSS</strong> once before adding individual components.</li>
+                        <li>Avoid code duplication: keep separate files in your theme folder.</li>
+                    </ul>
                 </div>
             </div>
-        </section>
-
-        <!-- FAQs Accordion -->
-        <section class="faq-section">
-            <div class="section-container">
-                <div class="section-header">
-                    <span class="section-subtitle">Got Questions?</span>
-                    <h2>Garden Machinery FAQs</h2>
-                    <p>Learn more about how we process orders, deliver your machines, and maintain your equipment.</p>
-                </div>
-
-                <div class="faq-accordion">
-                    
-                    <div class="faq-item">
-                        <button class="faq-trigger">
-                            <span>What does "Pre-Delivery Inspection" (PDI) mean?</span>
-                            <i class="fa-solid fa-chevron-down"></i>
-                        </button>
-                        <div class="faq-content">
-                            <div class="faq-body">
-                                <p>Unlike major box-shippers, Briants prepares every piece of machinery before it leaves our showroom. A certified mechanic unboxes, fully assembles, adds oil and fuel, and tunes the engine. We then run-test the machine to verify throttle control, safety brakes, and ignition are working perfectly. We drain the fuel back out (for transport safety) and carefully repack or deliver it directly. When it arrives, you simply add fresh fuel and start working!</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-trigger">
-                            <span>What is your delivery coverage area for machinery?</span>
-                            <i class="fa-solid fa-chevron-down"></i>
-                        </button>
-                        <div class="faq-content">
-                            <div class="faq-body">
-                                <p>We offer same-day local delivery for in-stock orders placed before 10am weekdays within a 10-mile radius of our showroom in Princes Risborough (covering Thame, Aylesbury, High Wycombe, Chinnor, etc.). For online orders over £200, local delivery is free! For nationwide deliveries outside our local radius, we ship using trusted freight partners, fully protected in transit.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-trigger">
-                            <span>Should I choose cordless battery power or petrol?</span>
-                            <i class="fa-solid fa-chevron-down"></i>
-                        </button>
-                        <div class="faq-content">
-                            <div class="faq-body">
-                                <p>Cordless battery tools (such as the STIHL AK or AP systems and Milwaukee M18 Fuel) have advanced significantly, offering petrol-matching performance without the exhaust fumes, engine noise, pulling cords, or fuel storage issues. Battery tools are highly recommended for noise-sensitive suburban gardens. However, for large acreage, forestry, or extended daily commercial use, petrol machinery remains the standard due to quick refueling capabilities. Drop into our showroom to try both!</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-trigger">
-                            <span>How often should I get my garden mower serviced?</span>
-                            <i class="fa-solid fa-chevron-down"></i>
-                        </button>
-                        <div class="faq-content">
-                            <div class="faq-body">
-                                <p>We recommend servicing your lawnmower and handheld machinery once a year. The ideal time is during the autumn or winter when the gardening season slows down, so your machine is protected against fuel oxidation during winter storage and ready for spring. Annual servicing includes oil renewal, fresh spark plugs, clean filters, carburetor flushing, and blade sharpening.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-trigger">
-                            <span>Can I buy replacement parts and chains directly from you?</span>
-                            <i class="fa-solid fa-chevron-down"></i>
-                        </button>
-                        <div class="faq-content">
-                            <div class="faq-body">
-                                <p>Yes! We stock a massive range of genuine spare parts, replacement chainsaw chains, guide bars, trimmer lines, engine filters, spark plugs, and synthetic fuels like STIHL MotoMix. If we do not have your specific part in stock in our showroom, we can order it directly from the manufacturer with express dispatch.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Showroom Contact & Directions Callout -->
-        <section id="contact-details" class="contact-section">
-            <div class="section-container">
-                <div class="contact-card">
-                    <div class="contact-info-block">
-                        <span class="contact-badge">Visit Our Showroom</span>
-                        <h2>Come and Speak to Our Experts</h2>
-                        <p>Want to see the machinery in person or hold it before you buy? Visit our fully stocked showroom in Longwick. Our team will happily walk you through the options, demonstrate start procedures, and help you select the ideal tools for your space.</p>
-                        
-                        <div class="contact-details-list">
-                            <div class="contact-detail-item">
-                                <i class="fa-solid fa-map-location-dot"></i>
-                                <div>
-                                    <strong>Address:</strong>
-                                    <span>Thame Road, Longwick, Princes Risborough, Buckinghamshire, HP27 9SG</span>
-                                </div>
-                            </div>
-                            <div class="contact-detail-item">
-                                <i class="fa-solid fa-phone-volume"></i>
-                                <div>
-                                    <strong>Phone Support:</strong>
-                                    <span><a href="tel:01844343663">01844 343663</a> (Enquiries & Workshop bookings)</span>
-                                </div>
-                            </div>
-                            <div class="contact-detail-item">
-                                <i class="fa-solid fa-envelope"></i>
-                                <div>
-                                    <strong>Email:</strong>
-                                    <span><a href="mailto:enquiries@briantsofrisborough.co.uk">enquiries@briantsofrisborough.co.uk</a></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="contact-map-block">
-                        <div class="map-placeholder">
-                            <div class="map-overlay">
-                                <i class="fa-solid fa-store"></i>
-                                <h4>Briants of Risborough Ltd</h4>
-                                <p>Thame Road, Longwick (HP27 9SG)</p>
-                                <a href="https://maps.google.com/?q=Briants+of+Risborough+Longwick" target="_blank" class="btn btn-primary btn-sm"><i class="fa-solid fa-diamond-turn-right"></i> Get Directions</a>
-                            </div>
-                        </div>
-                        <div class="showroom-hours">
-                            <h4>Showroom Hours:</h4>
-                            <div class="hours-row"><span>Monday - Friday:</span> <strong>7:00 AM - 4:45 PM</strong></div>
-                            <div class="hours-row"><span>Saturday:</span> <strong>8:00 AM - 12:00 PM (Timber Sales Only)</strong></div>
-                            <div class="hours-row"><span>Sunday:</span> <strong>Closed</strong></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="landing-footer">
-            <div class="section-container">
-                <div class="footer-bottom">
-                    <p>&copy; 2026 Briants of Risborough Ltd. All rights reserved. Registered in England & Wales.</p>
-                    <p>Designed for WordPress Custom Block Integration.</p>
-                </div>
-            </div>
-        </footer>
+        </div>
 
     </div>
 
-    <!-- Link to JavaScript -->
+    <!-- Templates Data Source -->
+    <script src="sections-data.js"></script>
+    
+    <!-- Dashboard Controller Scripts -->
     <script src="app.js"></script>
 </body>
 </html>

@@ -1,151 +1,187 @@
-/* 
-==========================================================================
-   Briants of Risborough - Garden Machinery Landing Page Stylesheet
-   Tailored for WordPress Custom HTML/CSS/JS block integration
-========================================================================== 
-*/
+/* ==========================================================================
+   Briants of Risborough - Master Stylesheet (WordPress Ready)
+   This stylesheet contains the design tokens, base resets, global buttons, 
+   and all section-specific styles for the modular landing components.
+   ========================================================================== */
 
-/* --- Design Tokens & Variables --- */
+/* ==========================================================================
+   1. Core Variables & Resets
+   ========================================================================== */
 :root {
-    --primary-green: #095f36;
-    --primary-green-hover: #00461d;
-    --accent-orange: #f97316;
-    --accent-orange-hover: #ea580c;
-    --text-dark: #1e293b;
-    --text-light: #64748b;
-    --bg-light: #f8fafc;
-    --bg-white: #ffffff;
-    --bg-banner: #095f36;
-    --tint-green: #e9f5ee;
-    --border-color: #cbd5e1;
+    --briants-primary: #005c30;         /* Deep Forest Green */
+    --briants-primary-hover: #004524;   /* Darker Forest Green */
+    --briants-accent: #d2a138;          /* Warm Golden Gold */
+    --briants-accent-hover: #b88a2f;    /* Darker Gold */
+    --briants-text-dark: #1e293b;       /* Dark Charcoal for high readability */
+    --briants-text-light: #576574;      /* Muted slate text */
+    --briants-bg-light: #f4f6f5;        /* Light grey-green background */
+    --briants-bg-white: #ffffff;
+    --briants-tint-green: #e9f3ef;      /* Soft light-green badge highlight */
+    --briants-border: #cbd5e1;          /* Clean border outline */
     
-    --font-headings: 'Poppins', sans-serif;
-    --font-body: 'Libre Franklin', sans-serif;
+    --briants-font-headings: 'Poppins', sans-serif;
+    --briants-font-body: 'Libre Franklin', sans-serif;
     
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.08);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.12), 0 8px 10px -6px rgba(0, 0, 0, 0.12);
+    --briants-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+    --briants-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.08);
+    --briants-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
     
-    --radius-sm: 0.375rem;
-    --radius-md: 0.5rem;
-    --radius-lg: 0.75rem;
-    --radius-xl: 1rem;
+    --briants-radius-sm: 0.25rem;
+    --briants-radius-md: 0.375rem;
+    --briants-radius-lg: 0.5rem;
+    --briants-radius-xl: 0.75rem;
     
-    --transition-fast: 0.2s ease;
-    --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --briants-transition: all 0.25s ease;
 }
 
-/* --- Base Scoping & Resets --- */
-#briants-landing-page {
-    font-family: var(--font-body);
-    color: var(--text-dark);
+/* Base resets specifically targeted to the landing modules */
+.briants-module {
+    font-family: var(--briants-font-body);
+    color: var(--briants-text-dark);
     line-height: 1.6;
-    background-color: var(--bg-light);
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
-    overflow-x: hidden;
 }
 
-#briants-landing-page *, 
-#briants-landing-page *::before, 
-#briants-landing-page *::after {
+.briants-module *, 
+.briants-module *::before, 
+.briants-module *::after {
     box-sizing: inherit;
 }
 
-/* --- Global Utility Classes --- */
-.section-container {
+.briants-container {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 4rem 1.5rem;
+    padding: 3.5rem 1.5rem;
 }
 
-.text-primary {
-    color: var(--primary-green) !important;
-}
-
-.text-accent {
-    color: var(--accent-orange) !important;
-}
-
-.highlight {
-    color: var(--accent-orange);
-    position: relative;
-    white-space: nowrap;
-}
-
-/* --- Buttons System --- */
-.btn {
+/* Buttons System */
+.briants-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    font-family: var(--font-headings);
+    font-family: var(--briants-font-headings);
     font-weight: 600;
+    font-size: 0.9rem;
     text-decoration: none;
-    border-radius: var(--radius-md);
-    transition: var(--transition-fast);
+    padding: 0.7rem 1.5rem;
+    border-radius: var(--briants-radius-sm);
+    transition: var(--briants-transition);
     cursor: pointer;
     border: 2px solid transparent;
 }
 
-.btn-lg {
+.briants-btn-lg {
     padding: 0.85rem 1.75rem;
     font-size: 1rem;
 }
 
-.btn-sm {
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem;
+.briants-btn-sm {
+    padding: 0.45rem 1rem;
+    font-size: 0.8rem;
 }
 
-.btn-primary {
-    background-color: var(--accent-orange);
-    color: var(--bg-white);
+.briants-btn-primary {
+    background-color: var(--briants-primary);
+    color: var(--briants-bg-white);
 }
 
-.btn-primary:hover {
-    background-color: var(--accent-orange-hover);
+.briants-btn-primary:hover {
+    background-color: var(--briants-primary-hover);
     transform: translateY(-2px);
 }
 
-.btn-secondary {
-    background-color: transparent;
-    color: var(--bg-white);
-    border-color: var(--bg-white);
+.briants-btn-secondary {
+    background-color: var(--briants-accent);
+    color: var(--briants-bg-white);
 }
 
-.btn-secondary:hover {
-    background-color: var(--bg-white);
-    color: var(--primary-green);
+.briants-btn-secondary:hover {
+    background-color: var(--briants-accent-hover);
     transform: translateY(-2px);
 }
 
-.btn-outline-green {
+.briants-btn-outline {
     background-color: transparent;
-    color: var(--primary-green);
-    border-color: var(--primary-green);
+    color: var(--briants-primary);
+    border-color: var(--briants-primary);
 }
 
-.btn-outline-green:hover {
-    background-color: var(--primary-green);
-    color: var(--bg-white);
+.briants-btn-outline:hover {
+    background-color: var(--briants-primary);
+    color: var(--briants-bg-white);
 }
 
-/* --- Top Banner Section --- */
-.top-banner {
-    background-color: var(--bg-banner);
-    color: var(--bg-white);
-    padding: 0.75rem 1.5rem;
-    font-size: 0.9rem;
+/* Common Section Headers */
+.briants-section-header {
     text-align: center;
-    box-shadow: var(--shadow-sm);
-    z-index: 10;
+    max-width: 700px;
+    margin: 0 auto 3rem auto;
 }
 
-.top-banner-content {
+.briants-section-subtitle {
+    display: block;
+    color: var(--briants-accent);
+    font-family: var(--briants-font-headings);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+}
+
+.briants-section-header h2 {
+    font-family: var(--briants-font-headings);
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--briants-text-dark);
+    margin: 0 0 0.75rem 0;
+}
+
+.briants-section-header p {
+    color: var(--briants-text-light);
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* Grids and Layout Utilities */
+.briants-grid-5 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.25rem;
+}
+
+@media (max-width: 1024px) {
+    .briants-grid-5 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .briants-grid-5 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .briants-grid-5 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================================================
+   2. Top Info Banner Styles
+   ========================================================================== */
+#briants-top-banner {
+    background-color: var(--briants-primary);
+    color: var(--briants-bg-white);
+    padding: 0.65rem 1rem;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+#briants-top-banner .top-banner-inner {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -153,39 +189,41 @@
     gap: 0.5rem 1.5rem;
 }
 
-.top-banner-content a {
-    color: var(--bg-white);
+#briants-top-banner a {
+    color: var(--briants-bg-white);
     text-decoration: none;
-    transition: var(--transition-fast);
+    transition: var(--briants-transition);
 }
 
-.top-banner-content a:hover {
+#briants-top-banner a:hover {
+    color: var(--briants-accent);
     text-decoration: underline;
-    opacity: 0.9;
 }
 
-.top-banner-separator {
-    opacity: 0.4;
+#briants-top-banner .top-banner-divider {
+    opacity: 0.35;
 }
 
 @media (max-width: 640px) {
-    .top-banner-separator {
+    #briants-top-banner .top-banner-divider {
         display: none;
     }
-    .top-banner-content {
+    #briants-top-banner .top-banner-inner {
         flex-direction: column;
         gap: 0.25rem;
     }
 }
 
-/* --- Header --- */
-.landing-header {
-    background-color: var(--bg-white);
-    border-bottom: 1px solid var(--border-color);
+/* ==========================================================================
+   3. Main Header Styles
+   ========================================================================== */
+#briants-header {
+    background-color: var(--briants-bg-white);
+    border-bottom: 1px solid var(--briants-border);
     padding: 1.25rem 0;
 }
 
-.header-container {
+#briants-header .header-inner {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1.5rem;
@@ -193,74 +231,78 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 1.5rem;
+    gap: 1.25rem;
 }
 
-.logo-image {
-    max-height: 50px;
+#briants-header .header-logo {
+    max-height: 55px;
     width: auto;
+    display: block;
 }
 
-.header-info {
+#briants-header .header-info-grid {
     display: flex;
-    gap: 2rem;
+    gap: 1.75rem;
     flex-wrap: wrap;
 }
 
-.info-item {
+#briants-header .header-info-item {
     display: flex;
     align-items: center;
     gap: 0.75rem;
     font-size: 0.85rem;
 }
 
-.info-item i {
+#briants-header .header-info-item i {
     font-size: 1.25rem;
+    color: var(--briants-primary);
 }
 
-.info-item strong {
+#briants-header .header-info-item strong {
     display: block;
-    color: var(--text-dark);
+    color: var(--briants-text-dark);
 }
 
-.info-item span {
-    color: var(--text-light);
+#briants-header .header-info-item span {
+    color: var(--briants-text-light);
 }
 
 @media (max-width: 768px) {
-    .header-container {
+    #briants-header .header-inner {
         flex-direction: column;
         text-align: center;
     }
-    .header-info {
+    #briants-header .header-info-grid {
         justify-content: center;
         gap: 1rem;
     }
 }
 
-/* --- Hero Section --- */
-.hero-section {
+/* ==========================================================================
+   4. Hero Section Styles
+   ========================================================================== */
+#briants-hero {
     position: relative;
-    background-image: url('https://images.unsplash.com/photo-1558904541-efa8c1a68f6f?auto=format&fit=crop&w=1600&q=80'); /* Professional Lawn/Garden Machinery */
+    background-image: url('https://images.unsplash.com/photo-1558904541-efa8c1a68f6f?auto=format&fit=crop&w=1600&q=80');
     background-size: cover;
     background-position: center;
-    color: var(--bg-white);
-    padding: 8rem 0;
+    color: var(--briants-bg-white);
+    padding: 7rem 0;
     display: flex;
     align-items: center;
 }
 
-.hero-overlay {
+#briants-hero .hero-bg-overlay {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(9, 95, 54, 0.95) 0%, rgba(9, 95, 54, 0.5) 100%);
+    background: linear-gradient(135deg, rgba(0, 92, 48, 0.95) 0%, rgba(0, 92, 48, 0.45) 100%);
     z-index: 1;
 }
 
-.hero-container {
+#briants-hero .hero-inner {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
@@ -269,939 +311,1041 @@
     z-index: 2;
 }
 
-.hero-card {
+#briants-hero .hero-card {
     max-width: 650px;
     background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.15);
-    padding: 3rem;
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-xl);
+    padding: 2.75rem;
+    border-radius: var(--briants-radius-lg);
+    box-shadow: var(--briants-shadow-lg);
 }
 
-.hero-badge {
+#briants-hero .hero-badge {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background-color: var(--accent-orange);
-    color: var(--bg-white);
-    padding: 0.35rem 0.85rem;
+    background-color: var(--briants-accent);
+    color: var(--briants-bg-white);
+    padding: 0.3rem 0.8rem;
     border-radius: 9999px;
-    font-size: 0.75rem;
+    font-size: 0.72rem;
+    font-family: var(--briants-font-headings);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
 }
 
-.hero-card h1 {
-    font-family: var(--font-headings);
-    font-weight: 800;
-    font-size: 2.75rem;
-    line-height: 1.2;
-    margin: 0 0 1.5rem 0;
+#briants-hero h1 {
+    font-family: var(--briants-font-headings);
+    font-weight: 700;
+    font-size: 2.5rem;
+    line-height: 1.15;
+    margin: 0 0 1.25rem 0;
+    color: var(--briants-bg-white);
 }
 
-.hero-lead {
-    font-size: 1.125rem;
+#briants-hero .hero-highlight {
+    color: var(--briants-accent);
+}
+
+#briants-hero .hero-desc {
+    font-size: 1.05rem;
     opacity: 0.95;
-    margin-bottom: 2rem;
+    margin: 0 0 1.75rem 0;
 }
 
-.hero-checklist {
+#briants-hero .hero-list {
     list-style: none;
     padding: 0;
-    margin: 0 0 2.5rem 0;
+    margin: 0 0 2.25rem 0;
     display: grid;
-    gap: 0.75rem;
+    gap: 0.65rem;
 }
 
-.hero-checklist li {
+#briants-hero .hero-list li {
     display: flex;
     align-items: center;
     gap: 0.75rem;
     font-weight: 600;
+    font-size: 0.9rem;
 }
 
-.hero-checklist li i {
-    color: var(--accent-orange);
-    font-size: 1.125rem;
+#briants-hero .hero-list li i {
+    color: var(--briants-accent);
+    font-size: 1.1rem;
 }
 
-.hero-actions {
+#briants-hero .hero-buttons {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
 }
 
 @media (max-width: 768px) {
-    .hero-section {
+    #briants-hero {
         padding: 4rem 0;
     }
-    .hero-card {
+    #briants-hero .hero-card {
         padding: 2rem 1.5rem;
         text-align: center;
     }
-    .hero-card h1 {
-        font-size: 2rem;
+    #briants-hero h1 {
+        font-size: 1.9rem;
     }
-    .hero-checklist {
+    #briants-hero .hero-list {
         text-align: left;
     }
-    .hero-actions {
+    #briants-hero .hero-buttons {
         justify-content: center;
     }
 }
 
-/* --- Trust Section --- */
-.trust-section {
-    background-color: var(--bg-white);
-    position: relative;
-    z-index: 3;
-    margin-top: -3rem;
-    padding-bottom: 0;
+/* ==========================================================================
+   5. Special Brand Promotions Banner Styles
+   ========================================================================== */
+#briants-promo-banner {
+    background-color: var(--briants-bg-light);
+    border-bottom: 1px solid var(--briants-border);
 }
 
-.trust-section .section-container {
-    padding-top: 0;
-}
-
-.trust-grid {
+#briants-promo-banner .promo-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-}
-
-.trust-card {
-    background-color: var(--bg-white);
-    padding: 2.25rem 1.75rem;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-lg);
-    border-top: 4px solid var(--primary-green);
-    text-align: center;
-    transition: var(--transition-smooth);
-}
-
-.trust-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-xl);
-}
-
-.trust-icon-wrapper {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: var(--tint-green);
-    color: var(--primary-green);
-    display: flex;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 3rem;
     align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    margin: 0 auto 1.5rem auto;
-    transition: var(--transition-fast);
 }
 
-.trust-card:hover .trust-icon-wrapper {
-    background-color: var(--primary-green);
-    color: var(--bg-white);
-}
-
-.trust-card h3 {
-    font-family: var(--font-headings);
-    font-weight: 700;
-    font-size: 1.125rem;
-    margin: 0 0 0.75rem 0;
-    color: var(--text-dark);
-}
-
-.trust-card p {
-    font-size: 0.875rem;
-    color: var(--text-light);
-    margin: 0;
-}
-
-@media (max-width: 1024px) {
-    .trust-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .trust-section {
-        margin-top: -1.5rem;
-    }
-}
-
-@media (max-width: 640px) {
-    .trust-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* --- Shared Section Headers --- */
-.section-header {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto 3.5rem auto;
-}
-
-.section-subtitle {
-    display: block;
-    color: var(--accent-orange);
-    font-family: var(--font-headings);
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 0.85rem;
-    letter-spacing: 0.1em;
-    margin-bottom: 0.75rem;
-}
-
-.section-header h2 {
-    font-family: var(--font-headings);
-    font-weight: 700;
-    font-size: 2.25rem;
-    color: var(--text-dark);
+#briants-promo-banner .promo-content h2 {
+    font-family: var(--briants-font-headings);
+    font-weight: 800;
+    font-size: 2rem;
     margin: 0 0 1rem 0;
+    color: var(--briants-primary);
 }
 
-.section-header p {
-    color: var(--text-light);
-    font-size: 1.1rem;
-    margin: 0;
-}
-
-@media (max-width: 768px) {
-    .section-header h2 {
-        font-size: 1.75rem;
-    }
-}
-
-/* --- Categories Section --- */
-.categories-section {
-    background-color: var(--bg-light);
-}
-
-.categories-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-}
-
-.category-card {
-    height: 380px;
-    background-size: cover;
-    background-position: center;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    align-items: flex-end;
-    transition: var(--transition-smooth);
-    box-shadow: var(--shadow-md);
-}
-
-.category-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to top, rgba(9, 95, 54, 0.95) 0%, rgba(0, 0, 0, 0.4) 60%, rgba(0, 0, 0, 0.1) 100%);
-    z-index: 1;
-    transition: var(--transition-smooth);
-}
-
-.category-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-xl);
-}
-
-.category-card:hover::before {
-    background: linear-gradient(to top, rgba(9, 95, 54, 0.98) 0%, rgba(9, 95, 54, 0.75) 50%, rgba(0, 0, 0, 0.2) 100%);
-}
-
-.category-content {
-    position: relative;
-    z-index: 2;
-    padding: 2.25rem;
-    color: var(--bg-white);
-    transition: var(--transition-smooth);
-}
-
-.category-badge {
-    background-color: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    display: inline-block;
-    padding: 0.2rem 0.6rem;
-    border-radius: var(--radius-sm);
-    font-size: 0.7rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-bottom: 0.75rem;
-}
-
-.category-content h3 {
-    font-family: var(--font-headings);
-    font-weight: 700;
-    font-size: 1.5rem;
-    margin: 0 0 0.5rem 0;
-}
-
-.category-content p {
-    font-size: 0.875rem;
-    opacity: 0.85;
-    margin: 0 0 1.5rem 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: var(--transition-smooth);
-}
-
-.category-card:hover .category-content p {
-    max-height: 80px;
-}
-
-.category-link {
-    color: var(--bg-white);
-    text-decoration: none;
-    font-family: var(--font-headings);
-    font-weight: 700;
-    font-size: 0.875rem;
+#briants-promo-banner .promo-badge {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-}
-
-.category-link i {
-    font-size: 0.75rem;
-    transition: var(--transition-fast);
-}
-
-.category-link:hover i {
-    transform: translateX(4px);
-}
-
-@media (max-width: 1024px) {
-    .categories-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 640px) {
-    .categories-grid {
-        grid-template-columns: 1fr;
-    }
-    .category-card {
-        height: 320px;
-    }
-    .category-content p {
-        max-height: 80px;
-    }
-}
-
-/* --- WooCommerce Block Overrides & Fallback Styling --- */
-.products-section {
-    background-color: var(--bg-white);
-}
-
-.woocommerce-products-wrapper {
-    margin-top: 2rem;
-    border: 2px dashed var(--border-color);
-    border-radius: var(--radius-xl);
-    padding: 2.5rem;
-    background-color: var(--bg-light);
-    position: relative;
-}
-
-.woocommerce-products-wrapper::before {
-    content: 'WooCommerce block injection target';
-    position: absolute;
-    top: -11px;
-    left: 20px;
-    background-color: var(--primary-green);
-    color: var(--bg-white);
-    padding: 1px 12px;
-    font-size: 0.65rem;
-    font-family: var(--font-headings);
+    gap: 0.35rem;
+    background-color: var(--briants-primary);
+    color: var(--briants-bg-white);
+    font-size: 0.7rem;
     font-weight: 700;
-    border-radius: var(--radius-sm);
-    text-transform: uppercase;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--briants-radius-sm);
+    margin-bottom: 1rem;
     letter-spacing: 0.05em;
 }
 
-/* --- Native WooCommerce Classes Styling --- */
-.woocommerce-products-wrapper ul.products {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
+#briants-promo-banner .promo-content p {
+    font-size: 1rem;
+    color: var(--briants-text-light);
+    margin: 0 0 2rem 0;
 }
 
-.woocommerce-products-wrapper ul.products li.product {
-    background-color: var(--bg-white);
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--border-color);
-    box-shadow: var(--shadow-sm);
+#briants-promo-banner .promo-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+#briants-promo-banner .promo-actions .briants-btn-outline {
+    border-color: var(--briants-primary);
+    color: var(--briants-primary);
+}
+
+#briants-promo-banner .promo-actions .briants-btn-outline:hover {
+    background-color: var(--briants-primary);
+    color: var(--briants-bg-white);
+}
+
+#briants-promo-banner .promo-img-wrapper {
+    position: relative;
+    border-radius: var(--briants-radius-lg);
     overflow: hidden;
+    box-shadow: var(--briants-shadow-md);
+    height: 250px;
+}
+
+#briants-promo-banner .promo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+@media (max-width: 900px) {
+    #briants-promo-banner .promo-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    #briants-promo-banner .promo-img-wrapper {
+        height: 200px;
+        order: -1;
+    }
+}
+
+/* ==========================================================================
+   6. Quick Navigation Categories Styles
+   ========================================================================== */
+#briants-quick-categories {
+    background-color: var(--briants-bg-white);
+}
+
+#briants-quick-categories .categories-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+}
+
+#briants-quick-categories .quick-card {
+    background-color: var(--briants-bg-white);
+    border: 1px solid var(--briants-border);
+    border-radius: var(--briants-radius-md);
+    overflow: hidden;
+    box-shadow: var(--briants-shadow-sm);
+    transition: var(--briants-transition);
     display: flex;
     flex-direction: column;
-    position: relative;
-    transition: var(--transition-smooth);
 }
 
-.woocommerce-products-wrapper ul.products li.product:hover {
+#briants-quick-categories .quick-card:hover {
     transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--primary-green);
+    box-shadow: var(--briants-shadow-md);
+    border-color: var(--briants-primary);
 }
 
-.woocommerce-products-wrapper ul.products li.product img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    transition: var(--transition-smooth);
+#briants-quick-categories .quick-card-img {
+    height: 220px;
+    background-size: cover;
+    background-position: center;
 }
 
-.woocommerce-products-wrapper ul.products li.product:hover img {
-    transform: scale(1.05);
-}
-
-.product-image-container {
-    position: relative;
-    overflow: hidden;
-}
-
-.onsale {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background-color: var(--accent-orange);
-    color: var(--bg-white);
-    padding: 0.25rem 0.75rem;
-    font-family: var(--font-headings);
-    font-size: 0.75rem;
-    font-weight: 700;
-    border-radius: var(--radius-sm);
-    z-index: 5;
-    text-transform: uppercase;
-}
-
-.product-details-container {
+#briants-quick-categories .quick-card-content {
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 }
 
-.product-brand {
-    font-size: 0.7rem;
-    font-family: var(--font-headings);
+#briants-quick-categories .quick-card-content h3 {
+    font-family: var(--briants-font-headings);
     font-weight: 700;
-    color: var(--accent-orange);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 0.25rem;
+    font-size: 1.3rem;
+    color: var(--briants-primary);
+    margin: 0 0 0.5rem 0;
 }
 
-.woocommerce-loop-product__title {
-    font-family: var(--font-headings);
+#briants-quick-categories .quick-card-content p {
+    font-size: 0.88rem;
+    color: var(--briants-text-light);
+    margin: 0 0 1.5rem 0;
+    flex-grow: 1;
+}
+
+#briants-quick-categories .quick-card-content .briants-btn {
+    align-self: flex-start;
+    font-size: 0.78rem;
+    padding: 0.45rem 1rem;
+}
+
+@media (max-width: 900px) {
+    #briants-quick-categories .categories-grid-3 {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    #briants-quick-categories .quick-card-img {
+        height: 180px;
+    }
+}
+
+/* ==========================================================================
+   7. Decking & Sleepers Product Row Styles
+   ========================================================================== */
+#briants-sleepers-row {
+    background-color: var(--briants-bg-light);
+    border-bottom: 1px solid var(--briants-border);
+}
+
+.briants-prod-card {
+    background-color: var(--briants-bg-white);
+    border-radius: var(--briants-radius-md);
+    border: 1px solid var(--briants-border);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--briants-shadow-sm);
+    transition: var(--briants-transition);
+}
+
+.briants-prod-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--briants-shadow-md);
+    border-color: var(--briants-primary);
+}
+
+.briants-prod-img-box {
+    position: relative;
+    overflow: hidden;
+    height: 160px;
+}
+
+.briants-prod-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: var(--briants-transition);
+}
+
+.briants-prod-card:hover .briants-prod-img-box img {
+    transform: scale(1.05);
+}
+
+.briants-prod-details {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.briants-prod-tag {
+    font-size: 0.65rem;
+    font-family: var(--briants-font-headings);
+    font-weight: 700;
+    color: var(--briants-accent);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+}
+
+.briants-prod-title {
+    font-family: var(--briants-font-headings);
     font-weight: 600;
-    font-size: 0.95rem !important;
-    line-height: 1.4;
-    color: var(--text-dark);
-    margin: 0 0 0.5rem 0;
-    height: 44px;
+    font-size: 0.88rem;
+    line-height: 1.35;
+    color: var(--briants-text-dark);
+    margin: 0 0 0.75rem 0;
+    height: 48px;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
 
-/* Star Rating System */
-.star-rating {
-    overflow: hidden;
-    position: relative;
-    height: 1em;
-    line-height: 1;
-    font-size: 0.85rem;
-    width: 5.4em;
-    font-family: star;
-    color: #ffb600;
-    margin-bottom: 0.75rem;
-}
-
-.star-rating::before {
-    content: '\73\73\73\73\73';
-    float: left;
-    top: 0;
-    left: 0;
-    position: absolute;
-    opacity: 0.2;
-}
-
-.star-rating span {
-    overflow: hidden;
-    float: left;
-    top: 0;
-    left: 0;
-    position: absolute;
-    padding-top: 1.5em;
-}
-
-.star-rating span::before {
-    content: '\53\53\53\53\53';
-    top: 0;
-    left: 0;
-    position: absolute;
-}
-
-.product-meta-specs {
-    display: flex;
-    gap: 0.75rem;
-    font-size: 0.75rem;
-    color: var(--text-light);
-    margin-bottom: 1rem;
-    background-color: var(--bg-light);
-    padding: 0.35rem 0.5rem;
-    border-radius: var(--radius-sm);
-    align-items: center;
-}
-
-.product-meta-specs span {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.25rem;
-}
-
-/* Pricing */
-.price {
-    font-family: var(--font-headings);
-    font-size: 1.25rem;
+.briants-prod-price {
+    font-family: var(--briants-font-headings);
     font-weight: 700;
-    color: var(--primary-green);
-    margin-bottom: 1rem;
-    display: block;
-}
-
-.price del {
-    color: var(--text-light);
-    font-size: 0.95rem;
-    font-weight: 500;
-    margin-right: 0.5rem;
-}
-
-.price ins {
-    background: transparent;
-    text-decoration: none;
-}
-
-.product-pdi-badge {
-    font-size: 0.7rem;
-    font-weight: 700;
-    color: var(--primary-green);
-    background-color: var(--tint-green);
-    padding: 0.35rem 0.5rem;
-    border-radius: var(--radius-sm);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
+    font-size: 1.15rem;
+    color: var(--briants-primary);
     margin-bottom: 1.25rem;
     margin-top: auto;
 }
 
-/* Woo Action Button */
-.woocommerce-products-wrapper li.product .button {
-    background-color: var(--primary-green) !important;
-    color: var(--bg-white) !important;
-    text-align: center;
-    font-family: var(--font-headings);
-    font-weight: 700;
-    font-size: 0.85rem;
-    padding: 0.75rem 1rem !important;
-    border-radius: var(--radius-md);
-    text-decoration: none;
-    transition: var(--transition-fast) !important;
-    display: block;
-    border: none !important;
+.briants-prod-price small {
+    font-weight: 400;
+    font-size: 0.72rem;
+    color: var(--briants-text-light);
+}
+
+.briants-prod-card .briants-btn {
     width: 100%;
-    margin: 0 !important;
+    font-size: 0.8rem;
+    padding: 0.55rem;
 }
 
-.woocommerce-products-wrapper li.product .button:hover {
-    background-color: var(--accent-orange) !important;
-    color: var(--bg-white) !important;
+/* ==========================================================================
+   8. Horticultural Promo Banner Styles
+   ========================================================================== */
+#briants-hort-banner {
+    position: relative;
+    background-image: linear-gradient(rgba(0, 92, 48, 0.9), rgba(0, 92, 48, 0.85)), url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=1200&q=80');
+    background-size: cover;
+    background-position: center;
+    color: var(--briants-bg-white);
+    padding: 4.5rem 0;
+    text-align: center;
 }
 
-@media (max-width: 1024px) {
-    .woocommerce-products-wrapper ul.products {
-        grid-template-columns: repeat(2, 1fr);
-    }
+#briants-hort-banner .hort-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
 }
 
-@media (max-width: 640px) {
-    .woocommerce-products-wrapper {
-        padding: 1.25rem;
-    }
-    .woocommerce-products-wrapper ul.products {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* --- Workshop & Servicing Section --- */
-.workshop-section {
-    background-color: var(--bg-light);
-}
-
-.workshop-grid {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 4rem;
+#briants-hort-banner .hort-badge {
+    display: inline-flex;
     align-items: center;
-}
-
-.workshop-text h2 {
-    font-family: var(--font-headings);
+    gap: 0.35rem;
+    background-color: var(--briants-accent);
+    color: var(--briants-bg-white);
+    font-size: 0.72rem;
     font-weight: 700;
-    font-size: 2.25rem;
-    margin: 0 0 1.5rem 0;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--briants-radius-sm);
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
 }
 
-.workshop-text p {
-    color: var(--text-light);
+#briants-hort-banner h2 {
+    font-family: var(--briants-font-headings);
+    font-weight: 800;
+    font-size: 2.2rem;
+    margin: 0 0 1rem 0;
+    letter-spacing: -0.01em;
+}
+
+#briants-hort-banner p {
+    font-size: 1.05rem;
+    opacity: 0.9;
+    margin: 0 0 2rem 0;
+    line-height: 1.5;
+}
+
+#briants-hort-banner .briants-btn {
+    font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   9. Brands Showcase Slider Styles
+   ========================================================================== */
+#briants-brands {
+    background-color: var(--briants-bg-white);
+    border-bottom: 1px solid var(--briants-border);
+}
+
+#briants-brands .brand-header {
+    text-align: center;
     margin-bottom: 2rem;
 }
 
-.workshop-highlights {
-    display: grid;
-    gap: 1.25rem;
-    margin-bottom: 2.5rem;
-}
-
-.w-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-}
-
-.w-item i {
-    font-size: 1.125rem;
-    margin-top: 0.25rem;
-}
-
-.w-item strong {
-    display: block;
-    font-family: var(--font-headings);
-    font-size: 0.95rem;
-    color: var(--text-dark);
-}
-
-.w-item span {
-    font-size: 0.875rem;
-    color: var(--text-light);
-}
-
-/* Interactive Tabs Card */
-.workshop-interactive {
-    perspective: 1000px;
-}
-
-.interactive-card {
-    background-color: var(--bg-white);
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-xl);
-    border: 1px solid var(--border-color);
-    overflow: hidden;
-}
-
-.interactive-tabs {
-    display: flex;
-    background-color: #f1f5f9;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.tab-btn {
-    flex: 1;
-    background: transparent;
-    border: none;
-    outline: none;
-    padding: 1rem 0.5rem;
-    font-family: var(--font-headings);
-    font-weight: 600;
-    font-size: 0.85rem;
-    color: var(--text-light);
-    cursor: pointer;
-    transition: var(--transition-fast);
-    text-align: center;
-    border-bottom: 3px solid transparent;
-}
-
-.tab-btn.active {
-    background-color: var(--bg-white);
-    color: var(--primary-green);
-    border-bottom-color: var(--primary-green);
-}
-
-.tab-btn:hover:not(.active) {
-    background-color: rgba(0, 0, 0, 0.02);
-    color: var(--text-dark);
-}
-
-.interactive-content {
-    padding: 2.5rem;
-    min-height: 380px;
-}
-
-.tab-panel {
-    display: none;
-    animation: slideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.tab-panel.active {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.tab-panel h3 {
-    font-family: var(--font-headings);
-    font-size: 1.25rem;
-    margin: 0 0 1rem 0;
-    color: var(--text-dark);
-}
-
-.tab-panel p {
-    font-size: 0.9rem;
-    color: var(--text-light);
-    margin: 0 0 1.5rem 0;
-}
-
-.panel-checklist {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 2rem 0;
-    display: grid;
-    gap: 0.65rem;
-}
-
-.panel-checklist li {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--text-dark);
-}
-
-.panel-checklist li i {
-    color: var(--primary-green);
-}
-
-.panel-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: auto;
-    border-top: 1px solid var(--border-color);
-    padding-top: 1.5rem;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.panel-price {
-    font-family: var(--font-headings);
-    font-size: 0.9rem;
-    color: var(--text-light);
-}
-
-.panel-price strong {
-    font-size: 1.5rem;
-    color: var(--primary-green);
-    display: inline-block;
-    margin-left: 0.25rem;
-}
-
-@media (max-width: 1024px) {
-    .workshop-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-}
-
-@media (max-width: 640px) {
-    .interactive-content {
-        padding: 1.5rem;
-    }
-    .panel-footer {
-        flex-direction: column;
-        align-items: stretch;
-        text-align: center;
-    }
-    .interactive-tabs {
-        flex-direction: column;
-    }
-    .tab-btn {
-        border-bottom: none;
-        border-left: 3px solid transparent;
-        padding: 0.75rem 1rem;
-        text-align: left;
-    }
-    .tab-btn.active {
-        border-left-color: var(--primary-green);
-    }
-}
-
-/* --- Brand Showcase (Endless Marquee) --- */
-.brand-showcase-section {
-    background-color: var(--bg-white);
-    border-bottom: 1px solid var(--border-color);
-}
-
-.brand-header {
-    text-align: center;
-    margin-bottom: 2.5rem;
-}
-
-.brand-header h3 {
-    font-family: var(--font-headings);
+#briants-brands .brand-header h3 {
+    font-family: var(--briants-font-headings);
     font-size: 1.5rem;
     font-weight: 700;
     margin: 0;
+    color: var(--briants-text-dark);
 }
 
-.brand-carousel-container {
+#briants-brands .brand-marquee-container {
     width: 100%;
     overflow: hidden;
     position: relative;
-    padding: 1rem 0;
+    padding: 0.5rem 0;
 }
 
-/* Gradient Fades for Slider Edges */
-.brand-carousel-container::before, 
-.brand-carousel-container::after {
+#briants-brands .brand-marquee-container::before, 
+#briants-brands .brand-marquee-container::after {
     content: '';
     height: 100%;
-    width: 150px;
+    width: 120px;
     position: absolute;
     top: 0;
     z-index: 2;
     pointer-events: none;
 }
 
-.brand-carousel-container::before {
+#briants-brands .brand-marquee-container::before {
     left: 0;
     background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0));
 }
 
-.brand-carousel-container::after {
+#briants-brands .brand-marquee-container::after {
     right: 0;
     background: linear-gradient(to left, rgba(255,255,255,1), rgba(255,255,255,0));
 }
 
-.brand-track {
+#briants-brands .brand-track {
     display: flex;
-    width: calc(240px * 14); /* 240px width per slide * 14 slides total */
-    animation: scrollMarquee 35s linear infinite;
+    width: calc(200px * 14);
+    animation: brandScroll 25s linear infinite;
 }
 
-.brand-slide {
-    width: 240px;
-    height: 80px;
+#briants-brands .brand-slide {
+    width: 200px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    padding: 0 1.5rem;
+    padding: 0 1rem;
 }
 
-.brand-logo-img {
-    max-height: 38px;
-    max-width: 150px;
+#briants-brands .brand-logo-img {
+    max-height: 28px;
+    max-width: 130px;
     object-fit: contain;
     filter: grayscale(100%);
-    opacity: 0.6;
-    transition: var(--transition-fast);
+    opacity: 0.55;
+    transition: var(--briants-transition);
 }
 
-.brand-logo-img:hover {
+#briants-brands .brand-logo-img:hover {
     filter: grayscale(0%);
     opacity: 1;
 }
 
-/* Styled text backups for text-based logos */
-.brand-logo-text {
-    font-family: var(--font-headings);
-    font-size: 1.5rem;
+#briants-brands .brand-logo-text {
+    font-family: var(--briants-font-headings);
+    font-size: 1.25rem;
     font-weight: 800;
     letter-spacing: -0.02em;
     filter: grayscale(100%);
-    opacity: 0.45;
-    transition: var(--transition-fast);
+    opacity: 0.5;
+    transition: var(--briants-transition);
 }
 
-.brand-logo-text:hover {
+#briants-brands .brand-logo-text:hover {
     filter: grayscale(0%);
     opacity: 1;
 }
 
-.honda-logo { color: #cc0000; font-style: italic; }
-.hayter-logo { color: #006837; letter-spacing: 0.1em; }
-.toro-logo { color: #cc0000; font-family: sans-serif; font-weight: 900; }
-.milwaukee-logo { color: #d00; font-family: 'Brush Script MT', cursive; font-size: 1.85rem; font-style: italic; }
-.wolf-logo { color: #e30613; font-style: italic; font-weight: 800; }
-.silky-logo { color: #000000; font-weight: 900; text-transform: uppercase; }
+#briants-brands .brand-honda { color: #cc0000; font-style: italic; }
+#briants-brands .brand-husqvarna { color: #005a30; letter-spacing: 0.05em; font-family: sans-serif; }
+#briants-brands .brand-toro { color: #d00; font-weight: 900; }
+#briants-brands .brand-milwaukee { color: #d00; font-family: 'Brush Script MT', cursive; font-size: 1.5rem; font-style: italic; }
+#briants-brands .brand-hayter { color: #006837; letter-spacing: 0.1em; }
+#briants-brands .brand-silky { color: #000; text-transform: uppercase; font-weight: 900; }
 
-@keyframes scrollMarquee {
+@keyframes brandScroll {
     0% {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(calc(-240px * 7)); /* Translate by half the width (one full loop) */
+        transform: translateX(calc(-200px * 7));
+    }
+}
+
+/* ==========================================================================
+   10. Why Choose Us Section Styles
+   ========================================================================== */
+#briants-why-choose-us {
+    background-color: var(--briants-bg-white);
+    border-bottom: 1px solid var(--briants-border);
+}
+
+.why-us-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 3.5rem;
+    align-items: center;
+}
+
+.why-us-info-box h2 {
+    font-family: var(--briants-font-headings);
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--briants-primary);
+    margin: 0 0 1rem 0;
+    line-height: 1.2;
+}
+
+.why-us-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background-color: var(--briants-primary);
+    color: var(--briants-bg-white);
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--briants-radius-sm);
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+}
+
+.why-us-info-box p {
+    font-size: 0.95rem;
+    color: var(--briants-text-light);
+    margin: 0 0 2rem 0;
+}
+
+.why-us-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 1.5rem;
+}
+
+.why-us-bullets li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.why-us-bullets li i {
+    font-size: 1.25rem;
+    color: var(--briants-accent);
+    margin-top: 0.2rem;
+}
+
+.why-us-bullets h4 {
+    margin: 0 0 0.2rem 0;
+    font-family: var(--briants-font-headings);
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--briants-text-dark);
+}
+
+.why-us-bullets span {
+    font-size: 0.85rem;
+    color: var(--briants-text-light);
+    display: block;
+}
+
+.why-us-cards {
+    display: grid;
+    gap: 1.25rem;
+}
+
+.why-us-card {
+    background-color: var(--briants-bg-light);
+    border: 1px solid var(--briants-border);
+    border-radius: var(--briants-radius-md);
+    padding: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    transition: var(--briants-transition);
+}
+
+.why-us-card:hover {
+    border-color: var(--briants-primary);
+    background-color: var(--briants-tint-green);
+    transform: translateX(4px);
+}
+
+.why-us-card-icon {
+    width: 44px;
+    height: 44px;
+    background-color: var(--briants-bg-white);
+    color: var(--briants-primary);
+    border: 1px solid var(--briants-border);
+    border-radius: var(--briants-radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    flex-shrink: 0;
+}
+
+.why-us-card:hover .why-us-card-icon {
+    background-color: var(--briants-primary);
+    color: var(--briants-bg-white);
+    border-color: var(--briants-primary);
+}
+
+.why-us-card h3 {
+    font-family: var(--briants-font-headings);
+    font-weight: 700;
+    font-size: 0.98rem;
+    margin: 0 0 0.35rem 0;
+    color: var(--briants-text-dark);
+}
+
+.why-us-card p {
+    font-size: 0.82rem;
+    color: var(--briants-text-light);
+    margin: 0;
+    line-height: 1.4;
+}
+
+@media (max-width: 900px) {
+    .why-us-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+}
+
+/* ==========================================================================
+   11. Timber & Fencing Text Section Styles
+   ========================================================================== */
+#briants-timber-details {
+    background-color: var(--briants-bg-white);
+    border-bottom: 1px solid var(--briants-border);
+}
+
+#briants-timber-details .details-highlight-header {
+    background-color: var(--briants-tint-green);
+    border-left: 4px solid var(--briants-primary);
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1.5rem;
+    border-radius: 0 var(--briants-radius-sm) var(--briants-radius-sm) 0;
+}
+
+#briants-timber-details .details-highlight-header h3 {
+    font-family: var(--briants-font-headings);
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--briants-primary);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+#briants-timber-details .details-content-box h2 {
+    font-family: var(--briants-font-headings);
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: var(--briants-text-dark);
+    margin: 0 0 1rem 0;
+}
+
+#briants-timber-details .details-content-box p {
+    font-size: 0.95rem;
+    color: var(--briants-text-light);
+    margin: 0 0 1.25rem 0;
+    line-height: 1.6;
+}
+
+#briants-timber-details .details-content-box p:last-child {
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   12. Featured Categories Grid Styles
+   ========================================================================== */
+#briants-categories-grid {
+    background-color: var(--briants-bg-light);
+    border-bottom: 1px solid var(--briants-border);
+}
+
+.cat-grid-10 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.25rem;
+}
+
+.cat-card {
+    position: relative;
+    height: 180px;
+    border-radius: var(--briants-radius-md);
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    text-decoration: none;
+    box-shadow: var(--briants-shadow-sm);
+    border: 1px solid var(--briants-border);
+    transition: var(--briants-transition);
+}
+
+.cat-card-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    transition: var(--briants-transition);
+}
+
+.cat-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0, 92, 48, 0.9) 0%, rgba(0, 0, 0, 0.3) 65%, rgba(0, 0, 0, 0) 100%);
+    z-index: 1;
+    transition: var(--briants-transition);
+}
+
+.cat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--briants-shadow-md);
+    border-color: var(--briants-primary);
+}
+
+.cat-card:hover .cat-card-bg {
+    transform: scale(1.08);
+}
+
+.cat-card:hover .cat-card-overlay {
+    background: linear-gradient(to top, rgba(0, 92, 48, 0.95) 0%, rgba(0, 92, 48, 0.7) 65%, rgba(0, 0, 0, 0.1) 100%);
+}
+
+.cat-card-text {
+    position: relative;
+    z-index: 2;
+    padding: 1.25rem;
+    width: 100%;
+}
+
+.cat-card-text h3 {
+    font-family: var(--briants-font-headings);
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--briants-bg-white);
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 1024px) {
+    .cat-grid-10 {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
 @media (max-width: 768px) {
-    .brand-carousel-container::before, 
-    .brand-carousel-container::after {
-        width: 60px;
+    .cat-grid-10 {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-/* --- FAQ Section --- */
-.faq-section {
-    background-color: var(--bg-light);
+@media (max-width: 480px) {
+    .cat-grid-10 {
+        grid-template-columns: 1fr;
+    }
+    .cat-card {
+        height: 140px;
+    }
 }
 
-.faq-accordion {
+/* ==========================================================================
+   13. Machinery Deals Grid Styles
+   ========================================================================== */
+#briants-machinery-deals {
+    background-color: var(--briants-bg-white);
+    border-bottom: 1px solid var(--briants-border);
+}
+
+/* ==========================================================================
+   14. Workshop & Repair Services Styles
+   ========================================================================== */
+#briants-workshop {
+    background-color: var(--briants-bg-light);
+    border-bottom: 1px solid var(--briants-border);
+}
+
+.workshop-grid-layout {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.workshop-text-side h2 {
+    font-family: var(--briants-font-headings);
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--briants-primary);
+    margin: 0 0 1.25rem 0;
+}
+
+.workshop-text-side p {
+    font-size: 0.95rem;
+    color: var(--briants-text-light);
+    margin: 0 0 2rem 0;
+}
+
+.workshop-features {
+    display: grid;
+    gap: 1.25rem;
+    margin-bottom: 2.25rem;
+}
+
+.workshop-feat-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+}
+
+.workshop-feat-item i {
+    font-size: 1.2rem;
+    color: var(--briants-primary);
+    margin-top: 0.25rem;
+}
+
+.workshop-feat-item strong {
+    display: block;
+    font-family: var(--briants-font-headings);
+    font-size: 0.92rem;
+    color: var(--briants-text-dark);
+}
+
+.workshop-feat-item span {
+    display: block;
+    font-size: 0.82rem;
+    color: var(--briants-text-light);
+}
+
+/* Interactive tab styling */
+.interactive-tabs-card {
+    background-color: var(--briants-bg-white);
+    border: 1px solid var(--briants-border);
+    border-radius: var(--briants-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--briants-shadow-lg);
+}
+
+.interactive-tabs-card .tabs-header {
+    display: flex;
+    background-color: #f1f5f9;
+    border-bottom: 1px solid var(--briants-border);
+}
+
+.interactive-tabs-card .tab-btn {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 1rem 0.5rem;
+    font-family: var(--briants-font-headings);
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: var(--briants-text-light);
+    cursor: pointer;
+    transition: var(--briants-transition);
+    border-bottom: 3px solid transparent;
+}
+
+.interactive-tabs-card .tab-btn.active {
+    background-color: var(--briants-bg-white);
+    color: var(--briants-primary);
+    border-bottom-color: var(--briants-primary);
+}
+
+.interactive-tabs-card .tab-btn:hover:not(.active) {
+    background-color: rgba(0, 0, 0, 0.02);
+    color: var(--briants-text-dark);
+}
+
+.interactive-tabs-card .tabs-body {
+    padding: 2rem;
+    min-height: 340px;
+}
+
+.interactive-tabs-card .tab-panel {
+    display: none;
+}
+
+.interactive-tabs-card .tab-panel.active {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.interactive-tabs-card .tab-panel h3 {
+    font-family: var(--briants-font-headings);
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    color: var(--briants-text-dark);
+}
+
+.interactive-tabs-card .tab-panel p {
+    font-size: 0.85rem;
+    color: var(--briants-text-light);
+    margin: 0 0 1.25rem 0;
+}
+
+.tab-checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+    display: grid;
+    gap: 0.5rem;
+}
+
+.tab-checklist li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--briants-text-dark);
+}
+
+.tab-checklist li i {
+    color: var(--briants-primary);
+}
+
+.tab-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--briants-border);
+    padding-top: 1.25rem;
+    margin-top: auto;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.tab-price {
+    font-size: 0.82rem;
+    color: var(--briants-text-light);
+}
+
+.tab-price strong {
+    font-size: 1.35rem;
+    color: var(--briants-primary);
+    display: inline-block;
+    margin-left: 0.25rem;
+}
+
+@media (max-width: 900px) {
+    .workshop-grid-layout {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .interactive-tabs-card .tabs-header {
+        flex-direction: column;
+    }
+    .interactive-tabs-card .tab-btn {
+        border-bottom: none;
+        border-left: 3px solid transparent;
+        text-align: left;
+        padding: 0.75rem 1rem;
+    }
+    .interactive-tabs-card .tab-btn.active {
+        border-left-color: var(--briants-primary);
+    }
+    .tab-footer {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+}
+
+/* ==========================================================================
+   15. FAQ Accordion Styles
+   ========================================================================== */
+#briants-faqs {
+    background-color: var(--briants-bg-white);
+    border-bottom: 1px solid var(--briants-border);
+}
+
+.faq-accordion-box {
     max-width: 800px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.75rem;
 }
 
 .faq-item {
-    background-color: var(--bg-white);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
+    background-color: var(--briants-bg-white);
+    border: 1px solid var(--briants-border);
+    border-radius: var(--briants-radius-md);
     overflow: hidden;
-    box-shadow: var(--shadow-sm);
-    transition: var(--transition-smooth);
+    box-shadow: var(--briants-shadow-sm);
+    transition: var(--briants-transition);
 }
 
 .faq-item:hover {
-    border-color: var(--primary-green);
-    box-shadow: var(--shadow-md);
+    border-color: var(--briants-primary);
+    box-shadow: var(--briants-shadow-md);
 }
 
 .faq-trigger {
@@ -1209,11 +1353,11 @@
     background: transparent;
     border: none;
     outline: none;
-    padding: 1.5rem;
-    font-family: var(--font-headings);
+    padding: 1.25rem 1.5rem;
+    font-family: var(--briants-font-headings);
     font-weight: 600;
-    font-size: 1.05rem;
-    color: var(--text-dark);
+    font-size: 1rem;
+    color: var(--briants-text-dark);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1223,9 +1367,9 @@
 }
 
 .faq-trigger i {
-    font-size: 0.85rem;
-    transition: var(--transition-smooth);
-    color: var(--primary-green);
+    font-size: 0.8rem;
+    color: var(--briants-primary);
+    transition: var(--briants-transition);
 }
 
 .faq-item.active .faq-trigger i {
@@ -1240,209 +1384,379 @@
 
 .faq-body {
     padding: 0 1.5rem 1.5rem 1.5rem;
-    font-size: 0.9rem;
-    color: var(--text-light);
+    font-size: 0.88rem;
+    color: var(--briants-text-light);
     border-top: 1px solid transparent;
 }
 
 .faq-item.active .faq-body {
-    border-top-color: var(--border-color);
+    border-top-color: var(--briants-border);
 }
 
-/* --- Contact & Location Section --- */
-.contact-section {
-    background-color: var(--bg-white);
+/* ==========================================================================
+   16. Showroom Contact & Directions Styles
+   ========================================================================== */
+#briants-showroom {
+    background-color: var(--briants-bg-light);
+    border-bottom: 1px solid var(--briants-border);
 }
 
-.contact-card {
-    background-color: var(--bg-light);
-    border-radius: var(--radius-xl);
-    border: 1px solid var(--border-color);
-    box-shadow: var(--shadow-lg);
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
+.showroom-card-layout {
+    background-color: var(--briants-bg-white);
+    border: 1px solid var(--briants-border);
+    border-radius: var(--briants-radius-xl);
     overflow: hidden;
+    box-shadow: var(--briants-shadow-lg);
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
 }
 
-.contact-info-block {
-    padding: 3.5rem;
+.showroom-info-section {
+    padding: 3rem;
 }
 
-.contact-badge {
+.showroom-badge {
     display: inline-block;
-    background-color: var(--tint-green);
-    color: var(--primary-green);
-    padding: 0.25rem 0.75rem;
-    font-family: var(--font-headings);
+    background-color: var(--briants-tint-green);
+    color: var(--briants-primary);
+    font-size: 0.72rem;
+    font-family: var(--briants-font-headings);
     font-weight: 700;
-    font-size: 0.75rem;
-    border-radius: var(--radius-sm);
     text-transform: uppercase;
-    margin-bottom: 1.25rem;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--briants-radius-sm);
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
 }
 
-.contact-info-block h2 {
-    font-family: var(--font-headings);
+.showroom-info-section h2 {
+    font-family: var(--briants-font-headings);
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 1.85rem;
+    color: var(--briants-primary);
     margin: 0 0 1rem 0;
 }
 
-.contact-info-block p {
-    color: var(--text-light);
-    margin-bottom: 2.5rem;
+.showroom-info-section p {
+    font-size: 0.92rem;
+    color: var(--briants-text-light);
+    margin: 0 0 2rem 0;
 }
 
-.contact-details-list {
+.showroom-contact-details {
     display: grid;
-    gap: 1.5rem;
+    gap: 1.25rem;
 }
 
-.contact-detail-item {
+.contact-row {
     display: flex;
     align-items: flex-start;
-    gap: 1rem;
+    gap: 0.85rem;
 }
 
-.contact-detail-item i {
-    font-size: 1.5rem;
-    color: var(--primary-green);
-    width: 24px;
-    text-align: center;
+.contact-row i {
+    font-size: 1.35rem;
+    color: var(--briants-primary);
     margin-top: 0.2rem;
+    width: 20px;
+    text-align: center;
 }
 
-.contact-detail-item strong {
+.contact-row strong {
     display: block;
-    font-family: var(--font-headings);
-    font-size: 0.95rem;
-    color: var(--text-dark);
-}
-
-.contact-detail-item span {
+    font-family: var(--briants-font-headings);
     font-size: 0.9rem;
-    color: var(--text-light);
+    color: var(--briants-text-dark);
 }
 
-.contact-detail-item a {
-    color: var(--primary-green);
+.contact-row span {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--briants-text-light);
+}
+
+.contact-row a {
+    color: var(--briants-primary);
     text-decoration: none;
     font-weight: 600;
 }
 
-.contact-detail-item a:hover {
+.contact-row a:hover {
     text-decoration: underline;
 }
 
-/* Map & Hours Block */
-.contact-map-block {
+.showroom-map-section {
     display: flex;
     flex-direction: column;
+    border-left: 1px solid var(--briants-border);
 }
 
-.map-placeholder {
+.fake-map {
     flex-grow: 1;
-    background-color: #cbd5e1;
-    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80"%3E%3Cpath fill="%2394a3b8" fill-opacity="0.25" d="M0 0h40v40H0V0zm40 40h40v40H40V40z"/%3E%3C/svg%3E'); /* Grid texture representing map layout */
-    min-height: 250px;
-    position: relative;
+    background-color: #e2e8f0;
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"%3E%3Cpath fill="%23cbd5e1" fill-opacity="0.3" d="M0 0h30v30H0V0zm30 30h30v30H30V30z"/%3E%3C/svg%3E');
+    min-height: 220px;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
-.map-overlay {
-    background-color: rgba(255, 255, 255, 0.95);
-    padding: 2rem;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md);
+.map-tag {
+    background-color: var(--briants-bg-white);
+    padding: 1.25rem;
+    border: 1px solid var(--briants-border);
+    border-radius: var(--briants-radius-md);
+    box-shadow: var(--briants-shadow-md);
     text-align: center;
-    max-width: 300px;
-    margin: 1.5rem;
-    border: 1px solid var(--border-color);
+    max-width: 250px;
+    margin: 1rem;
 }
 
-.map-overlay i {
-    font-size: 2.25rem;
-    color: var(--primary-green);
-    margin-bottom: 1rem;
+.map-tag i {
+    font-size: 1.85rem;
+    color: var(--briants-primary);
+    margin-bottom: 0.5rem;
 }
 
-.map-overlay h4 {
-    margin: 0 0 0.5rem 0;
-    font-family: var(--font-headings);
-    font-weight: 700;
-    font-size: 1.1rem;
+.map-tag h4 {
+    font-family: var(--briants-font-headings);
+    font-size: 0.95rem;
+    margin: 0 0 0.25rem 0;
+    color: var(--briants-text-dark);
 }
 
-.map-overlay p {
-    font-size: 0.8rem;
-    color: var(--text-light);
-    margin-bottom: 1.25rem;
+.map-tag p {
+    font-size: 0.75rem;
+    color: var(--briants-text-light);
+    margin: 0 0 0.75rem 0;
 }
 
-.showroom-hours {
-    background-color: #f1f5f9;
-    padding: 2.5rem;
-    border-top: 1px solid var(--border-color);
+.map-tag .briants-btn {
+    font-size: 0.75rem;
+    padding: 0.45rem 0.85rem;
 }
 
-.showroom-hours h4 {
-    font-family: var(--font-headings);
-    font-weight: 700;
-    font-size: 1.05rem;
-    margin: 0 0 1rem 0;
-    color: var(--text-dark);
+.hours-box {
+    background-color: #f8fafc;
+    padding: 1.75rem;
+    border-top: 1px solid var(--briants-border);
 }
 
-.hours-row {
+.hours-box h4 {
+    font-family: var(--briants-font-headings);
+    font-size: 0.95rem;
+    margin: 0 0 0.75rem 0;
+    color: var(--briants-text-dark);
+}
+
+.hours-row-item {
     display: flex;
     justify-content: space-between;
-    font-size: 0.875rem;
-    margin-bottom: 0.5rem;
-    color: var(--text-light);
+    font-size: 0.82rem;
+    color: var(--briants-text-light);
+    margin-bottom: 0.35rem;
 }
 
-.hours-row:last-child {
+.hours-row-item:last-child {
     margin-bottom: 0;
 }
 
-.hours-row strong {
-    color: var(--text-dark);
+.hours-row-item strong {
+    color: var(--briants-text-dark);
 }
 
-@media (max-width: 1024px) {
-    .contact-card {
+@media (max-width: 900px) {
+    .showroom-card-layout {
         grid-template-columns: 1fr;
     }
-    .contact-info-block {
-        padding: 2.5rem 1.5rem;
+    .showroom-info-section {
+        padding: 2rem 1.5rem;
+    }
+    .showroom-map-section {
+        border-left: none;
+        border-top: 1px solid var(--briants-border);
     }
 }
 
-/* --- Footer --- */
-.landing-footer {
-    background-color: #1e293b;
-    color: #94a3b8;
-    border-top: 1px solid #334155;
-    padding: 3rem 0;
+/* ==========================================================================
+   17. Landing Page Footer Styles
+   ========================================================================== */
+#briants-footer {
+    background-color: var(--briants-primary);
+    color: rgba(255, 255, 255, 0.75);
+    border-top: 4px solid var(--briants-accent);
     font-size: 0.85rem;
 }
 
-.footer-bottom {
+#briants-footer .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 2rem 1.5rem;
+}
+
+#briants-footer .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+#briants-footer h4 {
+    color: var(--briants-bg-white);
+    font-family: var(--briants-font-headings);
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0 0 1.25rem 0;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.5rem;
+}
+
+#briants-footer .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.65rem;
+}
+
+#briants-footer .footer-links a {
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+    transition: var(--briants-transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+#briants-footer .footer-links a:hover {
+    color: var(--briants-accent);
+    transform: translateX(2px);
+}
+
+#briants-footer .footer-hours {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.65rem;
+}
+
+#briants-footer .footer-hours li {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#briants-footer .footer-hours strong {
+    color: var(--briants-bg-white);
+}
+
+#briants-footer .footer-hours small {
+    display: block;
+    width: 100%;
+    font-size: 0.72rem;
+    opacity: 0.75;
+    margin-top: 0.1rem;
+}
+
+#briants-footer .footer-address {
+    line-height: 1.6;
+    margin: 0;
+}
+
+#briants-footer .footer-news-desc {
+    margin: 0 0 1rem 0;
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+#briants-footer .footer-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+}
+
+#briants-footer .footer-input {
+    padding: 0.6rem 0.75rem;
+    border-radius: var(--briants-radius-sm);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.08);
+    color: var(--briants-bg-white);
+    outline: none;
+    font-size: 0.8rem;
+    transition: var(--briants-transition);
+}
+
+#briants-footer .footer-input:focus {
+    border-color: var(--briants-accent);
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+#briants-footer .footer-input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+#briants-footer .footer-submit {
+    font-size: 0.8rem;
+    padding: 0.6rem;
+    border-radius: var(--briants-radius-sm);
+}
+
+#briants-footer .footer-socials {
+    display: flex;
+    gap: 0.75rem;
+}
+
+#briants-footer .social-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.08);
+    color: var(--briants-bg-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: var(--briants-transition);
+    font-size: 0.85rem;
+}
+
+#briants-footer .social-icon:hover {
+    background-color: var(--briants-accent);
+    color: var(--briants-primary);
+    transform: translateY(-2px);
+}
+
+#briants-footer .footer-bottom-bar {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 0.75rem;
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.55);
 }
 
-.footer-bottom p {
+#briants-footer .footer-bottom-bar p {
     margin: 0;
 }
 
+@media (max-width: 1024px) {
+    #briants-footer .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 640px) {
-    .footer-bottom {
+    #briants-footer .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    #briants-footer .footer-bottom-bar {
         flex-direction: column;
         text-align: center;
     }
