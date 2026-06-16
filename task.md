@@ -1,7 +1,8 @@
-# Task List - Section Dashboard & Brand Overhaul
+# Task List - Dashboard Customizations & Power Tool Refocus
 
-- [x] Create `sections-data.js` containing the modular HTML, CSS, and JS components for all page sections.
-- [x] Implement style changes in `style.css` to match the deep forest green aesthetic of the Briants site.
-- [x] Refactor `index.html` to establish the dashboard layout, sidebar, iframe previewer, and code copy panel.
-- [x] Implement the interactive dashboard logic in `app.js` (loading templates, rendering inside iframe, viewport resizing, copying code).
-- [x] Verify the implementation (responsive test, individual section preview, combined page building, code copying).
+- [x] Generate the Hero background image `briants_hero_bg.png` using the image generation tool.
+- [x] Modify `index.html` to implement collapsible sidebar and bottom console UI panels.
+- [x] Modify `app.js` to add toggle handlers and viewport resizing events.
+- [x] Modify `sections-data.js` to update templates: machinery refocus, spotlight rebrand, category consolidation, and hero image integration.
+- [x] Modify `style.css` to keep the master stylesheet in sync with the new template designs.
+- [x] Verify the changes (panel toggle testing, responsive checking, visual inspection).

@@ -526,9 +526,122 @@
             color: #f472b6;
             font-size: 0.7rem;
         }
+
+        /* --- Panel Collapse & Resizing Transitions --- */
+        .sidebar {
+            transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .sidebar.collapsed {
+            margin-left: -340px !important;
+        }
+        .code-console {
+            transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .code-console.collapsed {
+            height: 0px !important;
+            overflow: hidden;
+            border-top: none !important;
+        }
+
+        /* Toggle & Restore Button Styles */
+        .sidebar-toggle-btn {
+            background: transparent;
+            border: none;
+            color: var(--db-text-light);
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 0.35rem;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            margin-left: auto;
+        }
+        .sidebar-toggle-btn:hover {
+            color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .console-toggle-btn {
+            background-color: #334155;
+            border: 1px solid #475569;
+            color: var(--db-text-light);
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+        }
+        .console-toggle-btn:hover {
+            background-color: #475569;
+            color: #ffffff;
+        }
+
+        .restore-sidebar-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 999;
+            background-color: var(--db-sidebar-bg);
+            color: #ffffff;
+            border: 1px solid var(--db-border);
+            border-radius: 6px;
+            padding: 0.65rem 1.1rem;
+            font-family: var(--db-font);
+            font-weight: 600;
+            font-size: 0.8rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: all 0.2s ease;
+        }
+        .restore-sidebar-btn:hover {
+            background-color: var(--db-primary);
+            transform: translateY(-2px);
+        }
+
+        .restore-console-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999;
+            background-color: var(--db-sidebar-bg);
+            color: #ffffff;
+            border: 1px solid var(--db-border);
+            border-radius: 6px;
+            padding: 0.65rem 1.1rem;
+            font-family: var(--db-font);
+            font-weight: 600;
+            font-size: 0.8rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: all 0.2s ease;
+        }
+        .restore-console-btn:hover {
+            background-color: var(--db-primary);
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body>
+
+    <!-- Floating panel restoration buttons -->
+    <button id="btn-restore-sidebar" class="restore-sidebar-btn" onclick="toggleSidebar(false)" style="display: none;" title="Expand Sidebar">
+        <i class="fa-solid fa-bars"></i> Show Sidebar
+    </button>
+    <button id="btn-restore-console" class="restore-console-btn" onclick="toggleConsole(false)" style="display: none;" title="Expand Code Console">
+        <i class="fa-solid fa-code"></i> Show Code Console
+    </button>
 
     <!-- Left Sidebar Control Panel -->
     <div class="sidebar">
@@ -538,6 +651,9 @@
                 <h1>Briants Builder</h1>
                 <span>WordPress Section Dashboard</span>
             </div>
+            <button id="btn-toggle-sidebar" class="sidebar-toggle-btn" onclick="toggleSidebar(true)" title="Hide Sidebar">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
         </div>
 
         <!-- Mode Select Tab Panel -->
@@ -628,6 +744,9 @@
                     <span id="copy-text-feedback" class="copy-feedback">Copied to Clipboard!</span>
                     <button class="btn-copy" onclick="copyConsoleCodeToClipboard()">
                         <i class="fa-solid fa-clipboard"></i> Copy Code
+                    </button>
+                    <button id="btn-toggle-console" class="console-toggle-btn" onclick="toggleConsole(true)" title="Hide Code Console">
+                        <i class="fa-solid fa-chevron-down"></i>
                     </button>
                 </div>
             </div>

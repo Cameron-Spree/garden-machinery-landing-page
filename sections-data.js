@@ -334,13 +334,13 @@ const SECTIONS_DATA = [
     id: "hero",
     name: "Hero Section",
     category: "Hero",
-    description: "A banner that sits at the top of the page. Styled in forest green with transparent overlays and a clear action card.",
+    description: "A banner that sits at the top of the page. Styled in forest green with a custom-generated background image and a split-gradient overlay for readability.",
     js: "",
     html: `<section id="briants-hero" class="briants-module">
     <div class="hero-bg-overlay"></div>
     <div class="hero-inner">
         <div class="hero-card">
-            <span class="hero-badge"><i class="fa-solid fa-certificate"></i> Authorised Main Dealer</span>
+            <span class="hero-badge">Authorised Main Dealer</span>
             <h1>Professional Garden Machinery, <span class="hero-highlight">Expertly Prepared.</span></h1>
             <p class="hero-desc">At Briants, we don't just sell boxes. Every petrol and cordless machine we supply undergoes a complete Pre-Delivery Inspection (PDI)—assembled, oiled, tested, and ready to work the moment you receive it.</p>
             
@@ -351,7 +351,7 @@ const SECTIONS_DATA = [
             </ul>
             
             <div class="hero-buttons">
-                <a href="#machinery-categories" class="briants-btn briants-btn-primary briants-btn-lg">Browse Categories <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="#categories-grid" class="briants-btn briants-btn-primary briants-btn-lg">Browse Categories <i class="fa-solid fa-arrow-right"></i></a>
                 <a href="#workshop-servicing" class="briants-btn briants-btn-secondary briants-btn-lg">Book a Service <i class="fa-solid fa-screwdriver-wrench"></i></a>
             </div>
         </div>
@@ -363,7 +363,7 @@ const SECTIONS_DATA = [
 
 #briants-hero {
     position: relative;
-    background-image: url('https://images.unsplash.com/photo-1558904541-efa8c1a68f6f?auto=format&fit=crop&w=1600&q=80');
+    background-image: url('./briants_hero_bg.png');
     background-size: cover;
     background-position: center;
     color: var(--briants-bg-white);
@@ -378,7 +378,7 @@ const SECTIONS_DATA = [
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(0, 92, 48, 0.95) 0%, rgba(0, 92, 48, 0.45) 100%);
+    background: linear-gradient(to right, rgba(0, 92, 48, 0.95) 0%, rgba(0, 92, 48, 0.8) 45%, rgba(0, 92, 48, 0.15) 100%);
     z-index: 1;
 }
 
@@ -467,6 +467,10 @@ const SECTIONS_DATA = [
 @media (max-width: 768px) {
     #briants-hero {
         padding: 4rem 0;
+        background-position: 25% center;
+    }
+    #briants-hero .hero-bg-overlay {
+        background: linear-gradient(to bottom, rgba(0, 92, 48, 0.95) 0%, rgba(0, 92, 48, 0.8) 100%);
     }
     #briants-hero .hero-card {
         padding: 2rem 1.5rem;
@@ -485,28 +489,28 @@ const SECTIONS_DATA = [
   },
   {
     id: "promo-banner",
-    name: "Special Brand Promotions",
+    name: "Brand Spotlight Section",
     category: "Promotions",
-    description: "A wide, clean brand-neutral promotion block designed to advertise current sales, deals, or stock updates.",
+    description: "A wide, clean brand-neutral promotion block designed to spotlight flagship machinery models from top brands.",
     js: "",
     html: `<section id="briants-promo-banner" class="briants-module">
     <div class="promo-container">
         <div class="promo-content">
-            <div class="promo-badge"><i class="fa-solid fa-tags"></i> SEASONAL DEALS</div>
-            <h2>LATEST MACHINERY & TOOL ARRIVALS</h2>
-            <p>Save up to 35% on selected chainsaws, lawn mowers, and professional landscape gear. In stock and ready to deliver today!</p>
+            <div class="promo-badge"><i class="fa-solid fa-star"></i> BRAND SPOTLIGHT</div>
+            <h2>FLAGSHIP MACHINERY SPOTLIGHT</h2>
+            <p>Discover our range of standout professional power tools and flagship machinery. From commercial-grade STIHL chainsaws to heavy-duty Honda petrol mowers, we supply the most reliable models in the industry, fully prepared and ready for action.</p>
             <div class="promo-actions">
-                <a href="#machinery-deals" class="briants-btn briants-btn-secondary">Shop the Sale</a>
+                <a href="#machinery-deals" class="briants-btn briants-btn-secondary">View Flagship Models</a>
                 <a href="#showroom" class="briants-btn briants-btn-outline">Find Our Showroom</a>
             </div>
         </div>
         <div class="promo-img-wrapper">
-            <img src="https://images.unsplash.com/photo-1590856029826-c7a5e03766e6?auto=format&fit=crop&w=800&q=80" alt="Chainsaw and garden equipment" class="promo-img">
+            <img src="https://images.unsplash.com/photo-1590856029826-c7a5e03766e6?auto=format&fit=crop&w=800&q=80" alt="STIHL Chainsaw flagships" class="promo-img">
         </div>
     </div>
 </section>`,
     css: `/* ==========================================================================
-   Special Brand Promotions Banner Styles
+   Brand Spotlight Banner Styles
    ========================================================================== */
 
 #briants-promo-banner {
@@ -597,7 +601,7 @@ const SECTIONS_DATA = [
     id: "quick-categories",
     name: "Quick Navigation Categories",
     category: "Navigation",
-    description: "A three-column visually rich category grid introducing 'Garden Machinery Sale', 'Timber & Fencing', and 'Tree Surgery & Climbing'.",
+    description: "A three-column visually rich category grid introducing the popular power tool lines: Lawn Mowers, Chainsaws, and Hedge Care.",
     js: "",
     html: `<section id="briants-quick-categories" class="briants-module">
     <div class="briants-container">
@@ -606,27 +610,27 @@ const SECTIONS_DATA = [
             <div class="quick-card">
                 <div class="quick-card-img" style="background-image: url('https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?auto=format&fit=crop&w=600&q=80');"></div>
                 <div class="quick-card-content">
-                    <h3>Garden Machinery</h3>
-                    <p>Authorised dealers for STIHL, Husqvarna, Honda, and more. Serviced, prepped, and ready to run.</p>
-                    <a href="#machinery-deals" class="briants-btn briants-btn-primary briants-btn-sm">Shop Machinery <i class="fa-solid fa-chevron-right"></i></a>
+                    <h3>Lawn Mowers</h3>
+                    <p>Robotic, petrol, and battery-powered lawn mowers. From small lawns to commercial ground preparation.</p>
+                    <a href="#machinery-deals" class="briants-btn briants-btn-primary briants-btn-sm">Shop Mowers <i class="fa-solid fa-chevron-right"></i></a>
                 </div>
             </div>
 
             <div class="quick-card">
-                <div class="quick-card-img" style="background-image: url('https://images.unsplash.com/photo-1508873535684-277a3cbcc4e8?auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="quick-card-img" style="background-image: url('https://images.unsplash.com/photo-1590856029826-c7a5e03766e6?auto=format&fit=crop&w=600&q=80');"></div>
                 <div class="quick-card-content">
-                    <h3>Timber & Fencing</h3>
-                    <p>Premium grade sleepers, decking boards, fence panels, posts, and general structural building lumber.</p>
-                    <a href="#sleepers-row" class="briants-btn briants-btn-primary briants-btn-sm">Shop Timber <i class="fa-solid fa-chevron-right"></i></a>
+                    <h3>Chainsaws & Forestry</h3>
+                    <p>Professional and domestic chainsaws, safety helmets, and logging accessories from STIHL.</p>
+                    <a href="#accessories-row" class="briants-btn briants-btn-primary briants-btn-sm">Shop Chainsaws <i class="fa-solid fa-chevron-right"></i></a>
                 </div>
             </div>
 
             <div class="quick-card">
-                <div class="quick-card-img" style="background-image: url('https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="quick-card-img" style="background-image: url('https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=600&q=80');"></div>
                 <div class="quick-card-content">
-                    <h3>Tree Surgery & Climbing</h3>
-                    <p>Professional ropes, harnesses, rigging, and climbing gear for certified arborists and arboriculture.</p>
-                    <a href="#machinery-deals" class="briants-btn briants-btn-primary briants-btn-sm">Shop Climbing <i class="fa-solid fa-chevron-right"></i></a>
+                    <h3>Trimmers & Hedge Care</h3>
+                    <p>Keep your borders, hedges, and brush pristine with lightweight, high-performance power trimmers.</p>
+                    <a href="#machinery-deals" class="briants-btn briants-btn-primary briants-btn-sm">Shop Trimmers <i class="fa-solid fa-chevron-right"></i></a>
                 </div>
             </div>
 
@@ -709,17 +713,17 @@ const SECTIONS_DATA = [
 }`
   },
   {
-    id: "sleepers-row",
-    name: "Decking & Sleepers Product Row",
+    id: "accessories-row",
+    name: "Forestry & Logging Accessories Row",
     category: "Products Grid",
-    description: "A 5-column product showcase highlighting essential timber, composite decking, and sleeper items.",
+    description: "A 5-column product showcase highlighting chainsaw chains, trimmer lines, safety gear, fuel, and battery packs.",
     js: "",
-    html: `<section id="briants-sleepers-row" class="briants-module">
+    html: `<section id="briants-accessories-row" class="briants-module">
     <div class="briants-container">
         <div class="briants-section-header">
-            <span class="briants-section-subtitle">Timber & Structural Wood</span>
-            <h2>Decking, Sleepers, Composites & Cladding</h2>
-            <p>Our top recommended timber supplies, cut to precision and sourced from certified sustainably managed forests.</p>
+            <span class="briants-section-subtitle">Chainsaw & Machinery Essentials</span>
+            <h2>Forestry & Logging Accessories</h2>
+            <p>Genuine parts, high-performance synthetic fuels, safety wear, and power adapters to keep your machinery running safely.</p>
         </div>
         
         <div class="briants-grid-5">
@@ -727,13 +731,13 @@ const SECTIONS_DATA = [
             <!-- Product 1 -->
             <div class="briants-prod-card">
                 <div class="briants-prod-img-box">
-                    <img src="https://images.unsplash.com/photo-1595841696660-181cf0775d97?auto=format&fit=crop&w=400&q=80" alt="Timber Decking Board">
+                    <img src="https://images.unsplash.com/photo-1548247416-ec66f4900b2e?auto=format&fit=crop&w=400&q=80" alt="STIHL MotoMix Fuel">
                 </div>
                 <div class="briants-prod-details">
-                    <span class="briants-prod-tag">TIMBER</span>
-                    <h3 class="briants-prod-title">Treated Softwood Decking Board 4.8m</h3>
+                    <span class="briants-prod-tag">FUEL</span>
+                    <h3 class="briants-prod-title">STIHL MotoMix Premixed 2-Stroke Fuel 5L</h3>
                     <div class="briants-prod-price">
-                        <span>&pound;14.95</span> <small>each</small>
+                        <span>&pound;24.95</span> <small>each</small>
                     </div>
                     <a href="#" class="briants-btn briants-btn-primary briants-btn-sm">Shop Now</a>
                 </div>
@@ -742,13 +746,13 @@ const SECTIONS_DATA = [
             <!-- Product 2 -->
             <div class="briants-prod-card">
                 <div class="briants-prod-img-box">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80" alt="Oak Sleeper">
+                    <img src="https://images.unsplash.com/photo-1590856029826-c7a5e03766e6?auto=format&fit=crop&w=400&q=80" alt="Chainsaw Chain">
                 </div>
                 <div class="briants-prod-details">
-                    <span class="briants-prod-tag">SLEEPERS</span>
-                    <h3 class="briants-prod-title">New English Oak Railway Sleeper 2.4m</h3>
+                    <span class="briants-prod-tag">CHAINS</span>
+                    <h3 class="briants-prod-title">STIHL Replacement Chainsaw Chain 12" Rapid</h3>
                     <div class="briants-prod-price">
-                        <span>&pound;32.50</span> <small>each</small>
+                        <span>&pound;16.50</span> <small>each</small>
                     </div>
                     <a href="#" class="briants-btn briants-btn-primary briants-btn-sm">Shop Now</a>
                 </div>
@@ -757,13 +761,13 @@ const SECTIONS_DATA = [
             <!-- Product 3 -->
             <div class="briants-prod-card">
                 <div class="briants-prod-img-box">
-                    <img src="https://images.unsplash.com/photo-1590076269184-15d7a036420f?auto=format&fit=crop&w=400&q=80" alt="Porcelain Paving">
+                    <img src="https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=400&q=80" alt="Trimmer Line">
                 </div>
                 <div class="briants-prod-details">
-                    <span class="briants-prod-tag">PAVING</span>
-                    <h3 class="briants-prod-title">Sawn Grey Porcelain Paving Tile</h3>
+                    <span class="briants-prod-tag">TRIMMER</span>
+                    <h3 class="briants-prod-title">Premium Round Trimmer Line 2.4mm (90m)</h3>
                     <div class="briants-prod-price">
-                        <span>&pound;9.80</span> <small>per tile</small>
+                        <span>&pound;12.80</span> <small>each</small>
                     </div>
                     <a href="#" class="briants-btn briants-btn-primary briants-btn-sm">Shop Now</a>
                 </div>
@@ -772,13 +776,13 @@ const SECTIONS_DATA = [
             <!-- Product 4 -->
             <div class="briants-prod-card">
                 <div class="briants-prod-img-box">
-                    <img src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=400&q=80" alt="Treated Timber Post">
+                    <img src="https://images.unsplash.com/photo-1507208773393-40d9fc670acf?auto=format&fit=crop&w=400&q=80" alt="Safety Helmet">
                 </div>
                 <div class="briants-prod-details">
-                    <span class="briants-prod-tag">FENCING</span>
-                    <h3 class="briants-prod-title">Treated Standard Timber Post 75x75mm</h3>
+                    <span class="briants-prod-tag">SAFETY</span>
+                    <h3 class="briants-prod-title">Chainsaw Safety Helmet & Mesh Visor Set</h3>
                     <div class="briants-prod-price">
-                        <span>&pound;5.20</span> <small>each</small>
+                        <span>&pound;38.20</span> <small>each</small>
                     </div>
                     <a href="#" class="briants-btn briants-btn-primary briants-btn-sm">Shop Now</a>
                 </div>
@@ -787,13 +791,13 @@ const SECTIONS_DATA = [
             <!-- Product 5 -->
             <div class="briants-prod-card">
                 <div class="briants-prod-img-box">
-                    <img src="https://images.unsplash.com/photo-1560185127-6a2806647f81?auto=format&fit=crop&w=400&q=80" alt="Composite Decking">
+                    <img src="https://images.unsplash.com/photo-1548247416-ec66f4900b2e?auto=format&fit=crop&w=400&q=80" alt="STIHL AP Battery">
                 </div>
                 <div class="briants-prod-details">
-                    <span class="briants-prod-tag">COMPOSITE</span>
-                    <h3 class="briants-prod-title">Premium Composite Decking Board 3.6m</h3>
+                    <span class="briants-prod-tag">BATTERY</span>
+                    <h3 class="briants-prod-title">STIHL AP 300 S Lithium-Ion Battery Cell</h3>
                     <div class="briants-prod-price">
-                        <span>&pound;28.90</span> <small>each</small>
+                        <span>&pound;189.00</span> <small>each</small>
                     </div>
                     <a href="#" class="briants-btn briants-btn-primary briants-btn-sm">Shop Now</a>
                 </div>
@@ -803,10 +807,10 @@ const SECTIONS_DATA = [
     </div>
 </section>`,
     css: `/* ==========================================================================
-   Decking & Sleepers Product Row Styles
+   Forestry & Logging Accessories Row Styles
    ========================================================================== */
 
-#briants-sleepers-row {
+#briants-accessories-row {
     background-color: var(--briants-bg-light);
     border-bottom: 1px solid var(--briants-border);
 }
@@ -899,28 +903,28 @@ const SECTIONS_DATA = [
 }`
   },
   {
-    id: "hort-banner",
-    name: "Horticultural Promo Banner",
+    id: "power-hub-banner",
+    name: "Cordless Power Hub Promo",
     category: "Promotions",
-    description: "A wide, clean brand-neutral promotion block designed to introduce landscape, gardening supplies, and horticultural goods.",
+    description: "A wide, clean brand-neutral promotion block advertising rechargeable STIHL AP/AK and Milwaukee cordless battery systems.",
     js: "",
-    html: `<section id="briants-hort-banner" class="briants-module">
+    html: `<section id="briants-power-hub-banner" class="briants-module">
     <div class="hort-inner">
         <div class="hort-promo-box">
-            <div class="hort-badge"><i class="fa-solid fa-leaf"></i> LANDSCAPING STORE</div>
-            <h2>HORTICULTURAL SUPPLIES & COMPOSTS</h2>
-            <p>Welcome to our landscaping store! We stock premium compost bags, fertilizers, grass seed, peat-free soils, and tools to feed your soil and nourish your garden plants.</p>
-            <a href="#categories-grid" class="briants-btn briants-btn-secondary">Shop Gardening Supplies <i class="fa-solid fa-arrow-right"></i></a>
+            <div class="hort-badge"><i class="fa-solid fa-bolt"></i> CORDLESS BATTERY SYSTEMS</div>
+            <h2>RECHARGEABLE OUTDOOR POWER SYSTEMS</h2>
+            <p>Step into the future of noise-sensitive, exhaust-free gardening. We stock high-capacity STIHL AK & AP batteries, chargers, and Milwaukee M18 Fuel power systems to run commercial lawnmowers and hedge trimmers with zero emissions.</p>
+            <a href="#categories-grid" class="briants-btn briants-btn-secondary">Shop Battery Systems <i class="fa-solid fa-arrow-right"></i></a>
         </div>
     </div>
 </section>`,
     css: `/* ==========================================================================
-   Horticultural Promo Banner Styles
+   Cordless Power Hub Promo Banner Styles
    ========================================================================== */
 
-#briants-hort-banner {
+#briants-power-hub-banner {
     position: relative;
-    background-image: linear-gradient(rgba(0, 92, 48, 0.9), rgba(0, 92, 48, 0.85)), url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=1200&q=80');
+    background-image: linear-gradient(rgba(0, 92, 48, 0.9), rgba(0, 92, 48, 0.85)), url('https://images.unsplash.com/photo-1548247416-ec66f4900b2e?auto=format&fit=crop&w=1200&q=80');
     background-size: cover;
     background-position: center;
     color: var(--briants-bg-white);
@@ -928,13 +932,13 @@ const SECTIONS_DATA = [
     text-align: center;
 }
 
-#briants-hort-banner .hort-inner {
+#briants-power-hub-banner .hort-inner {
     max-width: 800px;
     margin: 0 auto;
     padding: 0 1.5rem;
 }
 
-#briants-hort-banner .hort-badge {
+#briants-power-hub-banner .hort-badge {
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
@@ -949,7 +953,7 @@ const SECTIONS_DATA = [
     text-transform: uppercase;
 }
 
-#briants-hort-banner h2 {
+#briants-power-hub-banner h2 {
     font-family: var(--briants-font-headings);
     font-weight: 800;
     font-size: 2.2rem;
@@ -957,14 +961,14 @@ const SECTIONS_DATA = [
     letter-spacing: -0.01em;
 }
 
-#briants-hort-banner p {
+#briants-power-hub-banner p {
     font-size: 1.05rem;
     opacity: 0.9;
     margin: 0 0 2rem 0;
     line-height: 1.5;
 }
 
-#briants-hort-banner .briants-btn {
+#briants-power-hub-banner .briants-btn {
     font-size: 0.95rem;
 }`
   },
@@ -1328,25 +1332,25 @@ if (brandTrack) {
 }`
   },
   {
-    id: "timber-details",
-    name: "Timber & Fencing Text Section",
+    id: "machinery-details",
+    name: "Machinery & Power Tool Expertise",
     category: "Information",
-    description: "An informational text block with a custom-styled header (light-green highlighted background) detailing Briants wood yard history.",
+    description: "An informational text block with a custom-highlighted header details Briants' main dealer support and diagnostic systems.",
     js: "",
     html: `<section id="briants-timber-details" class="briants-module">
     <div class="briants-container">
         <div class="details-highlight-header">
-            <h3>Established Since 1971 in Longwick</h3>
+            <h3>Authorised Main Dealer & Diagnostic Service Centre</h3>
         </div>
         <div class="details-content-box">
-            <h2>Timber & Fencing, Decking, Sleepers, Cladding & Gates</h2>
-            <p>Briants of Risborough has supplied premium quality timber and fencing to local fencing contractors, landscape builders, and DIY enthusiasts for over 50 years. We work directly with sawmills to ensure our timber yard is fully stocked with high-grade treated softwood sleepers, English oak logs, structural timber joists, and pressure-treated cladding panels.</p>
-            <p>Our dedicated timber yard in Longwick features heavy-duty cutting equipment, allowing us to process bulk orders quickly. Whether you are installing a residential feather-edge fence or building an extensive garden deck, our fleet of crane-equipped delivery vehicles makes transport clean, safe, and stress-free.</p>
+            <h2>Professional Machinery Setup, Spares & Support</h2>
+            <p>Briants of Risborough has been a trusted supplier of commercial and domestic garden power machinery since 1971. As authorized main dealers for STIHL, Honda, Husqvarna, and Milwaukee, we don't just sell equipment in boxes. Every petrol and cordless machine undergoes a rigorous Pre-Delivery Inspection (PDI) to ensure it is fully assembled, lubricated, tuned, and run-tested before handover.</p>
+            <p>Our dedicated workshop at Longwick is staffed by factory-trained technicians with access to the latest electronic diagnostics and genuine spare parts. From replacement chainsaw chains and trimmer lines to annual servicing and precision blade grinding, we support you through the entire lifecycle of your tools. Our local delivery fleet makes shipping heavy equipment like ride-on lawn mowers safe, convenient, and stress-free.</p>
         </div>
     </div>
 </section>`,
     css: `/* ==========================================================================
-   Timber & Fencing Text Section Styles
+   Machinery & Power Tool Details Section Styles
    ========================================================================== */
 
 #briants-timber-details {
@@ -1395,87 +1399,55 @@ if (brandTrack) {
     id: "categories-grid",
     name: "Featured Categories Grid",
     category: "Navigation",
-    description: "A comprehensive 10-card navigation panel covering all main wood yard and machinery service categories.",
+    description: "A comprehensive 6-card navigation panel representing the consolidated category navigation journey.",
     js: "",
     html: `<section id="briants-categories-grid" class="briants-module">
     <div class="briants-container">
         <div class="briants-section-header">
-            <span class="briants-section-subtitle">Yard Selections</span>
+            <span class="briants-section-subtitle">Catalog Selections</span>
             <h2>Explore Our Featured Categories</h2>
-            <p>Select a category to browse our extensive online catalogs or visit our showroom to speak to an expert advisor.</p>
+            <p>Select a category below to browse our extensive online catalogs, or speak to our showroom advisors.</p>
         </div>
         
-        <div class="cat-grid-10">
+        <div class="cat-grid-6">
             
             <a href="#" class="cat-card">
                 <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?auto=format&fit=crop&w=400&q=80');"></div>
                 <div class="cat-card-overlay"></div>
                 <div class="cat-card-text">
-                    <h3>Garden Machinery</h3>
+                    <h3>Lawn Mowers & Ground Prep</h3>
                 </div>
             </a>
 
             <a href="#" class="cat-card">
-                <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1508873535684-277a3cbcc4e8?auto=format&fit=crop&w=400&q=80');"></div>
+                <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1590856029826-c7a5e03766e6?auto=format&fit=crop&w=400&q=80');"></div>
                 <div class="cat-card-overlay"></div>
                 <div class="cat-card-text">
-                    <h3>Timber & Fencing</h3>
+                    <h3>Chainsaws & Forestry</h3>
                 </div>
             </a>
 
             <a href="#" class="cat-card">
-                <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1520117006509-183974335e67?auto=format&fit=crop&w=400&q=80');"></div>
+                <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=400&q=80');"></div>
                 <div class="cat-card-overlay"></div>
                 <div class="cat-card-text">
-                    <h3>Wood Fuels</h3>
+                    <h3>Trimmers & Hedge Care</h3>
                 </div>
             </a>
 
             <a href="#" class="cat-card">
-                <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1595841696660-181cf0775d97?auto=format&fit=crop&w=400&q=80');"></div>
+                <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=400&q=80');"></div>
                 <div class="cat-card-overlay"></div>
                 <div class="cat-card-text">
-                    <h3>Decking & Sleepers</h3>
+                    <h3>Blowers & Outdoor Cleaners</h3>
                 </div>
             </a>
 
             <a href="#" class="cat-card">
-                <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1504198453319-5ce911bafcde?auto=format&fit=crop&w=400&q=80');"></div>
+                <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1548247416-ec66f4900b2e?auto=format&fit=crop&w=400&q=80');"></div>
                 <div class="cat-card-overlay"></div>
                 <div class="cat-card-text">
-                    <h3>Gates & Fittings</h3>
-                </div>
-            </a>
-
-            <a href="#" class="cat-card">
-                <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1549692520-acc6669e2f0c?auto=format&fit=crop&w=400&q=80');"></div>
-                <div class="cat-card-overlay"></div>
-                <div class="cat-card-text">
-                    <h3>Garden Buildings</h3>
-                </div>
-            </a>
-
-            <a href="#" class="cat-card">
-                <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=400&q=80');"></div>
-                <div class="cat-card-overlay"></div>
-                <div class="cat-card-text">
-                    <h3>Cladding & Joists</h3>
-                </div>
-            </a>
-
-            <a href="#" class="cat-card">
-                <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1590076269184-15d7a036420f?auto=format&fit=crop&w=400&q=80');"></div>
-                <div class="cat-card-overlay"></div>
-                <div class="cat-card-text">
-                    <h3>Paving & Aggregates</h3>
-                </div>
-            </a>
-
-            <a href="#" class="cat-card">
-                <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=400&q=80');"></div>
-                <div class="cat-card-overlay"></div>
-                <div class="cat-card-text">
-                    <h3>Garden Supplies</h3>
+                    <h3>Batteries & Power Fuel</h3>
                 </div>
             </a>
 
@@ -1483,7 +1455,7 @@ if (brandTrack) {
                 <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1507208773393-40d9fc670acf?auto=format&fit=crop&w=400&q=80');"></div>
                 <div class="cat-card-overlay"></div>
                 <div class="cat-card-text">
-                    <h3>Workwear & PPE</h3>
+                    <h3>Spares & Maintenance</h3>
                 </div>
             </a>
 
@@ -1491,7 +1463,7 @@ if (brandTrack) {
     </div>
 </section>`,
     css: `/* ==========================================================================
-   Featured Categories Grid Styles
+   Featured Categories Grid Styles (Consolidated 6-Card Layout)
    ========================================================================== */
 
 #briants-categories-grid {
@@ -1499,15 +1471,15 @@ if (brandTrack) {
     border-bottom: 1px solid var(--briants-border);
 }
 
-.cat-grid-10 {
+.cat-grid-6 {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1.25rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
 }
 
 .cat-card {
     position: relative;
-    height: 180px;
+    height: 200px;
     border-radius: var(--briants-radius-md);
     overflow: hidden;
     display: flex;
@@ -1564,30 +1536,24 @@ if (brandTrack) {
 .cat-card-text h3 {
     font-family: var(--briants-font-headings);
     font-weight: 700;
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: var(--briants-bg-white);
     margin: 0;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-@media (max-width: 1024px) {
-    .cat-grid-10 {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .cat-grid-10 {
+@media (max-width: 900px) {
+    .cat-grid-6 {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (max-width: 480px) {
-    .cat-grid-10 {
+@media (max-width: 550px) {
+    .cat-grid-6 {
         grid-template-columns: 1fr;
     }
     .cat-card {
-        height: 140px;
+        height: 160px;
     }
 }`
   },
@@ -2018,7 +1984,8 @@ tabButtons.forEach(button => {
         align-items: stretch;
         text-align: center;
     }
-}`
+}
+`
   },
   {
     id: "faq-accordion",
@@ -2529,13 +2496,9 @@ faqItems.forEach(item => {
     font-family: var(--briants-font-headings);
     font-size: 1.05rem;
     font-weight: 700;
-    margin: 0 0 125rem 0; /* Wait, typo here: 1.25rem instead of 125rem. I will fix this */
+    margin: 0 0 1.25rem 0;
     border-bottom: 2px solid rgba(255, 255, 255, 0.1);
     padding-bottom: 0.5rem;
-}
-
-#briants-footer h4 {
-    margin: 0 0 1.25rem 0;
 }
 
 #briants-footer .footer-links {

@@ -502,3 +502,37 @@ function showCopyFeedback() {
         copyTextFeedbackEl.classList.remove('show');
     }, 2000);
 }
+
+// Panel Collapsing State
+let isSidebarHidden = false;
+let isConsoleHidden = false;
+
+// Toggle Left Sidebar visibility
+function toggleSidebar(hide) {
+    isSidebarHidden = hide;
+    const sidebar = document.querySelector('.sidebar');
+    const restoreBtn = document.getElementById('btn-restore-sidebar');
+    
+    if (hide) {
+        sidebar.classList.add('collapsed');
+        restoreBtn.style.display = 'flex';
+    } else {
+        sidebar.classList.remove('collapsed');
+        restoreBtn.style.display = 'none';
+    }
+}
+
+// Toggle Bottom Code Console visibility
+function toggleConsole(hide) {
+    isConsoleHidden = hide;
+    const consolePanel = document.querySelector('.code-console');
+    const restoreBtn = document.getElementById('btn-restore-console');
+    
+    if (hide) {
+        consolePanel.classList.add('collapsed');
+        restoreBtn.style.display = 'flex';
+    } else {
+        consolePanel.classList.remove('collapsed');
+        restoreBtn.style.display = 'none';
+    }
+}

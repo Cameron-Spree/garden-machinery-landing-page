@@ -283,7 +283,7 @@
    ========================================================================== */
 #briants-hero {
     position: relative;
-    background-image: url('https://images.unsplash.com/photo-1558904541-efa8c1a68f6f?auto=format&fit=crop&w=1600&q=80');
+    background-image: url('./briants_hero_bg.png');
     background-size: cover;
     background-position: center;
     color: var(--briants-bg-white);
@@ -298,7 +298,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(0, 92, 48, 0.95) 0%, rgba(0, 92, 48, 0.45) 100%);
+    background: linear-gradient(to right, rgba(0, 92, 48, 0.95) 0%, rgba(0, 92, 48, 0.8) 45%, rgba(0, 92, 48, 0.15) 100%);
     z-index: 1;
 }
 
@@ -387,6 +387,10 @@
 @media (max-width: 768px) {
     #briants-hero {
         padding: 4rem 0;
+        background-position: 25% center;
+    }
+    #briants-hero .hero-bg-overlay {
+        background: linear-gradient(to bottom, rgba(0, 92, 48, 0.95) 0%, rgba(0, 92, 48, 0.8) 100%);
     }
     #briants-hero .hero-card {
         padding: 2rem 1.5rem;
@@ -404,7 +408,7 @@
 }
 
 /* ==========================================================================
-   5. Special Brand Promotions Banner Styles
+   5. Brand Spotlight Banner Styles
    ========================================================================== */
 #briants-promo-banner {
     background-color: var(--briants-bg-light);
@@ -565,9 +569,9 @@
 }
 
 /* ==========================================================================
-   7. Decking & Sleepers Product Row Styles
+   7. Forestry & Logging Accessories Row Styles
    ========================================================================== */
-#briants-sleepers-row {
+#briants-accessories-row {
     background-color: var(--briants-bg-light);
     border-bottom: 1px solid var(--briants-border);
 }
@@ -660,11 +664,11 @@
 }
 
 /* ==========================================================================
-   8. Horticultural Promo Banner Styles
+   8. Cordless Power Hub Promo Banner Styles
    ========================================================================== */
-#briants-hort-banner {
+#briants-power-hub-banner {
     position: relative;
-    background-image: linear-gradient(rgba(0, 92, 48, 0.9), rgba(0, 92, 48, 0.85)), url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=1200&q=80');
+    background-image: linear-gradient(rgba(0, 92, 48, 0.9), rgba(0, 92, 48, 0.85)), url('https://images.unsplash.com/photo-1548247416-ec66f4900b2e?auto=format&fit=crop&w=1200&q=80');
     background-size: cover;
     background-position: center;
     color: var(--briants-bg-white);
@@ -672,13 +676,13 @@
     text-align: center;
 }
 
-#briants-hort-banner .hort-inner {
+#briants-power-hub-banner .hort-inner {
     max-width: 800px;
     margin: 0 auto;
     padding: 0 1.5rem;
 }
 
-#briants-hort-banner .hort-badge {
+#briants-power-hub-banner .hort-badge {
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
@@ -693,7 +697,7 @@
     text-transform: uppercase;
 }
 
-#briants-hort-banner h2 {
+#briants-power-hub-banner h2 {
     font-family: var(--briants-font-headings);
     font-weight: 800;
     font-size: 2.2rem;
@@ -701,14 +705,14 @@
     letter-spacing: -0.01em;
 }
 
-#briants-hort-banner p {
+#briants-power-hub-banner p {
     font-size: 1.05rem;
     opacity: 0.9;
     margin: 0 0 2rem 0;
     line-height: 1.5;
 }
 
-#briants-hort-banner .briants-btn {
+#briants-power-hub-banner .briants-btn {
     font-size: 0.95rem;
 }
 
@@ -965,7 +969,7 @@
 }
 
 /* ==========================================================================
-   11. Timber & Fencing Text Section Styles
+   11. Machinery & Power Tool Details Section Styles
    ========================================================================== */
 #briants-timber-details {
     background-color: var(--briants-bg-white);
@@ -1010,22 +1014,22 @@
 }
 
 /* ==========================================================================
-   12. Featured Categories Grid Styles
+   12. Featured Categories Grid Styles (Consolidated 6-Card Layout)
    ========================================================================== */
 #briants-categories-grid {
     background-color: var(--briants-bg-light);
     border-bottom: 1px solid var(--briants-border);
 }
 
-.cat-grid-10 {
+.cat-grid-6 {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1.25rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
 }
 
 .cat-card {
     position: relative;
-    height: 180px;
+    height: 200px;
     border-radius: var(--briants-radius-md);
     overflow: hidden;
     display: flex;
@@ -1082,30 +1086,24 @@
 .cat-card-text h3 {
     font-family: var(--briants-font-headings);
     font-weight: 700;
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: var(--briants-bg-white);
     margin: 0;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-@media (max-width: 1024px) {
-    .cat-grid-10 {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .cat-grid-10 {
+@media (max-width: 900px) {
+    .cat-grid-6 {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (max-width: 480px) {
-    .cat-grid-10 {
+@media (max-width: 550px) {
+    .cat-grid-6 {
         grid-template-columns: 1fr;
     }
     .cat-card {
-        height: 140px;
+        height: 160px;
     }
 }
 
