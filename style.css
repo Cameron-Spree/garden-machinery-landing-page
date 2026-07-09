@@ -1968,51 +1968,437 @@
     }
 }
 
-/* Honda Category Grid Styles */
+/* Honda Category Grid - Circular Cutout Design */
 #briants-categories-honda {
-    background-color: var(--briants-bg-light);
+    background-color: var(--briants-bg-white);
     border-bottom: 1px solid var(--briants-border);
 }
 
-.cat-grid-honda {
+.honda-cat-layout {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
 }
 
-#briants-categories-honda .cat-card:hover {
-    border-color: #E31B23; /* Honda Red Hover */
+.honda-cat-card {
+    background-color: var(--briants-bg-light);
+    border-radius: var(--briants-radius-md);
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 1.25rem;
+    text-decoration: none;
+    box-shadow: var(--briants-shadow-sm);
+    border: 1px solid var(--briants-border);
+    border-bottom: 3px solid transparent;
+    transition: var(--briants-transition);
+}
+
+.honda-cat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--briants-shadow-md);
+    border-bottom-color: #E31B23; /* Honda Red Accent */
+    background-color: var(--briants-bg-white);
+    border-color: var(--briants-border);
+}
+
+.honda-cat-info {
+    flex: 1.3;
+    padding-right: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.honda-cat-info h3 {
+    font-family: var(--briants-font-headings);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--briants-text-dark);
+    margin: 0;
+}
+
+.honda-cat-info p {
+    font-size: 0.75rem;
+    color: var(--briants-text-light);
+    margin: 0;
+    line-height: 1.4;
+}
+
+.honda-cat-link {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #E31B23; /* Honda Red Accent */
+    margin-top: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    transition: var(--briants-transition);
+}
+
+.honda-cat-card:hover .honda-cat-link {
+    gap: 0.5rem;
+}
+
+.honda-cat-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    border: 3px solid var(--briants-bg-white);
+    box-shadow: var(--briants-shadow-sm);
+    transition: var(--briants-transition);
+    flex-shrink: 0;
+}
+
+.honda-cat-card:hover .honda-cat-circle {
+    transform: scale(1.08) rotate(3deg);
+    box-shadow: var(--briants-shadow-md);
 }
 
 @media (max-width: 900px) {
-    .cat-grid-honda {
+    .honda-cat-layout {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 550px) {
-    .cat-grid-honda {
+    .honda-cat-layout {
         grid-template-columns: 1fr;
+    }
+    .honda-cat-card {
+        padding: 1.25rem;
     }
 }
 
-/* Honda Machinery Deals Grid Styles */
+/* Technology Spotlight Banner Styles */
+#briants-honda-spotlight-banner {
+    background-color: var(--briants-primary);
+    border-bottom: 1px solid var(--briants-border);
+}
+
+.honda-promo-split {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.honda-promo-card {
+    position: relative;
+    border-radius: var(--briants-radius-lg);
+    overflow: hidden;
+    min-height: 440px;
+    display: flex;
+    align-items: flex-end;
+    box-shadow: var(--briants-shadow-md);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.promo-card-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    transition: var(--briants-transition);
+}
+
+.promo-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0, 92, 48, 0.95) 0%, rgba(0, 92, 48, 0.6) 50%, rgba(0, 0, 0, 0.15) 100%);
+    z-index: 1;
+}
+
+.honda-promo-card:hover .promo-card-bg {
+    transform: scale(1.05);
+}
+
+.promo-card-content {
+    position: relative;
+    z-index: 2;
+    padding: 2.5rem;
+    color: var(--briants-bg-white);
+    width: 100%;
+}
+
+.promo-card-content h2 {
+    font-family: var(--briants-font-headings);
+    font-weight: 800;
+    font-size: 1.85rem;
+    margin: 0.5rem 0 1rem 0;
+    color: var(--briants-bg-white);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.promo-card-content p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0 0 1.5rem 0;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.promo-features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.promo-features-list li {
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.promo-features-list li i {
+    color: #E31B23; /* Honda Red Accent */
+}
+
+@media (max-width: 900px) {
+    .honda-promo-split {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .promo-card-content {
+        padding: 2rem 1.5rem;
+    }
+}
+
+/* Honda Warranty Trust Strip Styles */
+#briants-honda-warranty-trust {
+    background-color: var(--briants-bg-light);
+    border-bottom: 1px solid var(--briants-border);
+    padding: 3.5rem 0;
+}
+
+.honda-trust-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.honda-trust-card {
+    background-color: var(--briants-bg-white);
+    border-radius: var(--briants-radius-md);
+    padding: 2.25rem 1.75rem;
+    text-align: center;
+    border: 1px solid var(--briants-border);
+    box-shadow: var(--briants-shadow-sm);
+    transition: var(--briants-transition);
+}
+
+.honda-trust-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--briants-shadow-md);
+    border-color: #E31B23; /* Honda Red Accent */
+}
+
+.honda-trust-card i {
+    font-size: 2.5rem;
+    color: #E31B23; /* Honda Red Icon */
+    margin-bottom: 1.25rem;
+    display: inline-block;
+}
+
+.honda-trust-card h3 {
+    font-family: var(--briants-font-headings);
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin: 0 0 0.75rem 0;
+    color: var(--briants-text-dark);
+}
+
+.honda-trust-card p {
+    font-size: 0.85rem;
+    line-height: 1.55;
+    margin: 0;
+    color: var(--briants-text-light);
+}
+
+@media (max-width: 768px) {
+    .honda-trust-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+/* Redesigned Honda Deals Grid - Asymmetrical Layout */
 #briants-machinery-deals-honda {
     background-color: var(--briants-bg-white);
     border-bottom: 1px solid var(--briants-border);
 }
 
-#briants-machinery-deals-honda .briants-prod-price span {
+.honda-spotlight-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 2.25rem;
+}
+
+.honda-spotlight-main {
+    background-color: var(--briants-bg-light);
+    border-radius: var(--briants-radius-lg);
+    border: 1px solid var(--briants-border);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--briants-shadow-sm);
+    transition: var(--briants-transition);
+}
+
+.honda-spotlight-main:hover {
+    box-shadow: var(--briants-shadow-md);
+    border-color: #E31B23; /* Honda Red Accent */
+}
+
+.spotlight-img-box {
+    height: 320px;
+    overflow: hidden;
+    position: relative;
+}
+
+.spotlight-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--briants-transition);
+}
+
+.honda-spotlight-main:hover .spotlight-img-box img {
+    transform: scale(1.03);
+}
+
+.spotlight-details {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.spotlight-badge {
+    align-self: flex-start;
+    background-color: #E31B23;
+    color: var(--briants-bg-white);
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.35rem 0.7rem;
+    border-radius: var(--briants-radius-sm);
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+}
+
+.spotlight-details h2 {
+    font-family: var(--briants-font-headings);
+    font-size: 1.65rem;
+    font-weight: 800;
+    color: var(--briants-text-dark);
+    margin: 0 0 0.75rem 0;
+}
+
+.spotlight-desc {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--briants-text-light);
+    margin: 0 0 1.5rem 0;
+}
+
+.spotlight-specs {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.spotlight-specs li {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--briants-text-dark);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.spotlight-specs li i {
     color: #E31B23;
 }
 
-#briants-machinery-deals-honda .briants-prod-card:hover {
+.spotlight-price-action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--briants-border);
+}
+
+.spotlight-price {
+    display: flex;
+    flex-direction: column;
+}
+
+.spotlight-price span {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: #E31B23; /* Red Price Accent */
+    line-height: 1;
+}
+
+.spotlight-price small {
+    font-size: 0.75rem;
+    color: var(--briants-text-light);
+    margin-top: 0.25rem;
+}
+
+/* 2x2 side grid */
+.honda-spotlight-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.honda-spotlight-grid .briants-prod-card {
+    margin-bottom: 0;
+}
+
+.honda-spotlight-grid .briants-prod-card:hover {
     border-color: #E31B23;
 }
 
-/* ==========================================================================
-   Honda Lifestyle & Features Gallery Styles
-   ========================================================================== */
+.honda-spotlight-grid .briants-prod-price span {
+    color: #E31B23;
+}
+
+@media (max-width: 991px) {
+    .honda-spotlight-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 550px) {
+    .honda-spotlight-grid {
+        grid-template-columns: 1fr;
+    }
+    .spotlight-price-action {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1.25rem;
+    }
+}
+
+/* Honda Lifestyle & Features Gallery Styles */
 #briants-honda-gallery {
     background-color: var(--briants-bg-light);
     border-bottom: 1px solid var(--briants-border);
@@ -2167,6 +2553,69 @@
 
 @media (max-width: 767px) {
     .honda-tech-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+/* Honda-Specific FAQ Styles */
+#briants-faq-honda {
+    background-color: var(--briants-bg-light);
+    border-bottom: 1px solid var(--briants-border);
+}
+
+.faq-grid-layout {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.faq-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.faq-card-item {
+    background-color: var(--briants-bg-white);
+    border-radius: var(--briants-radius-md);
+    padding: 1.75rem;
+    border: 1px solid var(--briants-border);
+    box-shadow: var(--briants-shadow-sm);
+    transition: var(--briants-transition);
+}
+
+.faq-card-item:hover {
+    box-shadow: var(--briants-shadow-md);
+    border-color: #E31B23; /* Honda Red Accent */
+}
+
+.faq-card-item h4 {
+    font-family: var(--briants-font-headings);
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0 0 0.75rem 0;
+    color: var(--briants-text-dark);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.faq-card-item h4::before {
+    content: "Q.";
+    color: #E31B23; /* Honda Red Question Indicator */
+    font-weight: 800;
+}
+
+.faq-card-item p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin: 0;
+    color: var(--briants-text-light);
+}
+
+@media (max-width: 768px) {
+    .faq-grid-layout {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }

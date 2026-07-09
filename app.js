@@ -80,9 +80,8 @@ function loadPageTemplate(pageId) {
     
     const templateSectionIds = template.sections;
     const activeSections = [];
-    const inactiveSections = [];
     
-    // Group and order sections
+    // Group and order sections (ONLY those belonging to this template)
     templateSectionIds.forEach(id => {
         const sec = SECTIONS_DATA.find(s => s.id === id);
         if (sec && id !== 'global') {
@@ -90,15 +89,9 @@ function loadPageTemplate(pageId) {
         }
     });
     
-    SECTIONS_DATA.forEach(sec => {
-        if (sec.id !== 'global' && !templateSectionIds.includes(sec.id)) {
-            inactiveSections.push(sec);
-        }
-    });
-    
-    // Update builder bank
-    builderSections = [...activeSections, ...inactiveSections];
-    selectedSectionIds = [...templateSectionIds].filter(id => id !== 'global');
+    // Update builder bank to ONLY contain the template's sections
+    builderSections = activeSections;
+    selectedSectionIds = builderSections.map(s => s.id);
     
     // Set isolated focus to the page's first section if focus was lost or irrelevant
     const currentIsActiveInTemplate = templateSectionIds.includes(activeSectionId);
@@ -145,14 +138,18 @@ function setMode(mode) {
 function renderSidebar() {
     selectionListEl.innerHTML = '';
     
+    // Get the active template's sections
+    const template = PAGE_TEMPLATES.find(p => p.id === activePageId);
+    const templateSectionIds = template ? template.sections : [];
+    
     if (activeMode === 'isolate') {
         // Show global stylesheet as a selectable item first
         const globalSection = SECTIONS_DATA.find(s => s.id === 'global');
         const globalItem = createIsolateItem(globalSection);
         selectionListEl.appendChild(globalItem);
 
-        // Show the rest of the components
-        SECTIONS_DATA.filter(s => s.id !== 'global').forEach(section => {
+        // Show only the template's components
+        SECTIONS_DATA.filter(s => s.id !== 'global' && templateSectionIds.includes(s.id)).forEach(section => {
             const item = createIsolateItem(section);
             selectionListEl.appendChild(item);
         });

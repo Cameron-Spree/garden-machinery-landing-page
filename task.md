@@ -23,3 +23,11 @@
 - [x] Update the `PAGE_TEMPLATES` config to include `honda-gallery` in the Honda page list.
 - [x] Update `style.css` with the new gallery section layouts and blended hero CSS.
 - [x] Verify template switching, layout appearance, and push to GitHub.
+
+# Sidebar UI Filtering & Honda Redesign
+- [ ] Modify `app.js` to filter the sidebar section lists by the active page template in both Isolated and Page Builder views.
+- [ ] Add `honda-spotlight-banner`, `honda-warranty-trust`, and `faq-honda` sections in `sections-data.js`.
+- [ ] Redesign `categories-honda` and `machinery-deals-honda` templates in `sections-data.js` to use unique layouts.
+- [ ] Update `PAGE_TEMPLATES` configuration to load the new Honda widgets.
+- [ ] Add the layout CSS styles in `style.css`.
+- [ ] Verify template switching, layout appearance, and push straight to GitHub.
