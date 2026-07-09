@@ -1845,7 +1845,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to right, rgba(0, 92, 48, 0.95) 0%, rgba(0, 92, 48, 0.85) 45%, rgba(0, 0, 0, 0.2) 100%);
+    background: linear-gradient(to right, rgba(0, 92, 48, 0.95) 0%, rgba(227, 27, 35, 0.4) 50%, rgba(0, 0, 0, 0.15) 100%);
     z-index: 1;
 }
 
@@ -2000,4 +2000,174 @@
 #briants-machinery-deals-honda {
     background-color: var(--briants-bg-white);
     border-bottom: 1px solid var(--briants-border);
+}
+
+#briants-machinery-deals-honda .briants-prod-price span {
+    color: #E31B23;
+}
+
+#briants-machinery-deals-honda .briants-prod-card:hover {
+    border-color: #E31B23;
+}
+
+/* ==========================================================================
+   Honda Lifestyle & Features Gallery Styles
+   ========================================================================== */
+#briants-honda-gallery {
+    background-color: var(--briants-bg-light);
+    border-bottom: 1px solid var(--briants-border);
+}
+
+.honda-tech-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.honda-tech-card {
+    background-color: var(--briants-bg-white);
+    border-radius: var(--briants-radius-md);
+    overflow: hidden;
+    box-shadow: var(--briants-shadow-sm);
+    border: 1px solid var(--briants-border);
+    transition: var(--briants-transition);
+}
+
+.honda-tech-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--briants-shadow-md);
+    border-color: #E31B23; /* Honda Red Accent */
+}
+
+.honda-tech-img {
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+}
+
+.honda-tech-content {
+    padding: 1.5rem;
+}
+
+.honda-tech-tag {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #E31B23; /* Honda Red */
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.honda-tech-content h3 {
+    font-family: var(--briants-font-headings);
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 0 0 0.75rem 0;
+    color: var(--briants-text-dark);
+}
+
+.honda-tech-content p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin: 0;
+    color: var(--briants-text-light);
+}
+
+/* Lifestyle Panels */
+.honda-lifestyle-panels {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.honda-life-panel {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    background-color: var(--briants-bg-white);
+    border-radius: var(--briants-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--briants-shadow-md);
+    border: 1px solid var(--briants-border);
+}
+
+.honda-life-panel.panel-reverse {
+    grid-template-columns: 1fr 1.2fr;
+}
+
+.honda-life-img {
+    background-size: cover;
+    background-position: center;
+    min-height: 350px;
+}
+
+.honda-life-text {
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.honda-life-panel.panel-reverse .honda-life-img {
+    order: 2;
+}
+
+.honda-life-panel.panel-reverse .honda-life-text {
+    order: 1;
+}
+
+.honda-life-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #E31B23; /* Honda Red */
+    border: 1px solid #E31B23;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+}
+
+.honda-life-text h2 {
+    font-family: var(--briants-font-headings);
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin: 0 0 1rem 0;
+    line-height: 1.25;
+    color: var(--briants-text-dark);
+}
+
+.honda-life-text p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0 0 1.5rem 0;
+    color: var(--briants-text-light);
+}
+
+@media (max-width: 991px) {
+    .honda-life-panel, .honda-life-panel.panel-reverse {
+        grid-template-columns: 1fr;
+    }
+    .honda-life-panel.panel-reverse .honda-life-img {
+        order: 0;
+    }
+    .honda-life-panel.panel-reverse .honda-life-text {
+        order: 0;
+    }
+    .honda-life-img {
+        min-height: 250px;
+    }
+    .honda-life-text {
+        padding: 2rem 1.5rem;
+    }
+    .honda-tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    .honda-tech-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
 }

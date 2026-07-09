@@ -37,6 +37,7 @@ const PAGE_TEMPLATES = [
       "hero-honda",
       "promo-banner",
       "categories-honda",
+      "honda-gallery",
       "brands-slider",
       "why-choose-us",
       "machinery-deals-honda",
@@ -2975,7 +2976,7 @@ faqItems.forEach(item => {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to right, rgba(0, 92, 48, 0.95) 0%, rgba(0, 92, 48, 0.85) 45%, rgba(0, 0, 0, 0.2) 100%);
+    background: linear-gradient(to right, rgba(0, 92, 48, 0.95) 0%, rgba(227, 27, 35, 0.4) 50%, rgba(0, 0, 0, 0.15) 100%);
     z-index: 1;
 }
 
@@ -3280,6 +3281,249 @@ faqItems.forEach(item => {
 }`
   },
   {
+    id: "honda-gallery",
+    name: "Featured Title - Honda Lifestyle & Gallery",
+    category: "Information",
+    description: "A brand showcase displaying Honda engineering innovations and large lifestyle product gallery cards.",
+    js: "",
+    html: `<section id="briants-honda-gallery" class="briants-module">
+    <div class="briants-container">
+        
+        <!-- Section Header -->
+        <div class="briants-section-header">
+            <span class="briants-section-subtitle" style="color: #E31B23;">The Honda Difference</span>
+            <h2>Engineered For Life: Technology & Innovation</h2>
+            <p>Honda equipment isn't just about raw power. It's about engineering that simplifies yard work, delivers quiet performance, and stands the test of time.</p>
+        </div>
+        
+        <!-- Technology Cards Grid -->
+        <div class="honda-tech-grid">
+            
+            <!-- Card 1 -->
+            <div class="honda-tech-card">
+                <div class="honda-tech-img" style="background-image: url('https://images.unsplash.com/photo-1558904541-efa8c1a68f6a?auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="honda-tech-content">
+                    <span class="honda-tech-tag">ROBOTIC INTELLIGENCE</span>
+                    <h3>Honda Miimo Autonomous Mowing</h3>
+                    <p>Let Miimo do the hard work. Fully autonomous lawnmowing that adapts to your garden, navigates slopes, schedules around weather, and charges itself automatically for a continuous, healthy carpet cut.</p>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="honda-tech-card">
+                <div class="honda-tech-img" style="background-image: url('https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="honda-tech-content">
+                    <span class="honda-tech-tag">VERSAMOW™ SYSTEM</span>
+                    <h3>Selective Mulching Technology</h3>
+                    <p>Choose between bagging, mulching, or leaf shredding with a single lever. No tools required, no separate plugs needed. Just a simple, robust mechanical switch for lawn nutrition recycling.</p>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="honda-tech-card">
+                <div class="honda-tech-img" style="background-image: url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="honda-tech-content">
+                    <span class="honda-tech-tag">4-STROKE EFFICIENCY</span>
+                    <h3>Revolutionary Clean Power Engines</h3>
+                    <p>Say goodbye to mixing oil and petrol. Honda's advanced 4-stroke engines offer legendary reliability, instant starting, lower emissions, and superior fuel economy with significantly less noise.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Lifestyle alternating panels -->
+        <div class="honda-lifestyle-panels">
+            
+            <!-- Panel 1 -->
+            <div class="honda-life-panel">
+                <div class="honda-life-img" style="background-image: url('https://images.unsplash.com/photo-1523301343968-6a6ebf63c672?auto=format&fit=crop&w=1000&q=80');"></div>
+                <div class="honda-life-text">
+                    <span class="honda-life-badge">PORTABLE ENERGY</span>
+                    <h2>Quiet Comfort Wherever You Go</h2>
+                    <p>Whether you're powering a camper van off-grid, running power tools on-site, or securing home backup power during emergencies, Honda's super-quiet inverter generators deliver stable, clean electricity. Experience commercial-grade power wrapped in lightweight, acoustic-insulated casings.</p>
+                    <a href="#briants-machinery-deals-honda" class="briants-btn briants-btn-primary" style="background-color: #E31B23; border-color: #E31B23;">View Honda Generators</a>
+                </div>
+            </div>
+
+            <!-- Panel 2 -->
+            <div class="honda-life-panel panel-reverse">
+                <div class="honda-life-img" style="background-image: url('https://images.unsplash.com/photo-1599599810769-bcde5a160d32?auto=format&fit=crop&w=1000&q=80');"></div>
+                <div class="honda-life-text">
+                    <span class="honda-life-badge">GROUND CULTIVATION</span>
+                    <h2>Nurture Your Soil with Ease</h2>
+                    <p>Prepare vegetable plots, flower beds, and home allotments for planting with Honda's micro and dual-tine tillers. The high-torque 4-stroke engine drives tough steel tines deep into soil, breaking up hard ground and mixing in nutrients without the physical strain of hand digging.</p>
+                    <a href="#briants-machinery-deals-honda" class="briants-btn briants-btn-primary" style="background-color: #E31B23; border-color: #E31B23;">View Honda Tillers</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>`,
+    css: `/* ==========================================================================
+   Honda Lifestyle & Features Gallery Styles
+   ========================================================================== */
+
+#briants-honda-gallery {
+    background-color: var(--briants-bg-light);
+    border-bottom: 1px solid var(--briants-border);
+}
+
+.honda-tech-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.honda-tech-card {
+    background-color: var(--briants-bg-white);
+    border-radius: var(--briants-radius-md);
+    overflow: hidden;
+    box-shadow: var(--briants-shadow-sm);
+    border: 1px solid var(--briants-border);
+    transition: var(--briants-transition);
+}
+
+.honda-tech-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--briants-shadow-md);
+    border-color: #E31B23; /* Honda Red Accent */
+}
+
+.honda-tech-img {
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+}
+
+.honda-tech-content {
+    padding: 1.5rem;
+}
+
+.honda-tech-tag {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #E31B23; /* Honda Red */
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.honda-tech-content h3 {
+    font-family: var(--briants-font-headings);
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 0 0 0.75rem 0;
+    color: var(--briants-text-dark);
+}
+
+.honda-tech-content p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin: 0;
+    color: var(--briants-text-light);
+}
+
+/* Lifestyle Panels */
+.honda-lifestyle-panels {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.honda-life-panel {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    background-color: var(--briants-bg-white);
+    border-radius: var(--briants-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--briants-shadow-md);
+    border: 1px solid var(--briants-border);
+}
+
+.honda-life-panel.panel-reverse {
+    grid-template-columns: 1fr 1.2fr;
+}
+
+.honda-life-img {
+    background-size: cover;
+    background-position: center;
+    min-height: 350px;
+}
+
+.honda-life-text {
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.honda-life-panel.panel-reverse .honda-life-img {
+    order: 2;
+}
+
+.honda-life-panel.panel-reverse .honda-life-text {
+    order: 1;
+}
+
+.honda-life-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #E31B23; /* Honda Red */
+    border: 1px solid #E31B23;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+}
+
+.honda-life-text h2 {
+    font-family: var(--briants-font-headings);
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin: 0 0 1rem 0;
+    line-height: 1.25;
+    color: var(--briants-text-dark);
+}
+
+.honda-life-text p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0 0 1.5rem 0;
+    color: var(--briants-text-light);
+}
+
+@media (max-width: 991px) {
+    .honda-life-panel, .honda-life-panel.panel-reverse {
+        grid-template-columns: 1fr;
+    }
+    .honda-life-panel.panel-reverse .honda-life-img {
+        order: 0;
+    }
+    .honda-life-panel.panel-reverse .honda-life-text {
+        order: 0;
+    }
+    .honda-life-img {
+        min-height: 250px;
+    }
+    .honda-life-text {
+        padding: 2rem 1.5rem;
+    }
+    .honda-tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    .honda-tech-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}`
+  },
+  {
     id: "machinery-deals-honda",
     name: "Products Grid - Honda Deals",
     category: "Products Grid",
@@ -3288,7 +3532,7 @@ faqItems.forEach(item => {
     html: `<section id="briants-machinery-deals-honda" class="briants-module">
     <div class="briants-container">
         <div class="briants-section-header">
-            <span class="briants-section-subtitle">Honda Spotlight</span>
+            <span class="briants-section-subtitle" style="color: #E31B23;">Honda Spotlight</span>
             <h2>Featured Honda Power Equipment</h2>
             <p>Shop our hand-picked selection of premium Honda garden machinery. Fully assembled, run-tested, and delivered ready-to-work.</p>
         </div>
@@ -3380,6 +3624,14 @@ faqItems.forEach(item => {
 #briants-machinery-deals-honda {
     background-color: var(--briants-bg-white);
     border-bottom: 1px solid var(--briants-border);
+}
+
+#briants-machinery-deals-honda .briants-prod-price span {
+    color: #E31B23;
+}
+
+#briants-machinery-deals-honda .briants-prod-card:hover {
+    border-color: #E31B23;
 }`
   }
 ];
