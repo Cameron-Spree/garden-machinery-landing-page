@@ -1,6 +1,7 @@
 // Briants Section Builder Dashboard Controller
 
 // State Management
+let activePageId = 'main-machinery'; // Default loaded page template
 let activeMode = 'isolate'; // 'isolate' or 'builder'
 let activeSectionId = 'top-banner'; // Default selected section in isolate mode
 let activeCodeTab = 'html'; // 'html', 'css', 'js', or 'global'
@@ -23,6 +24,7 @@ let copyTextFeedbackEl;
 let modeDescEl;
 let btnSelectAllEl;
 let btnClearAllEl;
+let pageTemplateSelectEl;
 
 document.addEventListener('DOMContentLoaded', () => {
     // Cache DOM Elements
@@ -35,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     modeDescEl = document.getElementById('mode-desc');
     btnSelectAllEl = document.getElementById('btn-select-all');
     btnClearAllEl = document.getElementById('btn-clear-all');
+    pageTemplateSelectEl = document.getElementById('page-template-select');
 
     // Initialize Dashboard UI
     init();
@@ -42,14 +45,74 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Initial Setup
 function init() {
-    renderSidebar();
-    updatePreview();
-    updateCodeDisplay();
+    populatePageTemplates();
+    loadPageTemplate(activePageId);
     
     // Automatically load sections scroll pause action once iframe is ready
     previewIframeEl.addEventListener('load', () => {
         setupIframeInteractivity();
     });
+}
+
+// Populate the page template selector dropdown
+function populatePageTemplates() {
+    if (!pageTemplateSelectEl) return;
+    pageTemplateSelectEl.innerHTML = '';
+    
+    PAGE_TEMPLATES.forEach(template => {
+        const option = document.createElement('option');
+        option.value = template.id;
+        option.textContent = template.name;
+        pageTemplateSelectEl.appendChild(option);
+    });
+}
+
+// Switch between page templates from the UI dropdown
+function switchPageTemplate(pageId) {
+    activePageId = pageId;
+    loadPageTemplate(pageId);
+}
+
+// Load a page template's sections, active check states, and order
+function loadPageTemplate(pageId) {
+    const template = PAGE_TEMPLATES.find(p => p.id === pageId);
+    if (!template) return;
+    
+    const templateSectionIds = template.sections;
+    const activeSections = [];
+    const inactiveSections = [];
+    
+    // Group and order sections
+    templateSectionIds.forEach(id => {
+        const sec = SECTIONS_DATA.find(s => s.id === id);
+        if (sec && id !== 'global') {
+            activeSections.push(sec);
+        }
+    });
+    
+    SECTIONS_DATA.forEach(sec => {
+        if (sec.id !== 'global' && !templateSectionIds.includes(sec.id)) {
+            inactiveSections.push(sec);
+        }
+    });
+    
+    // Update builder bank
+    builderSections = [...activeSections, ...inactiveSections];
+    selectedSectionIds = [...templateSectionIds].filter(id => id !== 'global');
+    
+    // Set isolated focus to the page's first section if focus was lost or irrelevant
+    const currentIsActiveInTemplate = templateSectionIds.includes(activeSectionId);
+    if (!currentIsActiveInTemplate || activeSectionId === 'global') {
+        const firstSec = templateSectionIds.find(id => id !== 'global');
+        if (firstSec) {
+            activeSectionId = firstSec;
+        }
+    }
+    
+    // Refresh all UI elements
+    renderSidebar();
+    updatePreview();
+    updateCodeDisplay();
 }
 
 // Switch Mode between Isolated Preview and Page Builder

@@ -2,6 +2,52 @@
 // This file stores the isolated HTML, CSS, and JS code for each section,
 // allowing the Dashboard to preview and serve them individually.
 
+const PAGE_TEMPLATES = [
+  {
+    id: "main-machinery",
+    name: "Garden Machinery Main Landing Page",
+    description: "The primary modular landing page showcasing our garden machinery and upkeep accessories catalogs.",
+    sections: [
+      "top-banner",
+      "header",
+      "hero",
+      "promo-banner",
+      "quick-categories",
+      "accessories-row",
+      "power-hub-banner",
+      "brands-slider",
+      "why-choose-us",
+      "machinery-details",
+      "categories-machinery",
+      "categories-addons",
+      "machinery-deals",
+      "workshop-servicing",
+      "faq-accordion",
+      "showroom",
+      "footer"
+    ]
+  },
+  {
+    id: "honda-spotlight",
+    name: "Honda Range Spotlight Page",
+    description: "A branded spotlight page highlighting the premium Honda power equipment range, authorized service, and category paths.",
+    sections: [
+      "top-banner",
+      "header",
+      "hero-honda",
+      "promo-banner",
+      "categories-honda",
+      "brands-slider",
+      "why-choose-us",
+      "machinery-deals-honda",
+      "workshop-servicing",
+      "faq-accordion",
+      "showroom",
+      "footer"
+    ]
+  }
+];
+
 const SECTIONS_DATA = [
   {
     id: "global",
@@ -2870,6 +2916,470 @@ faqItems.forEach(item => {
         flex-direction: column;
         text-align: center;
     }
+}`
+  },
+  {
+    id: "hero-honda",
+    name: "Hero Banner - Honda Range",
+    category: "Hero",
+    description: "A premium hero banner focused on Honda Power Equipment, highlighting mowers, generators, tillers, and brushcutters.",
+    js: "",
+    html: `<section id="briants-hero-honda" class="briants-module">
+    <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?auto=format&fit=crop&w=1600&q=80');"></div>
+    <div class="hero-overlay"></div>
+    <div class="briants-container">
+        <div class="hero-content">
+            <span class="hero-badge"><i class="fa-solid fa-certificate"></i> Honda Authorised Specialist Dealer</span>
+            <h1>Honda Power Equipment</h1>
+            <p class="hero-lead">Engineered to perform, built to last. Explore the legendary reliability of Honda lawn mowers, generators, tillers, and handheld garden tools.</p>
+            <div class="hero-buttons">
+                <a href="#briants-categories-honda" class="briants-btn briants-btn-primary briants-btn-lg">Shop Honda Range</a>
+                <a href="#briants-workshop" class="briants-btn briants-btn-secondary briants-btn-lg">Book a Service</a>
+            </div>
+            <div class="hero-trust">
+                <div class="trust-item"><i class="fa-solid fa-truck-fast"></i> <span>Click & Collect / Local Delivery</span></div>
+                <div class="trust-item"><i class="fa-solid fa-wrench"></i> <span>Fully Prepared & Run-Tested (PDI)</span></div>
+                <div class="trust-item"><i class="fa-solid fa-shield-halved"></i> <span>Official Honda Warranty Secured</span></div>
+            </div>
+        </div>
+    </div>
+</section>`,
+    css: `/* ==========================================================================
+   Honda Hero Banner Styles
+   ========================================================================== */
+
+#briants-hero-honda {
+    position: relative;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    color: var(--briants-bg-white);
+    overflow: hidden;
+    background-color: var(--briants-primary);
+}
+
+#briants-hero-honda .hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center 35%;
+    transition: var(--briants-transition);
+}
+
+#briants-hero-honda .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(0, 92, 48, 0.95) 0%, rgba(0, 92, 48, 0.85) 45%, rgba(0, 0, 0, 0.2) 100%);
+    z-index: 1;
+}
+
+#briants-hero-honda .briants-container {
+    position: relative;
+    z-index: 2;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+#briants-hero-honda .hero-content {
+    max-width: 650px;
+}
+
+#briants-hero-honda .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #E31B23; /* Honda Red */
+    color: var(--briants-bg-white);
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: var(--briants-radius-sm);
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+#briants-hero-honda h1 {
+    font-family: var(--briants-font-headings);
+    font-weight: 800;
+    font-size: 3.5rem;
+    line-height: 1.15;
+    margin: 0 0 1rem 0;
+    letter-spacing: -0.01em;
+    color: var(--briants-bg-white);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+#briants-hero-honda .hero-lead {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    margin: 0 0 2rem 0;
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+#briants-hero-honda .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+#briants-hero-honda .briants-btn-primary {
+    background-color: #E31B23; /* Honda Red */
+    border-color: #E31B23;
+    color: var(--briants-bg-white);
+}
+
+#briants-hero-honda .briants-btn-primary:hover {
+    background-color: #b31017;
+    border-color: #b31017;
+    transform: translateY(-2px);
+}
+
+#briants-hero-honda .briants-btn-secondary {
+    background-color: transparent;
+    border-color: var(--briants-bg-white);
+    color: var(--briants-bg-white);
+}
+
+#briants-hero-honda .briants-btn-secondary:hover {
+    background-color: var(--briants-bg-white);
+    color: var(--briants-primary);
+    transform: translateY(-2px);
+}
+
+#briants-hero-honda .hero-trust {
+    display: flex;
+    gap: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 1.5rem;
+}
+
+#briants-hero-honda .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+#briants-hero-honda .trust-item i {
+    color: #E31B23; /* Honda Red Accent */
+    font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+    #briants-hero-honda {
+        height: auto;
+        padding: 5rem 0;
+    }
+    #briants-hero-honda .hero-overlay {
+        background: rgba(0, 92, 48, 0.9);
+    }
+    #briants-hero-honda h1 {
+        font-size: 2.5rem;
+    }
+    #briants-hero-honda .hero-buttons {
+        flex-direction: column;
+        gap: 0.75rem;
+        margin-bottom: 2rem;
+    }
+    #briants-hero-honda .hero-trust {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+}`
+  },
+  {
+    id: "categories-honda",
+    name: "Featured Categories - Honda",
+    category: "Navigation",
+    description: "A 6-card categories grid displaying specific categories of Honda power equipment.",
+    js: "",
+    html: `<section id="briants-categories-honda" class="briants-module">
+    <div class="briants-container">
+        <div class="briants-section-header">
+            <span class="briants-section-subtitle">Honda Catalogue</span>
+            <h2>Explore The Honda Range</h2>
+            <p>Select a category below to browse our online Honda catalog, or speak to our authorized Honda specialists.</p>
+        </div>
+        
+        <div class="cat-grid-honda">
+            
+            <a href="#" class="cat-card">
+                <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?auto=format&fit=crop&w=400&q=80');"></div>
+                <div class="cat-card-overlay"></div>
+                <div class="cat-card-text">
+                    <h3>Honda Lawn Mowers</h3>
+                    <div class="cat-card-subs">Rotary, Roller, Izy, Core Cordless & Miimo Robotic</div>
+                </div>
+            </a>
+
+            <a href="#" class="cat-card">
+                <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80');"></div>
+                <div class="cat-card-overlay"></div>
+                <div class="cat-card-text">
+                    <h3>Honda Generators</h3>
+                    <div class="cat-card-subs">Super-quiet Inverters, Frame Generators & Industrial Power</div>
+                </div>
+            </a>
+
+            <a href="#" class="cat-card">
+                <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=400&q=80');"></div>
+                <div class="cat-card-overlay"></div>
+                <div class="cat-card-text">
+                    <h3>Honda Tillers & Rotavators</h3>
+                    <div class="cat-card-subs">Micro Tillers, Front Tine, Rear Dual-Tine & Ground Cultivators</div>
+                </div>
+            </a>
+
+            <a href="#" class="cat-card">
+                <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1507036066871-b7e8032b3dea?auto=format&fit=crop&w=400&q=80');"></div>
+                <div class="cat-card-overlay"></div>
+                <div class="cat-card-text">
+                    <h3>Honda Trimmers & Brushcutters</h3>
+                    <div class="cat-card-subs">4-Stroke Petrol Trimmers, Heavy-duty Brushcutters & Versatool</div>
+                </div>
+            </a>
+
+            <a href="#" class="cat-card">
+                <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=400&q=80');"></div>
+                <div class="cat-card-overlay"></div>
+                <div class="cat-card-text">
+                    <h3>Honda Hedgetrimmers</h3>
+                    <div class="cat-card-subs">Single-sided, Double-sided & Long-reach Pole Hedgetrimmers</div>
+                </div>
+            </a>
+
+            <a href="#" class="cat-card">
+                <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=400&q=80');"></div>
+                <div class="cat-card-overlay"></div>
+                <div class="cat-card-text">
+                    <h3>Honda Spares & Oils</h3>
+                    <div class="cat-card-subs">Genuine Honda Service Kits, Engine Oils & Accessories</div>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</section>`,
+    css: `/* ==========================================================================
+   Honda Category Grid Styles
+   ========================================================================== */
+
+#briants-categories-honda {
+    background-color: var(--briants-bg-light);
+    border-bottom: 1px solid var(--briants-border);
+}
+
+.cat-grid-honda {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.cat-card {
+    position: relative;
+    height: 200px;
+    border-radius: var(--briants-radius-md);
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    text-decoration: none;
+    box-shadow: var(--briants-shadow-sm);
+    border: 1px solid var(--briants-border);
+    transition: var(--briants-transition);
+}
+
+.cat-card-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    transition: var(--briants-transition);
+}
+
+.cat-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0, 92, 48, 0.9) 0%, rgba(0, 0, 0, 0.3) 65%, rgba(0, 0, 0, 0) 100%);
+    z-index: 1;
+    transition: var(--briants-transition);
+}
+
+.cat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--briants-shadow-md);
+    border-color: #E31B23; /* Honda Red Hover */
+}
+
+.cat-card:hover .cat-card-bg {
+    transform: scale(1.08);
+}
+
+.cat-card:hover .cat-card-overlay {
+    background: linear-gradient(to top, rgba(0, 92, 48, 0.95) 0%, rgba(0, 92, 48, 0.7) 65%, rgba(0, 0, 0, 0.1) 100%);
+}
+
+.cat-card-text {
+    position: relative;
+    z-index: 2;
+    padding: 1.25rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.cat-card-text h3 {
+    font-family: var(--briants-font-headings);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--briants-bg-white);
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.cat-card-subs {
+    font-family: var(--briants-font-body);
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.35;
+    margin-top: 0.15rem;
+    font-weight: 400;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 900px) {
+    .cat-grid-honda {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 550px) {
+    .cat-grid-honda {
+        grid-template-columns: 1fr;
+    }
+    .cat-card {
+        height: 160px;
+    }
+}`
+  },
+  {
+    id: "machinery-deals-honda",
+    name: "Products Grid - Honda Deals",
+    category: "Products Grid",
+    description: "A 5-column product row showing premium Honda machinery, including lawn mowers, tillers, and quiet generators.",
+    js: "",
+    html: `<section id="briants-machinery-deals-honda" class="briants-module">
+    <div class="briants-container">
+        <div class="briants-section-header">
+            <span class="briants-section-subtitle">Honda Spotlight</span>
+            <h2>Featured Honda Power Equipment</h2>
+            <p>Shop our hand-picked selection of premium Honda garden machinery. Fully assembled, run-tested, and delivered ready-to-work.</p>
+        </div>
+        
+        <div class="briants-grid-5">
+            
+            <!-- Product 1 -->
+            <div class="briants-prod-card">
+                <div class="briants-prod-img-box">
+                    <img src="https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?auto=format&fit=crop&w=400&q=80" alt="Honda Cordless Mower">
+                </div>
+                <div class="briants-prod-details">
+                    <span class="briants-prod-tag" style="background-color: #E31B23; color: white;">HONDA CORDLESS</span>
+                    <h3 class="briants-prod-title">Honda HRG 466 XB 46cm Self-Propelled Battery Mower</h3>
+                    <div class="briants-prod-price">
+                        <span>&pound;599.00</span> <small>Inc. PDI</small>
+                    </div>
+                    <a href="#" class="briants-btn briants-btn-primary briants-btn-sm" style="background-color: #E31B23; border-color: #E31B23;">Shop Now</a>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="briants-prod-card">
+                <div class="briants-prod-img-box">
+                    <img src="https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=400&q=80" alt="Honda Petrol Mower">
+                </div>
+                <div class="briants-prod-details">
+                    <span class="briants-prod-tag" style="background-color: #E31B23; color: white;">HONDA PETROL</span>
+                    <h3 class="briants-prod-title">Honda HRX 537 VY 53cm Variable Speed Petrol Lawnmower</h3>
+                    <div class="briants-prod-price">
+                        <span>&pound;1,199.00</span> <small>Inc. PDI</small>
+                    </div>
+                    <a href="#" class="briants-btn briants-btn-primary briants-btn-sm" style="background-color: #E31B23; border-color: #E31B23;">Shop Now</a>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="briants-prod-card">
+                <div class="briants-prod-img-box">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80" alt="Honda Generator">
+                </div>
+                <div class="briants-prod-details">
+                    <span class="briants-prod-tag" style="background-color: #E31B23; color: white;">HONDA GENERATORS</span>
+                    <h3 class="briants-prod-title">Honda EU 22i 2.2kW Inverter Super-Quiet Generator</h3>
+                    <div class="briants-prod-price">
+                        <span>&pound;1,299.00</span> <small>Inc. PDI</small>
+                    </div>
+                    <a href="#" class="briants-btn briants-btn-primary briants-btn-sm" style="background-color: #E31B23; border-color: #E31B23;">Shop Now</a>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="briants-prod-card">
+                <div class="briants-prod-img-box">
+                    <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=400&q=80" alt="Honda Tiller">
+                </div>
+                <div class="briants-prod-details">
+                    <span class="briants-prod-tag" style="background-color: #E31B23; color: white;">HONDA TILLERS</span>
+                    <h3 class="briants-prod-title">Honda FG 201 49cc 4-Stroke Lightweight Micro Tiller</h3>
+                    <div class="briants-prod-price">
+                        <span>&pound;489.00</span> <small>Inc. PDI</small>
+                    </div>
+                    <a href="#" class="briants-btn briants-btn-primary briants-btn-sm" style="background-color: #E31B23; border-color: #E31B23;">Shop Now</a>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="briants-prod-card">
+                <div class="briants-prod-img-box">
+                    <img src="https://images.unsplash.com/photo-1507036066871-b7e8032b3dea?auto=format&fit=crop&w=400&q=80" alt="Honda Brushcutter">
+                </div>
+                <div class="briants-prod-details">
+                    <span class="briants-prod-tag" style="background-color: #E31B23; color: white;">HONDA HANDHELDS</span>
+                    <h3 class="briants-prod-title">Honda UMK 425 LE 25cc 4-Stroke Loop Brushcutter</h3>
+                    <div class="briants-prod-price">
+                        <span>&pound;399.00</span> <small>Inc. PDI</small>
+                    </div>
+                    <a href="#" class="briants-btn briants-btn-primary briants-btn-sm" style="background-color: #E31B23; border-color: #E31B23;">Shop Now</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>`,
+    css: `/* ==========================================================================
+   Honda Machinery Deals Grid Styles
+   ========================================================================== */
+
+#briants-machinery-deals-honda {
+    background-color: var(--briants-bg-white);
+    border-bottom: 1px solid var(--briants-border);
 }`
   }
 ];

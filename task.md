@@ -9,3 +9,10 @@
 - [x] Update the Master Stylesheet `style.css` and the isolated component styles in `sections-data.js`.
 - [x] Verify the changes (panel toggle testing, responsive checking, visual inspection).
 - [x] Push all changes to GitHub.
+
+# Page Templates & Brand Spotlight Updates
+- [x] Add `PAGE_TEMPLATES` configuration and Honda-specific templates to `sections-data.js`.
+- [x] Add the page selector HTML dropdown and styles in `index.html`.
+- [x] Implement `switchPageTemplate` logic and dynamic selector population in `app.js`.
+- [x] Verify the template switching and builder compilation.
+- [x] Push new updates to GitHub.

@@ -86,6 +86,67 @@
             margin-top: 0.1rem;
         }
 
+        /* Page Selector Styling */
+        .page-selector-container {
+            padding: 1rem;
+            border-bottom: 1px solid var(--db-border);
+            background-color: var(--db-dark-bg);
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+        }
+
+        .page-selector-container label {
+            font-size: 0.7rem;
+            color: var(--db-text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+        }
+
+        .select-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .select-wrapper select {
+            width: 100%;
+            padding: 0.55rem 2rem 0.55rem 0.75rem;
+            background-color: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--db-border);
+            border-radius: 4px;
+            color: #ffffff;
+            font-family: inherit;
+            font-size: 0.825rem;
+            font-weight: 500;
+            appearance: none;
+            -webkit-appearance: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .select-wrapper select:focus {
+            outline: none;
+            border-color: var(--db-primary);
+            background-color: rgba(255, 255, 255, 0.12);
+        }
+
+        .select-wrapper select option {
+            background-color: var(--db-sidebar-bg);
+            color: #ffffff;
+            padding: 0.5rem;
+        }
+
+        .select-arrow {
+            position: absolute;
+            right: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--db-text-light);
+            pointer-events: none;
+            font-size: 0.7rem;
+        }
+
         /* Mode Selectors */
         .mode-tabs {
             display: flex;
@@ -654,6 +715,17 @@
             <button id="btn-toggle-sidebar" class="sidebar-toggle-btn" onclick="toggleSidebar(true)" title="Hide Sidebar">
                 <i class="fa-solid fa-chevron-left"></i>
             </button>
+        </div>
+
+        <!-- Page Template Selector -->
+        <div class="page-selector-container">
+            <label for="page-template-select">Active Page Template:</label>
+            <div class="select-wrapper">
+                <select id="page-template-select" onchange="switchPageTemplate(this.value)">
+                    <!-- Options populated dynamically by app.js -->
+                </select>
+                <i class="fa-solid fa-chevron-down select-arrow"></i>
+            </div>
         </div>
 
         <!-- Mode Select Tab Panel -->
