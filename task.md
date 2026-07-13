@@ -24,6 +24,13 @@
 - [x] Update `style.css` with the new gallery section layouts and blended hero CSS.
 - [x] Verify template switching, layout appearance, and push to GitHub.
 
+# Honda Page — Full Ground-Up Rebuild
+- [x] Update `PAGE_TEMPLATES` config with new Honda section IDs in `sections-data.js`.
+- [x] Delete all old Honda section objects from `sections-data.js`.
+- [x] Build 7 new Honda sections: `honda-hero`, `honda-heritage`, `honda-product-showcase`, `honda-feature-split`, `honda-lineup`, `honda-trust-bar`, `honda-faq`.
+- [x] Replace all old Honda CSS in `style.css` with new dark-theme design system.
+- [x] Verify and push to GitHub.
+
 # Sidebar UI Filtering & Honda Redesign
 - [ ] Modify `app.js` to filter the sidebar section lists by the active page template in both Isolated and Page Builder views.
 - [ ] Add `honda-spotlight-banner`, `honda-warranty-trust`, and `faq-honda` sections in `sections-data.js`.

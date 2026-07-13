@@ -34,14 +34,14 @@ const PAGE_TEMPLATES = [
     sections: [
       "top-banner",
       "header",
-      "hero-honda",
-      "honda-spotlight-banner",
-      "categories-honda",
-      "honda-gallery",
-      "honda-warranty-trust",
-      "machinery-deals-honda",
+      "honda-hero",
+      "honda-heritage",
+      "honda-product-showcase",
+      "honda-feature-split",
+      "honda-lineup",
+      "honda-trust-bar",
+      "honda-faq",
       "workshop-servicing",
-      "faq-honda",
       "showroom",
       "footer"
     ]
@@ -2919,1231 +2919,1312 @@ faqItems.forEach(item => {
 }`
   },
   {
-    id: "hero-honda",
-    name: "Hero Banner - Honda Range",
+    id: "honda-hero",
+    name: "Hero — Honda Power Equipment",
     category: "Hero",
-    description: "A premium hero banner focused on Honda Power Equipment, highlighting mowers, generators, tillers, and brushcutters.",
+    description: "A cinematic full-viewport hero section for the Honda Power Equipment spotlight page, featuring dark charcoal-to-red gradient overlay, bold display heading, trust strip, and animated scroll indicator.",
     js: "",
-    html: `<section id="briants-hero-honda" class="briants-module">
-    <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?auto=format&fit=crop&w=1600&q=80');"></div>
-    <div class="hero-overlay"></div>
+    html: `<section id="briants-honda-hero" class="briants-module">
+    <div class="honda-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?auto=format&fit=crop&w=1920&q=80');"></div>
+    <div class="honda-hero-overlay"></div>
     <div class="briants-container">
-        <div class="hero-content">
-            <span class="hero-badge"><i class="fa-solid fa-certificate"></i> Honda Authorised Specialist Dealer</span>
-            <h1>Honda Power Equipment</h1>
-            <p class="hero-lead">Engineered to perform, built to last. Explore the legendary reliability of Honda lawn mowers, generators, tillers, and handheld garden tools.</p>
-            <div class="hero-buttons">
-                <a href="#briants-categories-honda" class="briants-btn briants-btn-primary briants-btn-lg">Shop Honda Range</a>
-                <a href="#briants-workshop" class="briants-btn briants-btn-secondary briants-btn-lg">Book a Service</a>
-            </div>
-            <div class="hero-trust">
-                <div class="trust-item"><i class="fa-solid fa-truck-fast"></i> <span>Click & Collect / Local Delivery</span></div>
-                <div class="trust-item"><i class="fa-solid fa-wrench"></i> <span>Fully Prepared & Run-Tested (PDI)</span></div>
-                <div class="trust-item"><i class="fa-solid fa-shield-halved"></i> <span>Official Honda Warranty Secured</span></div>
+        <div class="honda-hero-content">
+            <span class="honda-hero-badge">HONDA AUTHORISED DEALER</span>
+            <h1 class="honda-display-heading">Power You Can Trust</h1>
+            <p class="honda-hero-lead">From world-class lawnmowers to whisper-quiet generators, Honda\`s legendary 4-stroke engineering delivers unmatched performance, fuel efficiency, and reliability &mdash; season after season.</p>
+            <a href="#briants-honda-showcase" class="briants-btn briants-btn-primary briants-btn-lg honda-hero-cta">Explore The Range</a>
+        </div>
+    </div>
+    <div class="honda-hero-trust-strip">
+        <div class="briants-container">
+            <div class="honda-trust-strip-inner">
+                <div class="honda-trust-strip-item"><i class="fa-solid fa-certificate"></i> Authorised Dealer</div>
+                <div class="honda-trust-strip-item"><i class="fa-solid fa-shield-halved"></i> Up to 7 Year Warranty</div>
+                <div class="honda-trust-strip-item"><i class="fa-solid fa-wrench"></i> Free PDI Assembly</div>
             </div>
         </div>
     </div>
+    <div class="honda-scroll-indicator">
+        <i class="fa-solid fa-chevron-down"></i>
+    </div>
 </section>`,
-    css: `/* ==========================================================================
-   Honda Hero Banner Styles
-   ========================================================================== */
-
-#briants-hero-honda {
+    css: `/* ======================================================================
+   Honda Hero — Cinematic Full-Viewport
+   ====================================================================== */
+#briants-honda-hero {
     position: relative;
-    height: 600px;
+    min-height: 100vh;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    color: var(--briants-bg-white);
     overflow: hidden;
-    background-color: var(--briants-primary);
+    background: #0d0d0d;
 }
 
-#briants-hero-honda .hero-bg {
+#briants-honda-hero .honda-hero-bg {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background-size: cover;
-    background-position: center 35%;
-    transition: var(--briants-transition);
-}
-
-#briants-hero-honda .hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to right, rgba(0, 92, 48, 0.95) 0%, rgba(227, 27, 35, 0.4) 50%, rgba(0, 0, 0, 0.15) 100%);
+    background-position: center;
+    background-repeat: no-repeat;
     z-index: 1;
 }
 
-#briants-hero-honda .briants-container {
-    position: relative;
+#briants-honda-hero .honda-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(13,13,13,0.92) 0%, rgba(26,26,26,0.85) 50%, rgba(227,27,35,0.3) 100%);
     z-index: 2;
-    padding-top: 0;
-    padding-bottom: 0;
 }
 
-#briants-hero-honda .hero-content {
-    max-width: 650px;
+#briants-honda-hero .briants-container {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
 
-#briants-hero-honda .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background-color: #E31B23; /* Honda Red */
-    color: var(--briants-bg-white);
-    padding: 0.4rem 0.8rem;
-    font-size: 0.75rem;
+#briants-honda-hero .honda-hero-content {
+    max-width: 700px;
+    padding: 6rem 0 4rem;
+}
+
+#briants-honda-hero .honda-hero-badge {
+    display: inline-block;
+    background: #E31B23;
+    color: #fff;
+    font-family: var(--briants-font-body);
+    font-size: 0.7rem;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    border-radius: var(--briants-radius-sm);
+    letter-spacing: 0.15em;
+    padding: 0.4rem 1rem;
     margin-bottom: 1.5rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+    text-transform: uppercase;
 }
 
-#briants-hero-honda h1 {
+#briants-honda-hero .honda-display-heading {
     font-family: var(--briants-font-headings);
+    font-size: clamp(3rem, 7vw, 5.5rem);
     font-weight: 800;
-    font-size: 3.5rem;
-    line-height: 1.15;
-    margin: 0 0 1rem 0;
-    letter-spacing: -0.01em;
-    color: var(--briants-bg-white);
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    line-height: 1.05;
+    color: #fff;
+    margin: 0 0 1.25rem;
+    letter-spacing: -0.02em;
 }
 
-#briants-hero-honda .hero-lead {
-    font-size: 1.125rem;
-    line-height: 1.6;
-    margin: 0 0 2rem 0;
-    color: rgba(255, 255, 255, 0.95);
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+#briants-honda-hero .honda-hero-lead {
+    font-family: var(--briants-font-body);
+    font-size: 1.1rem;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.75);
+    margin: 0 0 2rem;
+    max-width: 560px;
 }
 
-#briants-hero-honda .hero-buttons {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 3rem;
+#briants-honda-hero .honda-hero-cta {
+    background: #E31B23;
+    color: #fff;
+    border: none;
+    padding: 0.9rem 2.4rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.3s ease, transform 0.3s ease;
 }
 
-#briants-hero-honda .briants-btn-primary {
-    background-color: #E31B23; /* Honda Red */
-    border-color: #E31B23;
-    color: var(--briants-bg-white);
-}
-
-#briants-hero-honda .briants-btn-primary:hover {
-    background-color: #b31017;
-    border-color: #b31017;
+#briants-honda-hero .honda-hero-cta:hover {
+    background: #c41019;
     transform: translateY(-2px);
 }
 
-#briants-hero-honda .briants-btn-secondary {
-    background-color: transparent;
-    border-color: var(--briants-bg-white);
-    color: var(--briants-bg-white);
+#briants-honda-hero .honda-hero-trust-strip {
+    position: absolute;
+    bottom: 3.5rem;
+    left: 0;
+    right: 0;
+    z-index: 3;
 }
 
-#briants-hero-honda .briants-btn-secondary:hover {
-    background-color: var(--briants-bg-white);
-    color: var(--briants-primary);
-    transform: translateY(-2px);
-}
-
-#briants-hero-honda .hero-trust {
+#briants-honda-hero .honda-trust-strip-inner {
     display: flex;
-    gap: 1.5rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    padding-top: 1.5rem;
+    justify-content: flex-start;
+    gap: 2.5rem;
 }
 
-#briants-hero-honda .trust-item {
+#briants-honda-hero .honda-trust-strip-item {
+    font-family: var(--briants-font-body);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.65);
+    letter-spacing: 0.04em;
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.9);
 }
 
-#briants-hero-honda .trust-item i {
-    color: #E31B23; /* Honda Red Accent */
-    font-size: 0.95rem;
+#briants-honda-hero .honda-trust-strip-item i {
+    color: #E31B23;
+    font-size: 0.85rem;
+}
+
+#briants-honda-hero .honda-scroll-indicator {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    animation: hondaBounce 2s ease-in-out infinite;
+}
+
+#briants-honda-hero .honda-scroll-indicator i {
+    color: rgba(255,255,255,0.4);
+    font-size: 1.2rem;
+}
+
+@keyframes hondaBounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
 }
 
 @media (max-width: 768px) {
-    #briants-hero-honda {
-        height: auto;
-        padding: 5rem 0;
+    #briants-honda-hero {
+        min-height: auto;
+        padding: 5rem 0 6rem;
     }
-    #briants-hero-honda .hero-overlay {
-        background: rgba(0, 92, 48, 0.9);
+    #briants-honda-hero .honda-hero-content {
+        padding: 3rem 0 3rem;
     }
-    #briants-hero-honda h1 {
-        font-size: 2.5rem;
-    }
-    #briants-hero-honda .hero-buttons {
+    #briants-honda-hero .honda-trust-strip-inner {
         flex-direction: column;
         gap: 0.75rem;
-        margin-bottom: 2rem;
     }
-    #briants-hero-honda .hero-trust {
-        flex-direction: column;
-        gap: 0.75rem;
+    #briants-honda-hero .honda-hero-trust-strip {
+        position: relative;
+        bottom: auto;
+        margin-top: 2rem;
+    }
+    #briants-honda-hero .honda-scroll-indicator {
+        display: none;
     }
 }`
   },
   {
-    id: "categories-honda",
-    name: "Featured Categories - Honda",
-    category: "Navigation",
-    description: "A 6-card grid displaying specific categories of Honda power equipment with a modern product cutout design.",
+    id: "honda-heritage",
+    name: "Brand Heritage — Honda Story",
+    category: "Information",
+    description: "A dark charcoal editorial strip showcasing Honda's 75+ year engineering legacy with large display typography and impactful stat callouts.",
     js: "",
-    html: `<section id="briants-categories-honda" class="briants-module">
+    html: `<section id="briants-honda-heritage" class="briants-module">
     <div class="briants-container">
-        <div class="briants-section-header">
-            <span class="briants-section-subtitle" style="color: #E31B23;">Honda Catalogue</span>
-            <h2>Explore The Honda Range</h2>
-            <p>Select a category below to browse our online Honda catalog, or speak to our authorized Honda specialists.</p>
-        </div>
-        
-        <div class="honda-cat-layout">
-            
-            <a href="#" class="honda-cat-card">
-                <div class="honda-cat-info">
-                    <h3>Honda Lawnmowers</h3>
-                    <p>Rotary, Roller, Izy, Core Cordless & Miimo Robotic Mowers</p>
-                    <span class="honda-cat-link">Browse Range <i class="fa-solid fa-arrow-right"></i></span>
+        <div class="honda-heritage-grid">
+            <div class="honda-heritage-narrative">
+                <span class="honda-heritage-display">Since 1948</span>
+                <p class="honda-heritage-body">For over 75 years, Honda has set the global benchmark for precision-engineered power equipment. From the first portable generator to today\`s autonomous Miimo mowers, Honda\`s relentless pursuit of innovation has earned the trust of professionals and homeowners worldwide. Briants of Risborough is proud to be an authorised Honda dealer &mdash; offering expert advice, full warranty support, and manufacturer-trained servicing for every product in the range.</p>
+            </div>
+            <div class="honda-heritage-stats">
+                <div class="honda-stat-item">
+                    <span class="honda-stat-number">75+</span>
+                    <span class="honda-stat-label">Years of Innovation</span>
                 </div>
-                <div class="honda-cat-circle" style="background-image: url('https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?auto=format&fit=crop&w=400&q=80');"></div>
-            </a>
-
-            <a href="#" class="honda-cat-card">
-                <div class="honda-cat-info">
-                    <h3>Honda Generators</h3>
-                    <p>Super-quiet Inverters, Frame Generators & Industrial Power</p>
-                    <span class="honda-cat-link">Browse Range <i class="fa-solid fa-arrow-right"></i></span>
+                <div class="honda-stat-item">
+                    <span class="honda-stat-number">30M+</span>
+                    <span class="honda-stat-label">Engines Built Worldwide</span>
                 </div>
-                <div class="honda-cat-circle" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80');"></div>
-            </a>
-
-            <a href="#" class="honda-cat-card">
-                <div class="honda-cat-info">
-                    <h3>Honda Tillers</h3>
-                    <p>Micro Tillers, Front Tine, Rear Tine & Ground Cultivators</p>
-                    <span class="honda-cat-link">Browse Range <i class="fa-solid fa-arrow-right"></i></span>
+                <div class="honda-stat-item">
+                    <span class="honda-stat-number">No.1</span>
+                    <span class="honda-stat-label">in 4-Stroke Technology</span>
                 </div>
-                <div class="honda-cat-circle" style="background-image: url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=400&q=80');"></div>
-            </a>
-
-            <a href="#" class="honda-cat-card">
-                <div class="honda-cat-info">
-                    <h3>Honda Brushcutters</h3>
-                    <p>4-Stroke Petrol Trimmers, Heavy-duty Brushcutters & Versatool</p>
-                    <span class="honda-cat-link">Browse Range <i class="fa-solid fa-arrow-right"></i></span>
-                </div>
-                <div class="honda-cat-circle" style="background-image: url('https://images.unsplash.com/photo-1507036066871-b7e8032b3dea?auto=format&fit=crop&w=400&q=80');"></div>
-            </a>
-
-            <a href="#" class="honda-cat-card">
-                <div class="honda-cat-info">
-                    <h3>Honda Hedgetrimmers</h3>
-                    <p>Single-sided, Double-sided & Long-reach Pole Hedgetrimmers</p>
-                    <span class="honda-cat-link">Browse Range <i class="fa-solid fa-arrow-right"></i></span>
-                </div>
-                <div class="honda-cat-circle" style="background-image: url('https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=400&q=80');"></div>
-            </a>
-
-            <a href="#" class="honda-cat-card">
-                <div class="honda-cat-info">
-                    <h3>Honda Spares & Oils</h3>
-                    <p>Genuine Honda Service Kits, Engine Oils & Accessories</p>
-                    <span class="honda-cat-link">Browse Range <i class="fa-solid fa-arrow-right"></i></span>
-                </div>
-                <div class="honda-cat-circle" style="background-image: url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=400&q=80');"></div>
-            </a>
-
+            </div>
         </div>
     </div>
 </section>`,
-    css: `/* ==========================================================================
-   Honda Category Grid - Circular Cutout Design
-   ========================================================================== */
-
-#briants-categories-honda {
-    background-color: var(--briants-bg-white);
-    border-bottom: 1px solid var(--briants-border);
+    css: `/* ======================================================================
+   Honda Heritage — Editorial Strip
+   ====================================================================== */
+#briants-honda-heritage {
+    background: #1a1a1a;
+    padding: 5rem 0;
 }
 
-.honda-cat-layout {
+#briants-honda-heritage .honda-heritage-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-}
-
-.honda-cat-card {
-    background-color: var(--briants-bg-light);
-    border-radius: var(--briants-radius-md);
-    overflow: hidden;
-    display: flex;
-    justify-content: space-between;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
     align-items: center;
-    padding: 1.5rem 1.25rem;
-    text-decoration: none;
-    box-shadow: var(--briants-shadow-sm);
-    border: 1px solid var(--briants-border);
-    border-bottom: 3px solid transparent;
-    transition: var(--briants-transition);
 }
 
-.honda-cat-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--briants-shadow-md);
-    border-bottom-color: #E31B23; /* Honda Red Accent */
-    background-color: var(--briants-bg-white);
-    border-color: var(--briants-border);
+#briants-honda-heritage .honda-heritage-display {
+    display: block;
+    font-family: var(--briants-font-headings);
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    font-weight: 800;
+    color: #E31B23;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
 }
 
-.honda-cat-info {
-    flex: 1.3;
-    padding-right: 0.5rem;
+#briants-honda-heritage .honda-heritage-body {
+    font-family: var(--briants-font-body);
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.7);
+    margin: 0;
+}
+
+#briants-honda-heritage .honda-heritage-stats {
     display: flex;
     flex-direction: column;
-    gap: 0.35rem;
+    gap: 1.75rem;
 }
 
-.honda-cat-info h3 {
+#briants-honda-heritage .honda-stat-item {
+    border-left: 3px solid #E31B23;
+    padding-left: 1.5rem;
+}
+
+#briants-honda-heritage .honda-stat-number {
+    display: block;
     font-family: var(--briants-font-headings);
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.2;
+}
+
+#briants-honda-heritage .honda-stat-label {
+    display: block;
+    font-family: var(--briants-font-body);
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-top: 0.2rem;
+}
+
+@media (max-width: 768px) {
+    #briants-honda-heritage {
+        padding: 3.5rem 0;
+    }
+    #briants-honda-heritage .honda-heritage-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+    #briants-honda-heritage .honda-heritage-stats {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1.25rem;
+    }
+    #briants-honda-heritage .honda-stat-item {
+        flex: 1 1 140px;
+    }
+}`
+  },
+  {
+    id: "honda-product-showcase",
+    name: "Product Range — Honda Showcase",
+    category: "Navigation",
+    description: "Horizontal alternating-layout product showcase cards highlighting the full Honda equipment range — lawnmowers, generators, tillers, brushcutters, and Miimo robotic mowers.",
+    js: "",
+    html: `<section id="briants-honda-showcase" class="briants-module">
+    <div class="briants-container">
+        <div class="honda-showcase-header">
+            <span class="honda-showcase-subtitle">The Honda Range</span>
+            <h2>Engineered for Every Task</h2>
+        </div>
+
+        <div class="honda-showcase-item honda-showcase-img-left">
+            <div class="honda-showcase-img">
+                <img src="https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?auto=format&fit=crop&w=900&q=80" alt="Honda Lawnmowers" loading="lazy">
+            </div>
+            <div class="honda-showcase-text">
+                <h3>Honda Lawnmowers</h3>
+                <p>The HRX and HRG series deliver the perfect cut every time. Featuring Honda\`s exclusive Versamow selective mulching system, Roto-stop blade brake technology, and ultra-durable Xenoy decks &mdash; these mowers are engineered for homeowners who demand professional results.</p>
+                <a href="#" class="honda-showcase-link">Explore Lawnmowers &rarr;</a>
+            </div>
+        </div>
+
+        <div class="honda-showcase-item honda-showcase-img-right">
+            <div class="honda-showcase-text">
+                <h3>Honda Generators</h3>
+                <p>The EU series inverter generators set the industry standard for portable power. Super-quiet operation, clean sinewave output for sensitive electronics, and Honda\`s legendary fuel efficiency make these the go-to choice for leisure, backup power, and professional use.</p>
+                <a href="#" class="honda-showcase-link">Explore Generators &rarr;</a>
+            </div>
+            <div class="honda-showcase-img">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" alt="Honda Generators" loading="lazy">
+            </div>
+        </div>
+
+        <div class="honda-showcase-item honda-showcase-img-left">
+            <div class="honda-showcase-img">
+                <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=900&q=80" alt="Honda Tillers" loading="lazy">
+            </div>
+            <div class="honda-showcase-text">
+                <h3>Honda Tillers</h3>
+                <p>The FG series micro tillers make light work of ground cultivation, border preparation, and soil aeration. Compact, lightweight, and powered by Honda\`s reliable 4-stroke mini engines, they\`re the ideal partner for allotments, raised beds, and garden renovation projects.</p>
+                <a href="#" class="honda-showcase-link">Explore Tillers &rarr;</a>
+            </div>
+        </div>
+
+        <div class="honda-showcase-item honda-showcase-img-right">
+            <div class="honda-showcase-text">
+                <h3>Honda Brushcutters</h3>
+                <p>The UMK range of 4-stroke brushcutters delivers professional-grade cutting power without the hassle of fuel mixing. Clean-running, low-vibration, and fitted with easy-start systems, Honda brushcutters tackle overgrown grass, brambles, and rough terrain with ease.</p>
+                <a href="#" class="honda-showcase-link">Explore Brushcutters &rarr;</a>
+            </div>
+            <div class="honda-showcase-img">
+                <img src="https://images.unsplash.com/photo-1507036066871-b7e8032b3dea?auto=format&fit=crop&w=900&q=80" alt="Honda Brushcutters" loading="lazy">
+            </div>
+        </div>
+
+        <div class="honda-showcase-item honda-showcase-img-left">
+            <div class="honda-showcase-img">
+                <img src="https://images.unsplash.com/photo-1558904541-efa8c1a68f6a?auto=format&fit=crop&w=900&q=80" alt="Honda Miimo" loading="lazy">
+            </div>
+            <div class="honda-showcase-text">
+                <h3>Honda Miimo</h3>
+                <p>Let your lawn care for itself. Honda Miimo autonomous robotic mowers deliver a perfect, carpet-like finish day after day. Intelligent navigation, weather-sensing technology, and whisper-quiet operation mean a beautiful lawn without lifting a finger.</p>
+                <a href="#" class="honda-showcase-link">Explore Miimo &rarr;</a>
+            </div>
+        </div>
+    </div>
+</section>`,
+    css: `/* ======================================================================
+   Honda Product Showcase — Alternating Cards
+   ====================================================================== */
+#briants-honda-showcase {
+    background: #fff;
+    padding: 5rem 0;
+}
+
+#briants-honda-showcase .honda-showcase-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+#briants-honda-showcase .honda-showcase-subtitle {
+    display: inline-block;
+    font-family: var(--briants-font-body);
+    font-size: 0.75rem;
     font-weight: 700;
-    font-size: 1rem;
+    color: #E31B23;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+}
+
+#briants-honda-showcase .honda-showcase-header h2 {
+    font-family: var(--briants-font-headings);
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 700;
     color: var(--briants-text-dark);
     margin: 0;
 }
 
-.honda-cat-info p {
-    font-size: 0.75rem;
-    color: var(--briants-text-light);
-    margin: 0;
-    line-height: 1.4;
+#briants-honda-showcase .honda-showcase-item {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 0;
+    margin-bottom: 2.5rem;
+    border-top: 3px solid #E31B23;
+    background: #fafafa;
+    overflow: hidden;
 }
 
-.honda-cat-link {
-    font-size: 0.75rem;
+#briants-honda-showcase .honda-showcase-item:last-child {
+    margin-bottom: 0;
+}
+
+#briants-honda-showcase .honda-showcase-img-right {
+    grid-template-columns: 1fr 1.5fr;
+}
+
+#briants-honda-showcase .honda-showcase-img {
+    overflow: hidden;
+}
+
+#briants-honda-showcase .honda-showcase-img img {
+    width: 100%;
+    height: 100%;
+    min-height: 280px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+#briants-honda-showcase .honda-showcase-item:hover .honda-showcase-img img {
+    transform: scale(1.03);
+}
+
+#briants-honda-showcase .honda-showcase-text {
+    padding: 2.5rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#briants-honda-showcase .honda-showcase-text h3 {
+    font-family: var(--briants-font-headings);
+    font-size: 1.5rem;
     font-weight: 700;
-    color: #E31B23; /* Honda Red Accent */
-    margin-top: 0.5rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.25rem;
-    transition: var(--briants-transition);
+    color: var(--briants-text-dark);
+    margin: 0 0 0.75rem;
 }
 
-.honda-cat-card:hover .honda-cat-link {
-    gap: 0.5rem;
+#briants-honda-showcase .honda-showcase-text p {
+    font-family: var(--briants-font-body);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--briants-text-light);
+    margin: 0 0 1.25rem;
 }
 
-.honda-cat-circle {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background-size: cover;
-    background-position: center;
-    border: 3px solid var(--briants-bg-white);
-    box-shadow: var(--briants-shadow-sm);
-    transition: var(--briants-transition);
-    flex-shrink: 0;
+#briants-honda-showcase .honda-showcase-link {
+    font-family: var(--briants-font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #E31B23;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color 0.3s ease;
 }
 
-.honda-cat-card:hover .honda-cat-circle {
-    transform: scale(1.08) rotate(3deg);
-    box-shadow: var(--briants-shadow-md);
+#briants-honda-showcase .honda-showcase-link:hover {
+    color: #c41019;
 }
 
-@media (max-width: 900px) {
-    .honda-cat-layout {
-        grid-template-columns: repeat(2, 1fr);
+@media (max-width: 768px) {
+    #briants-honda-showcase {
+        padding: 3.5rem 0;
     }
-}
-
-@media (max-width: 550px) {
-    .honda-cat-layout {
+    #briants-honda-showcase .honda-showcase-item,
+    #briants-honda-showcase .honda-showcase-img-right {
         grid-template-columns: 1fr;
     }
-    .honda-cat-card {
-        padding: 1.25rem;
+    #briants-honda-showcase .honda-showcase-img-right .honda-showcase-text {
+        order: 2;
+    }
+    #briants-honda-showcase .honda-showcase-img-right .honda-showcase-img {
+        order: 1;
+    }
+    #briants-honda-showcase .honda-showcase-text {
+        padding: 1.75rem 1.5rem;
     }
 }`
   },
   {
-    id: "honda-gallery",
-    name: "Featured Title - Honda Lifestyle & Gallery",
+    id: "honda-feature-split",
+    name: "Feature Panels — Honda Innovation",
     category: "Information",
-    description: "A brand showcase displaying Honda engineering innovations and large lifestyle product gallery cards.",
+    description: "Full-width edge-to-edge 50/50 split panels with no border-radius or card styling — one panel pairs an image with a charcoal feature breakdown for generators, the other for lawnmowers.",
     js: "",
-    html: `<section id="briants-honda-gallery" class="briants-module">
-    <div class="briants-container">
-        
-        <!-- Section Header -->
-        <div class="briants-section-header">
-            <span class="briants-section-subtitle" style="color: #E31B23;">The Honda Difference</span>
-            <h2>Engineered For Life: Technology & Innovation</h2>
-            <p>Honda equipment isn't just about raw power. It's about engineering that simplifies yard work, delivers quiet performance, and stands the test of time.</p>
+    html: `<section id="briants-honda-features" class="briants-module">
+
+    <div class="honda-split-panel">
+        <div class="honda-split-image">
+            <img src="https://images.unsplash.com/photo-1523301343968-6a6ebf63c672?auto=format&fit=crop&w=960&q=80" alt="Honda Generators — Portable Energy" loading="lazy">
         </div>
-        
-        <!-- Technology Cards Grid -->
-        <div class="honda-tech-grid">
-            
-            <!-- Card 1 -->
-            <div class="honda-tech-card">
-                <div class="honda-tech-img" style="background-image: url('https://images.unsplash.com/photo-1558904541-efa8c1a68f6a?auto=format&fit=crop&w=600&q=80');"></div>
-                <div class="honda-tech-content">
-                    <span class="honda-tech-tag">ROBOTIC INTELLIGENCE</span>
-                    <h3>Honda Miimo Autonomous Mowing</h3>
-                    <p>Let Miimo do the hard work. Fully autonomous lawnmowing that adapts to your garden, navigates slopes, schedules around weather, and charges itself automatically for a continuous, healthy carpet cut.</p>
-                </div>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="honda-tech-card">
-                <div class="honda-tech-img" style="background-image: url('https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?auto=format&fit=crop&w=600&q=80');"></div>
-                <div class="honda-tech-content">
-                    <span class="honda-tech-tag">VERSAMOW™ SYSTEM</span>
-                    <h3>Selective Mulching Technology</h3>
-                    <p>Choose between bagging, mulching, or leaf shredding with a single lever. No tools required, no separate plugs needed. Just a simple, robust mechanical switch for lawn nutrition recycling.</p>
-                </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="honda-tech-card">
-                <div class="honda-tech-img" style="background-image: url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=600&q=80');"></div>
-                <div class="honda-tech-content">
-                    <span class="honda-tech-tag">4-STROKE EFFICIENCY</span>
-                    <h3>Revolutionary Clean Power Engines</h3>
-                    <p>Say goodbye to mixing oil and petrol. Honda's advanced 4-stroke engines offer legendary reliability, instant starting, lower emissions, and superior fuel economy with significantly less noise.</p>
-                </div>
-            </div>
-
+        <div class="honda-split-text">
+            <span class="honda-split-tag">PORTABLE ENERGY</span>
+            <h2>Quiet Power, Anywhere</h2>
+            <p>Honda\`s EU series inverter generators are the gold standard for clean, portable energy. Whether you\`re powering tools on a remote job site, keeping the lights on during an outage, or running sensitive equipment at an outdoor event, Honda delivers reliable performance in a remarkably compact package.</p>
+            <ul class="honda-split-features">
+                <li><i class="fa-solid fa-check"></i> Super-quiet operation</li>
+                <li><i class="fa-solid fa-check"></i> Clean inverter output</li>
+                <li><i class="fa-solid fa-check"></i> Auto-throttle fuel economy</li>
+            </ul>
+            <a href="#" class="briants-btn briants-btn-primary honda-split-cta">View Generators</a>
         </div>
-
-        <!-- Lifestyle alternating panels -->
-        <div class="honda-lifestyle-panels">
-            
-            <!-- Panel 1 -->
-            <div class="honda-life-panel">
-                <div class="honda-life-img" style="background-image: url('https://images.unsplash.com/photo-1523301343968-6a6ebf63c672?auto=format&fit=crop&w=1000&q=80');"></div>
-                <div class="honda-life-text">
-                    <span class="honda-life-badge">PORTABLE ENERGY</span>
-                    <h2>Quiet Comfort Wherever You Go</h2>
-                    <p>Whether you're powering a camper van off-grid, running power tools on-site, or securing home backup power during emergencies, Honda's super-quiet inverter generators deliver stable, clean electricity. Experience commercial-grade power wrapped in lightweight, acoustic-insulated casings.</p>
-                    <a href="#briants-machinery-deals-honda" class="briants-btn briants-btn-primary" style="background-color: #E31B23; border-color: #E31B23;">View Honda Generators</a>
-                </div>
-            </div>
-
-            <!-- Panel 2 -->
-            <div class="honda-life-panel panel-reverse">
-                <div class="honda-life-img" style="background-image: url('https://images.unsplash.com/photo-1599599810769-bcde5a160d32?auto=format&fit=crop&w=1000&q=80');"></div>
-                <div class="honda-life-text">
-                    <span class="honda-life-badge">GROUND CULTIVATION</span>
-                    <h2>Nurture Your Soil with Ease</h2>
-                    <p>Prepare vegetable plots, flower beds, and home allotments for planting with Honda's micro and dual-tine tillers. The high-torque 4-stroke engine drives tough steel tines deep into soil, breaking up hard ground and mixing in nutrients without the physical strain of hand digging.</p>
-                    <a href="#briants-machinery-deals-honda" class="briants-btn briants-btn-primary" style="background-color: #E31B23; border-color: #E31B23;">View Honda Tillers</a>
-                </div>
-            </div>
-
-        </div>
-
     </div>
+
+    <div class="honda-split-panel honda-split-panel-reverse">
+        <div class="honda-split-text">
+            <span class="honda-split-tag">PRECISION CUTTING</span>
+            <h2>The Perfect Cut, Every Time</h2>
+            <p>Honda\`s HRX lawnmower range features the revolutionary Versamow selective mulching system, giving you complete control over clippings without any attachments to change. Combined with Roto-stop blade brake and ultra-tough Xenoy decks, these mowers redefine what a domestic machine can achieve.</p>
+            <ul class="honda-split-features">
+                <li><i class="fa-solid fa-check"></i> Selective mulching</li>
+                <li><i class="fa-solid fa-check"></i> Roto-stop blade brake</li>
+                <li><i class="fa-solid fa-check"></i> Xenoy deck durability</li>
+            </ul>
+            <a href="#" class="briants-btn briants-btn-primary honda-split-cta">View Lawnmowers</a>
+        </div>
+        <div class="honda-split-image">
+            <img src="https://images.unsplash.com/photo-1599599810769-bcde5a160d32?auto=format&fit=crop&w=960&q=80" alt="Honda Lawnmowers — Precision Cutting" loading="lazy">
+        </div>
+    </div>
+
 </section>`,
-    css: `/* ==========================================================================
-   Honda Lifestyle & Features Gallery Styles
-   ========================================================================== */
-
-#briants-honda-gallery {
-    background-color: var(--briants-bg-light);
-    border-bottom: 1px solid var(--briants-border);
-}
-
-.honda-tech-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-bottom: 4rem;
-}
-
-.honda-tech-card {
-    background-color: var(--briants-bg-white);
-    border-radius: var(--briants-radius-md);
-    overflow: hidden;
-    box-shadow: var(--briants-shadow-sm);
-    border: 1px solid var(--briants-border);
-    transition: var(--briants-transition);
-}
-
-.honda-tech-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--briants-shadow-md);
-    border-color: #E31B23; /* Honda Red Accent */
-}
-
-.honda-tech-img {
-    height: 180px;
-    background-size: cover;
-    background-position: center;
-}
-
-.honda-tech-content {
-    padding: 1.5rem;
-}
-
-.honda-tech-tag {
-    font-size: 0.65rem;
-    font-weight: 700;
-    color: #E31B23; /* Honda Red */
-    letter-spacing: 0.05em;
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-.honda-tech-content h3 {
-    font-family: var(--briants-font-headings);
-    font-size: 1.15rem;
-    font-weight: 700;
-    margin: 0 0 0.75rem 0;
-    color: var(--briants-text-dark);
-}
-
-.honda-tech-content p {
-    font-size: 0.85rem;
-    line-height: 1.5;
+    css: `/* ======================================================================
+   Honda Feature Split — Edge-to-Edge Panels
+   ====================================================================== */
+#briants-honda-features {
+    padding: 0;
     margin: 0;
-    color: var(--briants-text-light);
+    background: #0d0d0d;
 }
 
-/* Lifestyle Panels */
-.honda-lifestyle-panels {
+#briants-honda-features .honda-split-panel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 520px;
+}
+
+#briants-honda-features .honda-split-image {
+    overflow: hidden;
+}
+
+#briants-honda-features .honda-split-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+#briants-honda-features .honda-split-text {
+    background: #1a1a1a;
+    padding: 4rem 3.5rem;
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    justify-content: center;
 }
 
-.honda-life-panel {
+#briants-honda-features .honda-split-tag {
+    display: inline-block;
+    font-family: var(--briants-font-body);
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #E31B23;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+#briants-honda-features .honda-split-text h2 {
+    font-family: var(--briants-font-headings);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 1rem;
+    line-height: 1.15;
+}
+
+#briants-honda-features .honda-split-text p {
+    font-family: var(--briants-font-body);
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.65);
+    margin: 0 0 1.5rem;
+}
+
+#briants-honda-features .honda-split-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+#briants-honda-features .honda-split-features li {
+    font-family: var(--briants-font-body);
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.8);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+#briants-honda-features .honda-split-features li i {
+    color: #E31B23;
+    font-size: 0.8rem;
+}
+
+#briants-honda-features .honda-split-cta {
+    background: #E31B23;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    align-self: flex-start;
+    transition: background 0.3s ease, transform 0.3s ease;
+    border-radius: 0;
+}
+
+#briants-honda-features .honda-split-cta:hover {
+    background: #c41019;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    #briants-honda-features .honda-split-panel {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+    #briants-honda-features .honda-split-panel-reverse .honda-split-text {
+        order: 2;
+    }
+    #briants-honda-features .honda-split-panel-reverse .honda-split-image {
+        order: 1;
+    }
+    #briants-honda-features .honda-split-image img {
+        min-height: 260px;
+    }
+    #briants-honda-features .honda-split-text {
+        padding: 2.5rem 1.5rem;
+    }
+}`
+  },
+  {
+    id: "honda-lineup",
+    name: "Featured Products — Honda Lineup",
+    category: "Products Grid",
+    description: "A flagship product feature card followed by a 4-column secondary product grid, highlighting key Honda equipment with pricing and spec details.",
+    js: "",
+    html: `<section id="briants-honda-lineup" class="briants-module">
+    <div class="briants-container">
+        <div class="honda-lineup-header">
+            <span class="honda-lineup-subtitle">Our Picks</span>
+            <h2>Featured Honda Equipment</h2>
+        </div>
+
+        <div class="honda-lineup-flagship">
+            <div class="honda-flagship-image">
+                <img src="https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=900&q=80" alt="Honda HRX 537 VY Lawnmower" loading="lazy">
+            </div>
+            <div class="honda-flagship-details">
+                <span class="honda-flagship-badge">FLAGSHIP</span>
+                <h2>Honda HRX 537 VY Lawnmower</h2>
+                <p>The ultimate domestic lawnmower. The HRX 537 VY features Honda\`s Versamow selective mulching, Roto-stop blade brake, hydrostatic drive, and a 53cm Xenoy deck for unmatched durability and cutting precision across medium to large lawns.</p>
+                <ul class="honda-flagship-specs">
+                    <li><i class="fa-solid fa-check"></i> 53cm Xenoy cutting deck</li>
+                    <li><i class="fa-solid fa-check"></i> Versamow selective mulching</li>
+                    <li><i class="fa-solid fa-check"></i> Hydrostatic variable-speed drive</li>
+                    <li><i class="fa-solid fa-check"></i> Honda GXV160 OHV engine</li>
+                </ul>
+                <div class="honda-flagship-price">
+                    <span class="honda-price-amount">&pound;1,199.00</span>
+                    <span class="honda-price-sub">Inc. VAT &amp; PDI</span>
+                </div>
+                <a href="#" class="briants-btn briants-btn-primary honda-flagship-cta">View Full Details</a>
+            </div>
+        </div>
+
+        <div class="honda-lineup-grid">
+            <div class="honda-lineup-card">
+                <div class="honda-card-img">
+                    <img src="https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?auto=format&fit=crop&w=400&q=80" alt="Honda HRG 466 XB" loading="lazy">
+                </div>
+                <div class="honda-card-body">
+                    <h4>Honda HRG 466 XB Battery Mower</h4>
+                    <span class="honda-card-price">&pound;599.00</span>
+                    <a href="#" class="honda-card-cta">View Details &rarr;</a>
+                </div>
+            </div>
+            <div class="honda-lineup-card">
+                <div class="honda-card-img">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80" alt="Honda EU 22i Generator" loading="lazy">
+                </div>
+                <div class="honda-card-body">
+                    <h4>Honda EU 22i Generator</h4>
+                    <span class="honda-card-price">&pound;1,299.00</span>
+                    <a href="#" class="honda-card-cta">View Details &rarr;</a>
+                </div>
+            </div>
+            <div class="honda-lineup-card">
+                <div class="honda-card-img">
+                    <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=400&q=80" alt="Honda FG 201 Micro Tiller" loading="lazy">
+                </div>
+                <div class="honda-card-body">
+                    <h4>Honda FG 201 Micro Tiller</h4>
+                    <span class="honda-card-price">&pound;489.00</span>
+                    <a href="#" class="honda-card-cta">View Details &rarr;</a>
+                </div>
+            </div>
+            <div class="honda-lineup-card">
+                <div class="honda-card-img">
+                    <img src="https://images.unsplash.com/photo-1507036066871-b7e8032b3dea?auto=format&fit=crop&w=400&q=80" alt="Honda UMK 425 Brushcutter" loading="lazy">
+                </div>
+                <div class="honda-card-body">
+                    <h4>Honda UMK 425 Brushcutter</h4>
+                    <span class="honda-card-price">&pound;399.00</span>
+                    <a href="#" class="honda-card-cta">View Details &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>`,
+    css: `/* ======================================================================
+   Honda Lineup — Featured Products
+   ====================================================================== */
+#briants-honda-lineup {
+    background: var(--briants-bg-light);
+    padding: 5rem 0;
+}
+
+#briants-honda-lineup .honda-lineup-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+#briants-honda-lineup .honda-lineup-subtitle {
+    display: inline-block;
+    font-family: var(--briants-font-body);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #E31B23;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+}
+
+#briants-honda-lineup .honda-lineup-header h2 {
+    font-family: var(--briants-font-headings);
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 700;
+    color: var(--briants-text-dark);
+    margin: 0;
+}
+
+/* Flagship Product */
+#briants-honda-lineup .honda-lineup-flagship {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    background-color: var(--briants-bg-white);
-    border-radius: var(--briants-radius-lg);
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    background: #fff;
     overflow: hidden;
-    box-shadow: var(--briants-shadow-md);
-    border: 1px solid var(--briants-border);
+    margin-bottom: 2.5rem;
+    border-bottom: 3px solid #E31B23;
 }
 
-.honda-life-panel.panel-reverse {
-    grid-template-columns: 1fr 1.2fr;
+#briants-honda-lineup .honda-flagship-image {
+    overflow: hidden;
 }
 
-.honda-life-img {
-    background-size: cover;
-    background-position: center;
-    min-height: 350px;
+#briants-honda-lineup .honda-flagship-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    min-height: 400px;
 }
 
-.honda-life-text {
+#briants-honda-lineup .honda-flagship-details {
     padding: 3rem 2.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
 }
 
-.honda-life-panel.panel-reverse .honda-life-img {
-    order: 2;
-}
-
-.honda-life-panel.panel-reverse .honda-life-text {
-    order: 1;
-}
-
-.honda-life-badge {
-    font-size: 0.7rem;
+#briants-honda-lineup .honda-flagship-badge {
+    display: inline-block;
+    background: #E31B23;
+    color: #fff;
+    font-family: var(--briants-font-body);
+    font-size: 0.65rem;
     font-weight: 700;
-    color: #E31B23; /* Honda Red */
-    border: 1px solid #E31B23;
-    padding: 0.25rem 0.6rem;
-    border-radius: 4px;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.15em;
+    padding: 0.3rem 0.8rem;
     margin-bottom: 1rem;
+    align-self: flex-start;
 }
 
-.honda-life-text h2 {
+#briants-honda-lineup .honda-flagship-details h2 {
     font-family: var(--briants-font-headings);
-    font-size: 1.75rem;
-    font-weight: 800;
-    margin: 0 0 1rem 0;
-    line-height: 1.25;
+    font-size: 1.65rem;
+    font-weight: 700;
     color: var(--briants-text-dark);
+    margin: 0 0 0.75rem;
+    text-align: left;
 }
 
-.honda-life-text p {
-    font-size: 0.9rem;
-    line-height: 1.6;
-    margin: 0 0 1.5rem 0;
+#briants-honda-lineup .honda-flagship-details p {
+    font-family: var(--briants-font-body);
+    font-size: 0.92rem;
+    line-height: 1.7;
     color: var(--briants-text-light);
+    margin: 0 0 1.25rem;
 }
 
-@media (max-width: 991px) {
-    .honda-life-panel, .honda-life-panel.panel-reverse {
-        grid-template-columns: 1fr;
-    }
-    .honda-life-panel.panel-reverse .honda-life-img {
-        order: 0;
-    }
-    .honda-life-panel.panel-reverse .honda-life-text {
-        order: 0;
-    }
-    .honda-life-img {
-        min-height: 250px;
-    }
-    .honda-life-text {
-        padding: 2rem 1.5rem;
-    }
-    .honda-tech-grid {
+#briants-honda-lineup .honda-flagship-specs {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#briants-honda-lineup .honda-flagship-specs li {
+    font-family: var(--briants-font-body);
+    font-size: 0.88rem;
+    color: var(--briants-text-dark);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#briants-honda-lineup .honda-flagship-specs li i {
+    color: #E31B23;
+    font-size: 0.75rem;
+}
+
+#briants-honda-lineup .honda-flagship-price {
+    margin-bottom: 1.5rem;
+}
+
+#briants-honda-lineup .honda-price-amount {
+    display: block;
+    font-family: var(--briants-font-headings);
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #E31B23;
+    line-height: 1.2;
+}
+
+#briants-honda-lineup .honda-price-sub {
+    display: block;
+    font-family: var(--briants-font-body);
+    font-size: 0.75rem;
+    color: var(--briants-text-light);
+    margin-top: 0.15rem;
+}
+
+#briants-honda-lineup .honda-flagship-cta {
+    background: #E31B23;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    align-self: flex-start;
+    transition: background 0.3s ease, transform 0.3s ease;
+    border-radius: 0;
+}
+
+#briants-honda-lineup .honda-flagship-cta:hover {
+    background: #c41019;
+    transform: translateY(-2px);
+}
+
+/* Secondary Grid */
+#briants-honda-lineup .honda-lineup-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+#briants-honda-lineup .honda-lineup-card {
+    background: #fff;
+    overflow: hidden;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#briants-honda-lineup .honda-lineup-card:hover {
+    border-bottom-color: #E31B23;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+#briants-honda-lineup .honda-card-img {
+    overflow: hidden;
+}
+
+#briants-honda-lineup .honda-card-img img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+#briants-honda-lineup .honda-lineup-card:hover .honda-card-img img {
+    transform: scale(1.04);
+}
+
+#briants-honda-lineup .honda-card-body {
+    padding: 1.25rem 1.25rem 1.5rem;
+}
+
+#briants-honda-lineup .honda-card-body h4 {
+    font-family: var(--briants-font-headings);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--briants-text-dark);
+    margin: 0 0 0.5rem;
+    line-height: 1.3;
+}
+
+#briants-honda-lineup .honda-card-price {
+    display: block;
+    font-family: var(--briants-font-headings);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #E31B23;
+    margin-bottom: 0.75rem;
+}
+
+#briants-honda-lineup .honda-card-cta {
+    font-family: var(--briants-font-body);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #E31B23;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#briants-honda-lineup .honda-card-cta:hover {
+    color: #c41019;
+}
+
+@media (max-width: 1024px) {
+    #briants-honda-lineup .honda-lineup-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (max-width: 767px) {
-    .honda-tech-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+@media (max-width: 768px) {
+    #briants-honda-lineup {
+        padding: 3.5rem 0;
     }
-}`
-  },
-  {
-    id: "honda-spotlight-banner",
-    name: "Brand Spotlight - Honda Tech & Ride-Ons",
-    category: "Promotional Banner",
-    description: "A dual featured showcase banner highlighting Honda Miimo Robotic mowers on one side and Lawn Tractors on the other.",
-    js: "",
-    html: `<section id="briants-honda-spotlight-banner" class="briants-module">
-    <div class="briants-container">
-        <div class="honda-promo-split">
-            
-            <div class="honda-promo-card">
-                <div class="promo-card-bg" style="background-image: url('https://images.unsplash.com/photo-1558904541-efa8c1a68f6a?auto=format&fit=crop&w=800&q=80');"></div>
-                <div class="promo-card-overlay"></div>
-                <div class="promo-card-content">
-                    <span class="promo-badge">ROBOTIC LAWN CARE</span>
-                    <h2>Honda Miimo Range</h2>
-                    <p>Autonomous, smart lawnmowing for a perfect carpet lawn 24/7. Adapts to your garden's boundaries with near-silent brushless motors.</p>
-                    <ul class="promo-features-list">
-                        <li><i class="fa-solid fa-microchip"></i> Map & Mow GPS Navigation</li>
-                        <li><i class="fa-solid fa-mobile-screen"></i> Smartphone App & Bluetooth Control</li>
-                        <li><i class="fa-solid fa-cloud-rain"></i> Autonomous Docking & Weather Safety Sensors</li>
-                    </ul>
-                    <a href="#" class="briants-btn briants-btn-primary" style="background-color: #E31B23; border-color: #E31B23;">Explore Miimo Mowers</a>
-                </div>
-            </div>
-
-            <div class="honda-promo-card">
-                <div class="promo-card-bg" style="background-image: url('https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?auto=format&fit=crop&w=800&q=80');"></div>
-                <div class="promo-card-overlay"></div>
-                <div class="promo-card-content">
-                    <span class="promo-badge">PREMIUM RIDE-ONS</span>
-                    <h2>Honda Lawn Tractors</h2>
-                    <p>Exceptional performance, smooth hydrostatic transmissions, and legendary 4-stroke V-Twin durability for larger gardens.</p>
-                    <ul class="promo-features-list">
-                        <li><i class="fa-solid fa-gauge-high"></i> Fluid Hydrostatic Drive Transmissions</li>
-                        <li><i class="fa-solid fa-scissors"></i> Synchronous Dual Overlapping Blades</li>
-                        <li><i class="fa-solid fa-bucket"></i> Large 350L Grass Bag Options with Electric Dump</li>
-                    </ul>
-                    <a href="#" class="briants-btn briants-btn-primary" style="background-color: #E31B23; border-color: #E31B23;">Explore Ride-Ons</a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>`,
-    css: `/* ==========================================================================
-   Technology Spotlight Banner Styles
-   ========================================================================== */
-
-#briants-honda-spotlight-banner {
-    background-color: var(--briants-primary);
-    border-bottom: 1px solid var(--briants-border);
-}
-
-.honda-promo-split {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-}
-
-.honda-promo-card {
-    position: relative;
-    border-radius: var(--briants-radius-lg);
-    overflow: hidden;
-    min-height: 440px;
-    display: flex;
-    align-items: flex-end;
-    box-shadow: var(--briants-shadow-md);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.promo-card-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-size: cover;
-    background-position: center;
-    transition: var(--briants-transition);
-}
-
-.promo-card-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to top, rgba(0, 92, 48, 0.95) 0%, rgba(0, 92, 48, 0.6) 50%, rgba(0, 0, 0, 0.15) 100%);
-    z-index: 1;
-}
-
-.honda-promo-card:hover .promo-card-bg {
-    transform: scale(1.05);
-}
-
-.promo-card-content {
-    position: relative;
-    z-index: 2;
-    padding: 2.5rem;
-    color: var(--briants-bg-white);
-    width: 100%;
-}
-
-.promo-card-content h2 {
-    font-family: var(--briants-font-headings);
-    font-weight: 800;
-    font-size: 1.85rem;
-    margin: 0.5rem 0 1rem 0;
-    color: var(--briants-bg-white);
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-}
-
-.promo-card-content p {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    margin: 0 0 1.5rem 0;
-    color: rgba(255, 255, 255, 0.9);
-}
-
-.promo-features-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 2rem 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.65rem;
-}
-
-.promo-features-list li {
-    font-size: 0.85rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.promo-features-list li i {
-    color: #E31B23; /* Honda Red Accent */
-}
-
-@media (max-width: 900px) {
-    .honda-promo-split {
+    #briants-honda-lineup .honda-lineup-flagship {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
     }
-    .promo-card-content {
+    #briants-honda-lineup .honda-flagship-image img {
+        min-height: 250px;
+    }
+    #briants-honda-lineup .honda-flagship-details {
         padding: 2rem 1.5rem;
     }
-}`
-  },
-  {
-    id: "honda-warranty-trust",
-    name: "Trust Banner - Honda Warranty & Support",
-    category: "Information",
-    description: "A 3-column trust layout highlighting Honda's 7-year warranty, Free Pre-Delivery Inspection (PDI), and local showroom support.",
-    js: "",
-    html: `<section id="briants-honda-warranty-trust" class="briants-module">
-    <div class="briants-container">
-        <div class="honda-trust-grid">
-            
-            <div class="honda-trust-card">
-                <i class="fa-solid fa-shield-heart"></i>
-                <h3>Up to 7 Years Warranty</h3>
-                <p>Enjoy absolute peace of mind with Honda's industry-leading domestic warranty, fully backed and repaired by our on-site workshop.</p>
-            </div>
-
-            <div class="honda-trust-card">
-                <i class="fa-solid fa-clipboard-check"></i>
-                <h3>Free Specialist PDI</h3>
-                <p>Every Honda machine is unboxed, constructed, filled with oil, run-tested, and certified by our certified technicians before delivery.</p>
-            </div>
-
-            <div class="honda-trust-card">
-                <i class="fa-solid fa-map-location-dot"></i>
-                <h3>Showroom Support</h3>
-                <p>Collect your machine fully assembled from our physical showroom in Longwick, or get free local delivery direct by our team.</p>
-            </div>
-
-        </div>
-    </div>
-</section>`,
-    css: `/* ==========================================================================
-   Honda Warranty Trust Strip Styles
-   ========================================================================== */
-
-#briants-honda-warranty-trust {
-    background-color: var(--briants-bg-light);
-    border-bottom: 1px solid var(--briants-border);
-    padding: 3.5rem 0;
+    #briants-honda-lineup .honda-lineup-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
 }
 
-.honda-trust-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-}
-
-.honda-trust-card {
-    background-color: var(--briants-bg-white);
-    border-radius: var(--briants-radius-md);
-    padding: 2.25rem 1.75rem;
-    text-align: center;
-    border: 1px solid var(--briants-border);
-    box-shadow: var(--briants-shadow-sm);
-    transition: var(--briants-transition);
-}
-
-.honda-trust-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--briants-shadow-md);
-    border-color: #E31B23; /* Honda Red Accent */
-}
-
-.honda-trust-card i {
-    font-size: 2.5rem;
-    color: #E31B23; /* Honda Red Icon */
-    margin-bottom: 1.25rem;
-    display: inline-block;
-}
-
-.honda-trust-card h3 {
-    font-family: var(--briants-font-headings);
-    font-size: 1.125rem;
-    font-weight: 700;
-    margin: 0 0 0.75rem 0;
-    color: var(--briants-text-dark);
-}
-
-.honda-trust-card p {
-    font-size: 0.85rem;
-    line-height: 1.55;
-    margin: 0;
-    color: var(--briants-text-light);
-}
-
-@media (max-width: 768px) {
-    .honda-trust-grid {
+@media (max-width: 480px) {
+    #briants-honda-lineup .honda-lineup-grid {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
     }
 }`
   },
   {
-    id: "machinery-deals-honda",
-    name: "Products Grid - Honda Deals Showcase",
-    category: "Products Grid",
-    description: "An asymmetrical product layout featuring a large highlighted lawnmower deal on the left and a 2x2 grid of smaller products on the right.",
+    id: "honda-trust-bar",
+    name: "Trust Banner — Honda Guarantee",
+    category: "Information",
+    description: "A compact full-width dark trust strip with inline icon-and-text items highlighting warranty, PDI assembly, delivery, and showroom benefits.",
     js: "",
-    html: `<section id="briants-machinery-deals-honda" class="briants-module">
+    html: `<section id="briants-honda-trust" class="briants-module">
     <div class="briants-container">
-        <div class="briants-section-header">
-            <span class="briants-section-subtitle" style="color: #E31B23;">Featured Equipment</span>
-            <h2>Exclusive Honda Deals</h2>
-            <p>Shop our hand-picked selection of premium Honda garden machinery. Fully assembled, run-tested, and delivered ready-to-work.</p>
-        </div>
-        
-        <div class="honda-spotlight-layout">
-            
-            <!-- Left Large Spotlight Product -->
-            <div class="honda-spotlight-main">
-                <div class="spotlight-img-box">
-                    <img src="https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=800&q=80" alt="Honda Premium Lawnmower">
-                </div>
-                <div class="spotlight-details">
-                    <span class="spotlight-badge">FEATURED FLAGSHIP</span>
-                    <h2>Honda HRX 537 VY Lawnmower</h2>
-                    <p class="spotlight-desc">53cm cutting width petrol lawnmower equipped with variable Hydrostatic Drive and the Versamow™ selective mulching system. Experience the pinnacle of cutting performance and safety with Roto-stop® blade clutch control.</p>
-                    <ul class="spotlight-specs">
-                        <li><i class="fa-solid fa-circle-check"></i> High-torque Honda GCVx200 4-Stroke Engine</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Xenoy® cutter deck - won't rust, dent, or corrode</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Integrated mulching system adjusted with a single lever</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Professional Roto-stop® blade brake clutch mechanism</li>
-                    </ul>
-                    <div class="spotlight-price-action">
-                        <div class="spotlight-price">
-                            <span>&pound;1,199.00</span> <small>Inc. VAT & PDI Preparation</small>
-                        </div>
-                        <a href="#" class="briants-btn briants-btn-primary" style="background-color: #E31B23; border-color: #E31B23;">Buy Lawnmower Now</a>
-                    </div>
-                </div>
+        <div class="honda-trust-row">
+            <div class="honda-trust-item">
+                <i class="fa-solid fa-shield-halved"></i>
+                <span>Up to 7 Year Warranty</span>
             </div>
-
-            <!-- Right 2x2 Compact Products Grid -->
-            <div class="honda-spotlight-grid">
-                
-                <!-- Product Card 1 -->
-                <div class="briants-prod-card">
-                    <div class="briants-prod-img-box">
-                        <img src="https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?auto=format&fit=crop&w=400&q=80" alt="Honda Cordless Mower">
-                    </div>
-                    <div class="briants-prod-details">
-                        <span class="briants-prod-tag" style="background-color: #E31B23; color: white;">HONDA CORDLESS</span>
-                        <h3 class="briants-prod-title">Honda HRG 466 XB self-propelled battery lawnmower</h3>
-                        <div class="briants-prod-price">
-                            <span>&pound;599.00</span> <small>Inc. PDI</small>
-                        </div>
-                        <a href="#" class="briants-btn briants-btn-primary briants-btn-sm" style="background-color: #E31B23; border-color: #E31B23;">Shop Now</a>
-                    </div>
-                </div>
-
-                <!-- Product Card 2 -->
-                <div class="briants-prod-card">
-                    <div class="briants-prod-img-box">
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80" alt="Honda Generator">
-                    </div>
-                    <div class="briants-prod-details">
-                        <span class="briants-prod-tag" style="background-color: #E31B23; color: white;">HONDA GENERATORS</span>
-                        <h3 class="briants-prod-title">Honda EU 22i 2.2kW Inverter Super-Quiet Generator</h3>
-                        <div class="briants-prod-price">
-                            <span>&pound;1,299.00</span> <small>Inc. PDI</small>
-                        </div>
-                        <a href="#" class="briants-btn briants-btn-primary briants-btn-sm" style="background-color: #E31B23; border-color: #E31B23;">Shop Now</a>
-                    </div>
-                </div>
-
-                <!-- Product Card 3 -->
-                <div class="briants-prod-card">
-                    <div class="briants-prod-img-box">
-                        <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=400&q=80" alt="Honda Tiller">
-                    </div>
-                    <div class="briants-prod-details">
-                        <span class="briants-prod-tag" style="background-color: #E31B23; color: white;">HONDA TILLERS</span>
-                        <h3 class="briants-prod-title">Honda FG 201 49cc 4-Stroke Lightweight Micro Tiller</h3>
-                        <div class="briants-prod-price">
-                            <span>&pound;489.00</span> <small>Inc. PDI</small>
-                        </div>
-                        <a href="#" class="briants-btn briants-btn-primary briants-btn-sm" style="background-color: #E31B23; border-color: #E31B23;">Shop Now</a>
-                    </div>
-                </div>
-
-                <!-- Product Card 4 -->
-                <div class="briants-prod-card">
-                    <div class="briants-prod-img-box">
-                        <img src="https://images.unsplash.com/photo-1507036066871-b7e8032b3dea?auto=format&fit=crop&w=400&q=80" alt="Honda Brushcutter">
-                    </div>
-                    <div class="briants-prod-details">
-                        <span class="briants-prod-tag" style="background-color: #E31B23; color: white;">HONDA HANDHELDS</span>
-                        <h3 class="briants-prod-title">Honda UMK 425 LE 25cc 4-Stroke Loop Brushcutter</h3>
-                        <div class="briants-prod-price">
-                            <span>&pound;399.00</span> <small>Inc. PDI</small>
-                        </div>
-                        <a href="#" class="briants-btn briants-btn-primary briants-btn-sm" style="background-color: #E31B23; border-color: #E31B23;">Shop Now</a>
-                    </div>
-                </div>
-
+            <div class="honda-trust-item">
+                <i class="fa-solid fa-clipboard-check"></i>
+                <span>Free PDI Assembly</span>
             </div>
-
+            <div class="honda-trust-item">
+                <i class="fa-solid fa-truck-fast"></i>
+                <span>Click &amp; Collect or Delivery</span>
+            </div>
+            <div class="honda-trust-item">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Visit Our Showroom</span>
+            </div>
         </div>
     </div>
 </section>`,
-    css: `/* ==========================================================================
-   Redesigned Honda Deals Grid - Asymmetrical Layout
-   ========================================================================== */
-
-#briants-machinery-deals-honda {
-    background-color: var(--briants-bg-white);
-    border-bottom: 1px solid var(--briants-border);
+    css: `/* ======================================================================
+   Honda Trust Bar — Compact Strip
+   ====================================================================== */
+#briants-honda-trust {
+    background: #111;
+    padding: 1.75rem 0;
 }
 
-.honda-spotlight-layout {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 2.25rem;
-}
-
-.honda-spotlight-main {
-    background-color: var(--briants-bg-light);
-    border-radius: var(--briants-radius-lg);
-    border: 1px solid var(--briants-border);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    box-shadow: var(--briants-shadow-sm);
-    transition: var(--briants-transition);
-}
-
-.honda-spotlight-main:hover {
-    box-shadow: var(--briants-shadow-md);
-    border-color: #E31B23; /* Honda Red Accent */
-}
-
-.spotlight-img-box {
-    height: 320px;
-    overflow: hidden;
-    position: relative;
-}
-
-.spotlight-img-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: var(--briants-transition);
-}
-
-.honda-spotlight-main:hover .spotlight-img-box img {
-    transform: scale(1.03);
-}
-
-.spotlight-details {
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-.spotlight-badge {
-    align-self: flex-start;
-    background-color: #E31B23;
-    color: var(--briants-bg-white);
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 0.35rem 0.7rem;
-    border-radius: var(--briants-radius-sm);
-    letter-spacing: 0.05em;
-    margin-bottom: 1rem;
-}
-
-.spotlight-details h2 {
-    font-family: var(--briants-font-headings);
-    font-size: 1.65rem;
-    font-weight: 800;
-    color: var(--briants-text-dark);
-    margin: 0 0 0.75rem 0;
-}
-
-.spotlight-desc {
-    font-size: 0.9rem;
-    line-height: 1.6;
-    color: var(--briants-text-light);
-    margin: 0 0 1.5rem 0;
-}
-
-.spotlight-specs {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 2rem 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.65rem;
-}
-
-.spotlight-specs li {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--briants-text-dark);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.spotlight-specs li i {
-    color: #E31B23;
-}
-
-.spotlight-price-action {
+#briants-honda-trust .honda-trust-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: auto;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--briants-border);
 }
 
-.spotlight-price {
+#briants-honda-trust .honda-trust-item {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--briants-font-body);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #fff;
 }
 
-.spotlight-price span {
-    font-size: 1.85rem;
-    font-weight: 800;
-    color: #E31B23; /* Red Price Accent */
-    line-height: 1;
-}
-
-.spotlight-price small {
-    font-size: 0.75rem;
-    color: var(--briants-text-light);
-    margin-top: 0.25rem;
-}
-
-/* 2x2 side grid */
-.honda-spotlight-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-}
-
-.honda-spotlight-grid .briants-prod-card {
-    margin-bottom: 0;
-}
-
-.honda-spotlight-grid .briants-prod-card:hover {
-    border-color: #E31B23;
-}
-
-.honda-spotlight-grid .briants-prod-price span {
+#briants-honda-trust .honda-trust-item i {
     color: #E31B23;
+    font-size: 1.1rem;
 }
 
-@media (max-width: 991px) {
-    .honda-spotlight-layout {
-        grid-template-columns: 1fr;
+@media (max-width: 768px) {
+    #briants-honda-trust {
+        padding: 1.5rem 0;
     }
-}
-
-@media (max-width: 550px) {
-    .honda-spotlight-grid {
-        grid-template-columns: 1fr;
-    }
-    .spotlight-price-action {
-        flex-direction: column;
-        align-items: stretch;
+    #briants-honda-trust .honda-trust-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         gap: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #briants-honda-trust .honda-trust-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        text-align: center;
+    }
+    #briants-honda-trust .honda-trust-item {
+        justify-content: center;
     }
 }`
   },
   {
-    id: "faq-honda",
-    name: "FAQ - Honda Equipment Help",
+    id: "honda-faq",
+    name: "FAQ — Honda Equipment",
     category: "Information",
-    description: "A 2-column Q&A grid answering Honda-specific customer questions.",
-    js: "",
-    html: `<section id="briants-faq-honda" class="briants-module">
+    description: "An interactive accordion FAQ section for Honda equipment queries, with smooth expand/collapse animations and a contact CTA below.",
+    js: `(function() {
+  document.querySelectorAll('.honda-faq-trigger').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item = this.closest('.honda-faq-item');
+      var icon = this.querySelector('.honda-faq-icon');
+      var isActive = item.classList.contains('active');
+
+      // Close all other items
+      document.querySelectorAll('.honda-faq-item').forEach(function(el) {
+        el.classList.remove('active');
+        var elIcon = el.querySelector('.honda-faq-icon');
+        if (elIcon) elIcon.textContent = '+';
+      });
+
+      // Toggle current
+      if (!isActive) {
+        item.classList.add('active');
+        if (icon) icon.textContent = '\\u00d7';
+      }
+    });
+  });
+})();`,
+    html: `<section id="briants-honda-faq" class="briants-module">
     <div class="briants-container">
-        <div class="briants-section-header">
-            <span class="briants-section-subtitle" style="color: #E31B23;">Got Questions?</span>
-            <h2>Honda Machinery FAQ</h2>
-            <p>Everything you need to know about purchasing, operating, and maintaining your Honda power equipment.</p>
+        <div class="honda-faq-header">
+            <span class="honda-faq-subtitle">Support</span>
+            <h2>Frequently Asked Questions</h2>
         </div>
-        
-        <div class="faq-grid-layout">
-            
-            <div class="faq-column">
-                <div class="faq-card-item">
-                    <h4>What does "Free PDI" mean for my new Honda?</h4>
-                    <p>PDI stands for Pre-Delivery Inspection. Unlike online box-shifters, our certified engineers unbox your machine, construct it, fill it with fresh engine oil and fuel, run-test it, and complete the official warranty registration. It arrives at your home 100% ready-to-work.</p>
-                </div>
-                <div class="faq-card-item">
-                    <h4>Can I mulch my lawn clippings with a Honda HRX mower?</h4>
-                    <p>Yes. Honda HRX lawnmowers feature the Versamow™ selective mulching system. With a simple lever, you can adjust the gate to collect grass, mulch 100% of it back into the lawn, or choose a 50/50 split to fertilize while keeping the lawn neat.</p>
+
+        <div class="honda-faq-list">
+            <div class="honda-faq-item">
+                <button class="honda-faq-trigger" type="button">
+                    What does &lsquo;Free PDI&rsquo; mean for my Honda purchase?
+                    <span class="honda-faq-icon">+</span>
+                </button>
+                <div class="honda-faq-content">
+                    <p>PDI stands for Pre-Delivery Inspection. Every Honda machine purchased from Briants is fully assembled, fuelled, and inspected by our trained technicians before you collect or receive it. This ensures your equipment is ready to use straight out of the box &mdash; at no extra cost.</p>
                 </div>
             </div>
 
-            <div class="faq-column">
-                <div class="faq-card-item">
-                    <h4>How long is the Honda domestic warranty?</h4>
-                    <p>Honda offers up to a 7-year domestic warranty on core lawnmowers, and a 5-year warranty on handheld tools, tillers, and generators. This warranty is subject to an annual service by an authorized dealer like Briants.</p>
-                </div>
-                <div class="faq-card-item">
-                    <h4>Do Honda 4-stroke engines require mixing oil and petrol?</h4>
-                    <p>No. Honda engines use standard unleaded petrol in the fuel tank and have a separate oil sump (just like a car engine). This eliminates the messy mixing of 2-stroke oil, reduces exhaust emissions, and provides cleaner operation.</p>
+            <div class="honda-faq-item">
+                <button class="honda-faq-trigger" type="button">
+                    How long is the Honda domestic warranty?
+                    <span class="honda-faq-icon">+</span>
+                </button>
+                <div class="honda-faq-content">
+                    <p>Honda domestic power equipment comes with a standard 5-year warranty. By registering your product within 30 days of purchase, you can extend this to up to 7 years &mdash; one of the longest warranty periods in the industry, covering parts and labour for manufacturing defects.</p>
                 </div>
             </div>
 
+            <div class="honda-faq-item">
+                <button class="honda-faq-trigger" type="button">
+                    Can I mulch with a Honda HRX lawnmower?
+                    <span class="honda-faq-icon">+</span>
+                </button>
+                <div class="honda-faq-content">
+                    <p>Yes. Honda\`s exclusive Versamow system on HRX models lets you seamlessly blend between collecting and mulching clippings using a simple lever &mdash; no attachments to fit or remove. You can mulch 100%, collect 100%, or choose any ratio in between for the perfect finish.</p>
+                </div>
+            </div>
+
+            <div class="honda-faq-item">
+                <button class="honda-faq-trigger" type="button">
+                    Do Honda 4-stroke engines need fuel mixing?
+                    <span class="honda-faq-icon">+</span>
+                </button>
+                <div class="honda-faq-content">
+                    <p>No. Unlike 2-stroke engines, Honda\`s 4-stroke power equipment runs on standard unleaded petrol with no oil mixing required. This makes them cleaner, quieter, more fuel-efficient, and significantly easier to maintain and start.</p>
+                </div>
+            </div>
+
+            <div class="honda-faq-item">
+                <button class="honda-faq-trigger" type="button">
+                    How is Honda Miimo installed?
+                    <span class="honda-faq-icon">+</span>
+                </button>
+                <div class="honda-faq-content">
+                    <p>Honda Miimo requires a perimeter wire to be installed around your lawn boundary and any obstacles. Briants offers a professional installation service &mdash; our team will survey your garden, install the wire, configure Miimo\`s settings, and walk you through operation so your robotic mower is ready to go from day one.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="honda-faq-contact">
+            <p>Still have questions?</p>
+            <a href="#briants-workshop" class="briants-btn briants-btn-primary honda-faq-cta">Get in Touch</a>
         </div>
     </div>
 </section>`,
-    css: `/* ==========================================================================
-   Honda-Specific FAQ Styles
-   ========================================================================== */
+    css: `/* ======================================================================
+   Honda FAQ — Accordion
+   ====================================================================== */
+#briants-honda-faq {
+    background: #fff;
+    padding: 5rem 0;
+}
 
-#briants-faq-honda {
-    background-color: var(--briants-bg-light);
+#briants-honda-faq .honda-faq-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+#briants-honda-faq .honda-faq-subtitle {
+    display: inline-block;
+    font-family: var(--briants-font-body);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #E31B23;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+}
+
+#briants-honda-faq .honda-faq-header h2 {
+    font-family: var(--briants-font-headings);
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 700;
+    color: var(--briants-text-dark);
+    margin: 0;
+}
+
+#briants-honda-faq .honda-faq-list {
+    max-width: 780px;
+    margin: 0 auto;
+}
+
+#briants-honda-faq .honda-faq-item {
     border-bottom: 1px solid var(--briants-border);
 }
 
-.faq-grid-layout {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+#briants-honda-faq .honda-faq-item:first-child {
+    border-top: 1px solid var(--briants-border);
 }
 
-.faq-column {
+#briants-honda-faq .honda-faq-trigger {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 1.25rem 0;
     display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.faq-card-item {
-    background-color: var(--briants-bg-white);
-    border-radius: var(--briants-radius-md);
-    padding: 1.75rem;
-    border: 1px solid var(--briants-border);
-    box-shadow: var(--briants-shadow-sm);
-    transition: var(--briants-transition);
-}
-
-.faq-card-item:hover {
-    box-shadow: var(--briants-shadow-md);
-    border-color: #E31B23; /* Honda Red Accent */
-}
-
-.faq-card-item h4 {
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
     font-family: var(--briants-font-headings);
-    font-size: 1.05rem;
-    font-weight: 700;
-    margin: 0 0 0.75rem 0;
+    font-size: 1rem;
+    font-weight: 600;
     color: var(--briants-text-dark);
-    display: flex;
-    align-items: flex-start;
-    gap: 0.5rem;
+    text-align: left;
+    gap: 1rem;
+    transition: color 0.3s ease;
 }
 
-.faq-card-item h4::before {
-    content: "Q.";
-    color: #E31B23; /* Honda Red Question Indicator */
-    font-weight: 800;
+#briants-honda-faq .honda-faq-trigger:hover {
+    color: #E31B23;
 }
 
-.faq-card-item p {
-    font-size: 0.88rem;
-    line-height: 1.6;
-    margin: 0;
+#briants-honda-faq .honda-faq-icon {
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: #E31B23;
+    flex-shrink: 0;
+    width: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+#briants-honda-faq .honda-faq-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+#briants-honda-faq .honda-faq-item.active .honda-faq-content {
+    max-height: 300px;
+    padding-bottom: 1.25rem;
+}
+
+#briants-honda-faq .honda-faq-content p {
+    font-family: var(--briants-font-body);
+    font-size: 0.92rem;
+    line-height: 1.75;
     color: var(--briants-text-light);
+    margin: 0;
+}
+
+#briants-honda-faq .honda-faq-contact {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--briants-border);
+}
+
+#briants-honda-faq .honda-faq-contact p {
+    font-family: var(--briants-font-headings);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--briants-text-dark);
+    margin: 0 0 1rem;
+}
+
+#briants-honda-faq .honda-faq-cta {
+    background: #E31B23;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.3s ease, transform 0.3s ease;
+    border-radius: 0;
+}
+
+#briants-honda-faq .honda-faq-cta:hover {
+    background: #c41019;
+    transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {
-    .faq-grid-layout {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+    #briants-honda-faq {
+        padding: 3.5rem 0;
+    }
+    #briants-honda-faq .honda-faq-trigger {
+        font-size: 0.92rem;
+        padding: 1rem 0;
     }
 }`
   }
